@@ -15,6 +15,10 @@ const Page = () => {
       )
     );
   }, []);
+  const deleteFile = (fileName) => {
+    const updatedFiles = files.filter((file) => file.name !== fileName);
+    setFiles(updatedFiles);
+  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -36,11 +40,7 @@ const Page = () => {
             className="object-contain mb-28"
           />
           <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop files here...</p>
-          ) : (
-            <p>Drag and drop PDF files here</p>
-          )}
+          {isDragActive ? <p></p> : <p></p>}
         </div>
 
         {/* Display preview of added files */}
@@ -55,6 +55,7 @@ const Page = () => {
                   width={100}
                   height={100}
                 />
+                <button onClick={() => deleteFile(file.name)}>Delete</button>
               </div>
             </div>
           ))}
