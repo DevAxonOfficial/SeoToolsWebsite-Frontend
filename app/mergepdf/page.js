@@ -101,10 +101,10 @@ const Page = () => {
             )}
           </div>
         </div>
-        <div className="w-[100px] h-[550px] bg-gray-300 absolute right-12 flex justify-center items-center font-bold">
+        <div className="hidden w-[100px] h-[550px] bg-gray-300 absolute right-12 md:flex justify-center items-center font-bold">
           Ad
         </div>
-        <div className="w-[100px] h-[550px] bg-gray-300 absolute left-16 flex justify-center items-center font-bold">
+        <div className="hidden w-[100px] h-[550px] bg-gray-300 absolute left-16 md:flex justify-center items-center font-bold">
           Ad
         </div>
         <div className="w-[800px] h-[130px] bg-gray-300 absolute mt-[530px]   flex justify-center items-center font-bold">
