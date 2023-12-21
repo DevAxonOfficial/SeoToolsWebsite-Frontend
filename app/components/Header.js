@@ -12,7 +12,7 @@ const Header = () => {
   };
   return (
     <div className=" h-[90px] bg-customHeader flex flex-col md:flex-row justify-center items-center md:h-[90px] md:justify-between md:items-center shadow-lg">
-      <div className=" md:h-[90px] md:w-auto ml-0 md:ml-3 mb-0 md:mb-0 md:mr-0 mr-[170px] md:mt-0 mt-2 absolute ">
+      <div className=" md:h-[90px] md:w-auto ml-0 md:ml-7 mb-0 md:mb-0 md:mr-0 mr-[170px] md:mt-0 mt-2 absolute ">
         <Image src="/img/logo.png" alt="logo" width={270} height={60} />
       </div>
       <div className="flex items-center md:space-x-10 md:mr-20 relative">
@@ -52,7 +52,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div className="hidden md:flex items-center md:space-x-8 md:mr-20 ml-0 md:ml-36 ">
+      <div className="hidden md:flex items-center md:space-x-10 md:mr-20 ml-0 md:ml-30 text-lg ">
         <Link href="/" className="text-black  rounded-lg p-2 flex">
           All Pdf Tools
           <Image
@@ -60,7 +60,7 @@ const Header = () => {
             alt="down"
             width={14}
             height={14}
-            className="hidden md:block ml-[97px] mt-[7px] absolute"
+            className="hidden md:block ml-[105px] mt-[7px] absolute"
           />
         </Link>
         <Link href="/" className="text-black  rounded-lg p-2">
@@ -80,7 +80,7 @@ const Header = () => {
             alt="down"
             width={14}
             height={14}
-            className="hidden md:block ml-[110px] mt-[7px] absolute"
+            className="hidden md:block ml-[120px] mt-[7px] absolute"
           />
         </Link>
         <Link href="/removepages" className="text-black  rounded-lg p-2">

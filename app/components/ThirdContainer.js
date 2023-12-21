@@ -8,14 +8,14 @@ const ThirdContainer = () => {
       </h1>
       <div className="md:flex flex-row space-x-[180px] md:ml-[15px] ml-[25px] md:mt-0 mt-3">
         <div className="md:p-6 md:flex flex-row">
-          <div className=" bg-cover bg-center w-[200px] h-[250px]">
-            <div className="md:w-[410px] md:h-[250px] w-[340px]  absolute">
+          <div className=" bg-cover bg-center w-[500px] h-[250px]">
+            <div className="md:w-[550px] md:h-[250px] w-[340px]  absolute">
               <Image
                 src="/img/Rectangle 31.png"
                 alt="background"
                 width={410}
                 height={250}
-                className="absolute"
+                className="md:w-[520px]"
               />
             </div>
             <Image
@@ -35,14 +35,14 @@ const ThirdContainer = () => {
           </div>
         </div>
         <div className="md:p-6 p-2 flex md:mt-0 -mt-10">
-          <div className=" bg-cover bg-center w-[200px] h-[250px]">
-            <div className="md:-ml-0 -ml-[188px] md:w-[410px] md:h-[250px] w-[340px]  absolute">
+          <div className=" bg-cover bg-center w-[500px] h-[250px]">
+            <div className="md:-ml-[360px] -ml-[188px] md:w-[550px] md:h-[250px] w-[340px]  absolute">
               <Image
                 src="/img/Rectangle 31.png"
                 alt="background"
                 width={410}
                 height={250}
-                className=""
+                className="md:w-[520px]"
               />
             </div>
             <Image
@@ -50,12 +50,12 @@ const ThirdContainer = () => {
               alt="logo"
               width={80}
               height={80}
-              className="absolute md:mt-[32px] mt-4 md:ml-[164px] -ml-[55px] md:w-[80px] md:h-[80px] w-[70px] h-[70px]"
+              className="absolute md:mt-[32px] mt-4 md:-ml-[64px] -ml-[55px] md:w-[80px] md:h-[80px] w-[70px] h-[70px]"
             />
-            <h1 className="absolute font-semibold md:text-[24px] md:mt-[119px] md:ml-[58px] mt-[90px] -ml-[135px] text-[20px]">
+            <h1 className="absolute font-semibold md:text-[24px] md:mt-[119px] md:-ml-[158px] mt-[90px] -ml-[135px] text-[20px]">
               No Software Installation:
             </h1>
-            <h1 className="absolute md:mt-[155px] md:ml-[47px] md:text-[14px] leading-4 text-[13px] mt-[120px] -ml-[158px] text-center">
+            <h1 className="absolute md:mt-[155px] md:-ml-[147px] md:text-[14px] leading-4 text-[13px] mt-[120px] -ml-[158px] text-center">
               Our web-based PDF converter eliminites the
               <br />
               need for downloads or installations,allowing
@@ -65,14 +65,14 @@ const ThirdContainer = () => {
           </div>
         </div>
         <div className="p-6 md:mt-0 -mt-[65px] flex">
-          <div className=" bg-cover bg-center w-[200px] h-[250px]">
-            <div className="md:-ml-0 -ml-[202px] md:w-[410px] md:h-[250px] w-[340px]  absolute">
+          <div className=" bg-cover bg-center w-[500px] h-[400px]">
+            <div className="md:-ml-[620px] -ml-[202px] md:w-[520px] md:h-[350px] w-[340px]  absolute">
               <Image
                 src="/img/Rectangle 31.png"
                 alt="background"
                 width={410}
                 height={250}
-                className="absolute"
+                className="md:w-[520px]  absolute"
               />
             </div>
             <Image
@@ -92,7 +92,7 @@ const ThirdContainer = () => {
           </div>
         </div>
       </div>
-      <div className="md:flex flex-row space-x-[180px] ml-[15px] md:-mt-12 flex-wrap -mt-[80px]">
+      <div className="md:flex flex-row space-x-[180px] ml-[15px] md:mt-6 flex-wrap -mt-[80px]">
         <div className="p-6 flex">
           <div className=" bg-cover bg-center w-[200px] h-[250px]">
             <div className="md:-ml-0 -ml-[202px] md:w-[410px] md:h-[250px] w-[340px]  absolute">
