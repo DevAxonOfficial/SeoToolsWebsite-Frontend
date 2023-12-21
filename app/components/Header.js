@@ -3,12 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen); // Function to toggle dropdown visibility
+  };
+  const closeDropdown = () => {
+    setIsOpen(false); // Function to close dropdown
   };
   return (
     <div className=" h-[90px] bg-customHeader flex flex-col md:flex-row justify-center items-center md:h-[90px] md:justify-between md:items-center shadow-lg">
@@ -28,16 +30,32 @@ const Header = () => {
           {isOpen && (
             <div className="absolute z-10 right-0 mt-2 bg-white shadow-md rounded-lg py-2 w-48">
               {/* Dropdown Links */}
-              <Link href="/" className="block px-4 py-2 text-black">
+              <Link
+                href="/"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
                 Split Pdf
               </Link>
-              <Link href="/mergepdf" className="block px-4 py-2 text-black">
+              <Link
+                href="/mergepdf"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
                 Merge Pdf
               </Link>
-              <Link href="/" className="block px-4 py-2 text-black">
+              <Link
+                href="/"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
                 Compress Pdf
               </Link>
-              <Link href="/removepages" className="block px-4 py-2 text-black">
+              <Link
+                href="/removepages"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
                 Remove Pages
               </Link>
               <div className="justify-between space-x-4 ml-5">
