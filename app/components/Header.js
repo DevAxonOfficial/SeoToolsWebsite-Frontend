@@ -6,9 +6,12 @@ import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
+  const [showImage, setShowImage] = useState(true);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen); // Function to toggle dropdown visibility
+    setShowImage(!showImage);
+    // Additional logic related to your dropdown functionality
   };
   const closeDropdown = () => {
     setIsOpen(false); // Function to close dropdown
@@ -26,6 +29,15 @@ const Header = () => {
             className="text-black rounded-lg p-2 flex items-center"
           >
             All Pdf Tools
+            {showImage && ( // Render the Image component conditionally based on showImage state
+              <Image
+                src="/img/down 1.png"
+                alt="down"
+                width={14}
+                height={14}
+                className="md:block ml-[95px] mt-[2px] absolute"
+              />
+            )}
           </button>
           {/* Dropdown Content */}
           {isOpen && (
@@ -79,14 +91,7 @@ const Header = () => {
       </div>
       <div className="hidden md:flex items-center md:space-x-8 md:mr-20 ml-0 md:ml-36 ">
         <Link href="/" className="text-black  rounded-lg p-2 flex">
-          All Pdf Tools
-          <Image
-            src="/img/down 1.png"
-            alt="down"
-            width={14}
-            height={14}
-            className="hidden md:block ml-[97px] mt-[7px] absolute"
-          />
+          Home
         </Link>
         <Link href="/" className="text-black  rounded-lg p-2">
           Split Pdf
@@ -100,13 +105,6 @@ const Header = () => {
         </Link>
         <Link href="/" className="text-black  rounded-lg p-2 flex">
           Compress Pdf
-          <Image
-            src="/img/down 1.png"
-            alt="down"
-            width={14}
-            height={14}
-            className="hidden md:block ml-[110px] mt-[7px] absolute"
-          />
         </Link>
         <Link href="/removepages" className="text-black  rounded-lg p-2">
           Remove Pages
