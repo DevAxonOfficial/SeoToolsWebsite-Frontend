@@ -26,45 +26,34 @@ const Page = () => {
   });
 
   return (
-    <div className=" flex justify-center ">
+    <div className=" flex justify-center h-[750px] ">
       <div className="flex items-center justify-center mb-32 ">
-        <div
-          {...getRootProps()}
-          className="text-sm text-center mr-16 p-2 relative "
-        >
+        <div {...getRootProps()} className="">
           <Image
             src="/img/Rectangle23.png"
             alt="background"
-            width={1330}
+            width={810}
             height={469}
-            className=" mb-2 mt-[60px] md:ml-0 ml-8 md:w-[1030px] md:h-[490px] w-[1000px]  h-[250px]"
+            className="md:w-auto md:h-auto h-[250px] w-[500px]  mb-28"
           />
           <input {...getInputProps()} />
           {isDragActive ? <p></p> : <p></p>}
         </div>
 
         {/* Display preview of added files */}
-        <div className="flex flex-wrap md:mt-36 absolute md:ml-[550px] ">
+        <div className="flex flex-wrap mt-4 absolute ml-[270px] md:ml-[550px] md:mb-0 mb-[230px]">
           {files.map((file) => (
-            <div
-              key={file.name}
-              className="md:ml-4 ml-[200px] mb-16 md:mb-4 text-xs md:text-base"
-            >
+            <div key={file.name} className="mr-4 mb-4 md:text-base text-sm">
               <div>{file.name}</div>
               <div>
                 <Image
                   src={file.preview}
                   alt={file.name}
-                  width={150}
-                  height={150}
-                  className="rounded-xl md:w-[150px] w-[70px]"
+                  width={100}
+                  height={100}
+                  className="rounded-xl md:w-[120px] w-[70px]"
                 />
-                <button
-                  className="text-sm md:text-base"
-                  onClick={() => deleteFile(file.name)}
-                >
-                  Delete
-                </button>
+                <button onClick={() => deleteFile(file.name)}>Delete</button>
               </div>
             </div>
           ))}
@@ -72,56 +61,57 @@ const Page = () => {
         <Image
           src="/img/Group14.png"
           alt="remove logo"
-          width={110}
+          width={90}
           height={90}
-          className="absolute flex md:w-[110px] w-[65px]  items-baseline md:mr-14 md:mb-[230px] mb-[70px] "
+          className="md:w-auto w-[70px] absolute flex justify-center items-baseline mb-[250px] md:mb-[350px]"
         />
-        <h1 className="absolute md:mr-14 md:mb-[50px] mb-0 md:mt-0 mt-6 md:text-4xl text-xl font-bold">
+        <h1 className="absolute mb-[150px] md:mb-[220px] text-2xl md:text-3xl font-bold">
           Merge Pdf
         </h1>
-        <p className="absolute md:text-lg text-xs text-center md:mt-[50px] mt-20 leading-5">
+        <p className="absolute text-center mb-[80px] md:mb-[130px] leading-5 md:text-base text-sm">
           Simplify your document management with our <br /> quick and intuitive{" "}
           <strong className="font-bold">Pdf Merge Tool.</strong>
         </p>
-        <div className="hidden md:block flex-col absolute justify-end items-end ml-72 mt-[220px]">
+        <div className="flex-col absolute justify-end items-end ml-56">
           <Image
             src="/img/group12.png"
             alt="logo"
-            width={52}
+            width={40}
             height={40}
-            className=""
+            className="hidden md:block"
           />
           <Image
             src="/img/group13.png"
             alt="logo"
-            width={45}
+            width={35}
             height={35}
-            className="ml-[3px]"
+            className="hidden md:block ml-[3px]"
           />
         </div>
         <div className="absolute ">
-          <button className="md:p-8 p-3 md:w-[300px] text-sm md:text-xl mr-20 md:ml-0 ml-16 bg-gray-400 rounded-full text-white font-semibold mt-[200px] md:mt-[250px]">
+          <button className="md:p-7 p-4 w-[150px] md:w-[250px] md:mr-20  bg-gray-400 rounded-full text-white font-semibold mt-[60px] md:mt-10">
             Select Pdf file
           </button>
 
-          <div {...getRootProps()} className="text-sm text-center md:mr-16 p-2">
+          <div
+            {...getRootProps()}
+            className="text-xs md:text-sm text-center md:mt-0 -mt-1 md:mr-16 p-2"
+          >
             <input {...getInputProps()} />
             {isDragActive ? (
               <p>Drop files here...</p>
             ) : (
-              <p className="md:text-base text-xs ">
-                Drag and drop PDF files here
-              </p>
+              <p>Drag and drop PDF files here</p>
             )}
           </div>
         </div>
-        <div className="hidden mt-32 w-[140px] h-[600px] bg-gray-300 absolute right-12 md:flex justify-center items-center font-bold">
+        <div className="hidden w-[100px] h-[550px] bg-gray-300 absolute right-12 md:flex justify-center items-center font-bold">
           Ad
         </div>
-        <div className="hidden mt-32 w-[100px] h-[600px] bg-gray-300 absolute left-16 md:flex justify-center items-center font-bold">
+        <div className="hidden w-[100px] h-[550px] bg-gray-300 absolute left-16 md:flex justify-center items-center font-bold">
           Ad
         </div>
-        <div className="w-[350px] md:w-[800px] h-[130px] bg-gray-300 absolute mt-[800px]  flex justify-center items-center font-bold">
+        <div className="w-[300px] md:w-[800px] h-[130px] bg-gray-300 absolute mt-[530px]   flex justify-center items-center font-bold">
           Ad
         </div>
       </div>
