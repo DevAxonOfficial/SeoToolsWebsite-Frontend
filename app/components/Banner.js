@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const Banner = () => {
   return (
-    <div className="relative mb-24">
+    <div className="relative mb-10">
       <div className="">
         <Image
           src="/img/Rectangle 20.png"
