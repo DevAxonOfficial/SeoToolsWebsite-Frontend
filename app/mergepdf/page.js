@@ -75,13 +75,13 @@ const Page = () => {
           </p>
 
           <div className="absolute ">
-            <button className="md:p-7 p-4 w-[150px] md:w-[250px] md:mr-20  bg-gray-400 rounded-full text-white font-semibold mt-[60px] md:mt-10">
+            <button className="md:p-7 p-4 w-[150px] md:w-[250px]   bg-gray-400 rounded-full text-white font-semibold mt-[60px] md:mt-10">
               Select Pdf file
             </button>
 
             <div
               {...getRootProps()}
-              className="text-xs md:text-sm text-center md:mt-0 -mt-1 md:mr-16 p-2"
+              className="text-xs md:text-sm text-center md:mt-0 -mt-1  p-2"
             >
               <input {...getInputProps()} />
               {isDragActive ? (
