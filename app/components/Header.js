@@ -48,6 +48,13 @@ const Header = () => {
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
+                Home
+              </Link>
+              <Link
+                href="/"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
                 Split Pdf
               </Link>
               <Link
