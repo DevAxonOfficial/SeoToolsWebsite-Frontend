@@ -17,9 +17,15 @@ const Header = () => {
     setIsOpen(false); // Function to close dropdown
   };
   return (
-    <div className=" h-[90px] bg-customHeader flex flex-col md:flex-row justify-center items-center md:h-[90px] md:justify-between md:items-center shadow-lg">
+    <div className="h-[90px]  bg-customHeader flex flex-col md:flex-row  justify-center items-center md:h-[90px] md:justify-between md:items-center shadow-lg">
       <div className=" md:h-[90px] md:w-auto ml-0 md:ml-3 mb-0 md:mb-0 md:mr-0 mr-[170px] md:mt-0 mt-2 absolute ">
-        <Image src="/img/logo.png" alt="logo" width={270} height={60} />
+        <Image
+          src="/img/logo.png"
+          alt="logo"
+          width={270}
+          height={60}
+          className=""
+        />
       </div>
       <div className="flex items-center md:space-x-10 md:mr-20 relative">
         {/* Mobile Dropdown */}
@@ -96,11 +102,11 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div className="hidden md:flex items-center md:space-x-8 md:mr-20 ml-0 md:ml-36 ">
+      <div className="hidden md:flex items-center md:space-x-2 lg:mr- ml-0 md:ml-[250px]  xl:space-x-8 lg:space-x-5 ">
         <Link href="/" className="text-black  rounded-lg p-2 flex">
           Home
         </Link>
-        <Link href="/" className="text-black  rounded-lg p-2">
+        <Link href="/testing" className="text-black  rounded-lg p-2">
           Split Pdf
         </Link>
         <Link
