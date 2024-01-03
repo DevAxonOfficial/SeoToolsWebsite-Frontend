@@ -1,11 +1,11 @@
 import React from "react";
 
-const AdContainer = () => {
+const AdContainer = ({width,height}) => {
   return (
-    <div className="p-20 flex flex-wrap justify-center items-center">
-      <div className="w-2/3 h-[100px] bg-slate-400 flex flex-wrap justify-center items-center">
+    <div className={`bg-[#D9D9D9] ${width} ${height} my-10 flex  justify-center items-center` }>
+      
         <p className="font-bold">Ad</p>
-      </div>
+     
     </div>
   );
 };

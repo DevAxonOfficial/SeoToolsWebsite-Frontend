@@ -1,32 +1,32 @@
 import React from "react";
 import Image from "next/image";
-const MainContainer = () => {
+import { FaLongArrowAltRight } from "react-icons/fa";
+import AdContainer from "./Ad2Container";
+
+
+const Components = () => {
   return (
-    <div className="h-[480px] flex shadow-md ">
-      <div className="md:w-[490px] h-[120px] md:mt-32 md:ml-16 p-2 mt-14 ml-8 ">
-        <p className="md:w-auto w-[300px] ">
-          <span className=" md:text-[42px] text-[27px]">
-            <strong className="font-bold">Simplify PDFs</strong> with our <br />{" "}
-            user-friendly approach.
-          </span>
-          {/* <span className="md:text-[42px] ml-3">
-            with our <br /> user-friendly approach.
-          </span> */}
+    <>
+    
+    <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    "> 
+      <div className="  sm:justify-center sm:items-center xm:ml-6 lg:ml-36 ">
+        <p className="font-light py-8  xm:text-center xm:text-lg sm:text-center sm:mx-auto  sm:text-2xl   xl:text-[34px] lg:text-2xl lg:text-start  ">
+          <span className="font-bold lg:font-semibold xl:text-[42px] xm:text-xl  lg:text-2xl">Simplify PDFs</span><span>with our</span>   
+           <p>user-friendly approach</p>
         </p>
-        <div className="ml-5 mt-4">
-          <button class="bg-red-500 hover:bg-red-300 text-white md:py-2 md:px-6 px-4 p-2 rounded-lg md:text-base text-sm">
-            Edit Pdf➡
-          </button>
-        </div>
+  
+        <button className="flex  xm:mx-auto  xm:px-4 xm:py-1 sm:mx-auto sm:px-6 sm:py-3 lg:mx-1   bg-red-400 hover:bg-red-300 text-white  rounded-[12px] " >Edit Pdf <FaLongArrowAltRight className="ml-3 text-2xl " /> </button>
+        
       </div>
-      <div className="md:hidden w-[300px] h-[300px] absolute mt-[200px] ml-[50px]">
-        <Image src="/img/logo1.png" alt="logo1" width={304} height={240} />
-      </div>
-      <div className="hidden sm:hidden xl:flex lg:flex md:flex items-center justify-end ml-44">
-        <Image src="/img/logo1.png" alt="logo1" width={504} height={440} />
+      <div className="xm:flex xm:justify-center sm:flex sm:justify-center ">
+      <Image className="lg:mr-20 " src="/img/logo1.png" alt="logo1" width={504} height={440}  />
       </div>
     </div>
+    <div className="flex justify-center items-center">
+    <AdContainer  width={"w-[728px]"} height={"h-[90px]"}  />
+    </div>
+   </>
   );
 };
 
-export default MainContainer;
+export default Components;

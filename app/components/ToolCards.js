@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
 const ToolCards = (cards) => {
-  console.log(cards);
   return (
     <div
-      className="flex flex-col items-center xs:mb-8 shadow-lg   w-[300px] h-[295px]  rounded-[35px]"
+      className=" xm:mx-auto sm:mx-auto  xm:my-6 sm:my-6 flex justify-evenly items-center  w-[308px] h-[305px] shadow-md rounded-[35px]"
       style={{ background: `${cards.bgcolor}` }}
     >
-      <div className="mt-14 ">
+      <div className="">
+      <div className="flex justify-center items-center ">
         <Image
           src={cards.logoimage}
           alt="compress"
@@ -17,9 +17,9 @@ const ToolCards = (cards) => {
         />
       </div>
       <div>
-        <h1 className="font-semibold mt-3">{cards.heading}</h1>
+        <h1 className="font-semibold text-lg mt-2 text-center">{cards.heading}</h1>
       </div>
-      <div className="mt-10">
+      <div className="mt-8 flex justify-center items-center">
         <Image
           src={cards.img2}
           alt="group1"
@@ -27,6 +27,7 @@ const ToolCards = (cards) => {
           height={37}
           className=""
         />
+      </div>
       </div>
     </div>
   );
