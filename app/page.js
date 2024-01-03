@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <main>
       <MainContainer />
-      <AddContainer />
-      <SecondaryContainer />
-      <AdContainer />
+      {/* <AddContainer /> */}
+      {/* <SecondaryContainer /> */}
+      {/* <AdContainer /> */}
       <ThirdContainer />
-      <Ad2Container />
-      <Banner />
+      {/* <Ad2Container /> */}
+      {/* <Banner /> */}
     </main>
   );
 }

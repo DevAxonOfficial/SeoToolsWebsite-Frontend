@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        'xm': {'min': '360px', 'max': '639px'}
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
