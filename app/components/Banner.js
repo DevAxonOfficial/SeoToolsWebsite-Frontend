@@ -2,24 +2,27 @@ import React from "react";
 import Image from "next/image";
 const Banner = () => {
   return (
-    <div className="relative ">
-      <div className="">
-        <Image
-          src="/img/Rectangle 20.png"
-          alt="Banner"
-          layout="responsive"
-          width={1440}
-          height={250}
-          className="md:w-full md:h-auto sm:w-auto sm:h-[200px]"
-        />
-      </div>
-      <div className="absolute inset-0 flex justify-center text-white md:mb-20 md:text-4xl  items-center">
-        <h1>Make your easy tasks even easier.</h1>
-      </div>
-      <div className="absolute hidden xs:block md:flex inset-0 md:py-3 md:px-10 md:w-22 md:h-24 items-center justify-center md:mt-24 mt-9">
-        <button className=" bg-red-500 hover:bg-red-300 text-white md:py-3 md:px-10 p-2 md:text-lg text-xs rounded-lg text-left">
-          Edit Pdf ➡
-        </button>
+    <div
+      className="relative "
+      style={{
+        backgroundImage: "url('/img/Rectangle 20.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "250px",
+      }}
+    >
+      <div className="grid grid-rows-1 ">
+        <div className="flex flex-row justify-center items-center mt-16">
+          <h1 className="lg:text-5xl md:text-3xl xs:text-xl font-semibold text-white mb-7">
+            Make your easy tasks even easier.
+          </h1>
+        </div>
+        <div className="flex justify-center">
+          <button className=" bg-red-500 hover:bg-red-300 text-white py-3 px-10  text-lg rounded-lg text-left">
+            Edit Pdf ➡
+          </button>
+        </div>
       </div>
     </div>
   );

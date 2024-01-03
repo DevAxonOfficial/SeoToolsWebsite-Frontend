@@ -16,16 +16,16 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xs: { min: "200px", max: "639px" },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        customColor1: "#e4fbfe",
-        customColor2: "#fde1e1",
-        customColor3: "#dbf3f2",
-        customColor4: "#fdf8e1",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
