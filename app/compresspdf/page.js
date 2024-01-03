@@ -44,7 +44,7 @@ const Page = () => {
             <div
               className="grid grid-cols-1  xl:w-[940px] md:w-[800px] lg:w-[850px] xs:w-[400px] sm:w-[700px] xl:h-[600px] lg:h-[370px] xs:h-[400px] sm:h-[700px]  justify-center items-center"
               style={{
-                backgroundImage: "url('/img/Rectangle22.png')",
+                backgroundImage: "url('/img/Rectangle23.png')",
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -53,14 +53,14 @@ const Page = () => {
               <div className="flex justify-center items-center">
                 <div className="flex xl:p-16 xs:p-10  flex-col justify-center items-center">
                   <Image
-                    src="/img/remove.png"
+                    src="/img/Compress.png"
                     alt="remove logo"
                     width={90}
                     height={90}
                     className=" lg:w-[90px] xs:w-[60px]   flex justify-center items-center "
                   />
                   <h1 className="text-center md:mt-3 text-2xl md:text-3xl font-bold">
-                    Remove Pages
+                    Compress PDF
                   </h1>
                   <p className=" text-center md:mt-2 xs:leading-4 leading-5 md:text-base xs:text-sm">
                     Simplify your document management with our <br /> quick and

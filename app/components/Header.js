@@ -17,8 +17,8 @@ const Header = () => {
     setIsOpen(false); // Function to close dropdown
   };
   return (
-    <div className="h-[90px]  bg-customHeader flex flex-col md:flex-row  justify-center items-center md:h-[90px] md:justify-between md:items-center shadow-lg">
-      <div className=" md:h-[90px] md:w-auto ml-0 md:ml-3 mb-0 md:mb-0 md:mr-0 mr-[170px] md:mt-0 mt-2 absolute ">
+    <div className="flex justify-between items-center bg-customHeader shadow-lg">
+      <div className=" xs:px-1 xs:w-[250px] px-10   ">
         <Image
           src="/img/logo.png"
           alt="logo"
@@ -27,12 +27,12 @@ const Header = () => {
           className=""
         />
       </div>
-      <div className="flex items-center md:space-x-10 md:mr-20 relative">
+      <div className=" sm:space-x-10   relative right-1 xs:ml-3">
         {/* Mobile Dropdown */}
-        <div className="md:hidden mt-0 ml-[200px]">
+        <div className="lg:hidden ">
           <button
             onClick={toggleDropdown}
-            className="text-black rounded-lg p-2 flex items-center"
+            className="text-black rounded-lg p-6 flex items-center"
           >
             All Pdf Tools
             {showImage && ( // Render the Image component conditionally based on showImage state
@@ -41,7 +41,7 @@ const Header = () => {
                 alt="down"
                 width={14}
                 height={14}
-                className="md:block ml-[95px] mt-[2px] absolute"
+                className=""
               />
             )}
           </button>
@@ -102,28 +102,24 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div className="hidden md:flex items-center md:space-x-2 lg:mr- ml-0 md:ml-[250px]  xl:space-x-8 lg:space-x-5 ">
-        <Link href="/" className="text-black  rounded-lg p-2 flex">
-          Home
+      <div className="xs:hidden sm:hidden lg:flex lg:space-x-10 lg:mr-20 ">
+        <Link href="/" className="text-black      ">
+          <span>Home</span>
         </Link>
-        <Link href="/testing" className="text-black  rounded-lg p-2">
-          Split Pdf
+        <Link href="/splitpdf" className="text-black     ">
+          <span className=""> Split Pdf </span>
         </Link>
-        <Link
-          prefetch={false}
-          href="/mergepdf"
-          className="text-black  rounded-lg p-2"
-        >
-          Merge Pdf
+        <Link prefetch={false} href="/mergepdf" className="text-black     ">
+          <span>Merge Pdf</span>
         </Link>
-        <Link href="/" className="text-black  rounded-lg p-2 flex">
-          Compress Pdf
+        <Link href="/compresspdf" className="text-black      ">
+          <span>Compress Pdf</span>
         </Link>
-        <Link href="/removepages" className="text-black  rounded-lg p-2">
-          Remove Pages
+        <Link href="/removepages" className="text-black    ">
+          <span> Remove Pages</span>
         </Link>
       </div>
-      <div className="hidden  h-16 md:flex items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
+      <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
         <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
           <button class="bg-transparent hover:shodow-lg text-black hover:text-black md:py-2 md:px-4 hover:border-transparent rounded md:text-base text-sm">
             Login

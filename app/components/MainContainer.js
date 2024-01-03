@@ -22,7 +22,7 @@ const MainContainer = () => {
       <div className="md:hidden w-[300px] h-[300px] absolute mt-[200px] ml-[50px]">
         <Image src="/img/logo1.png" alt="logo1" width={304} height={240} />
       </div>
-      <div className="sm:hidden xl:flex lg:flex md:flex items-center justify-end ml-44">
+      <div className="hidden sm:hidden xl:flex lg:flex md:flex items-center justify-end ml-44">
         <Image src="/img/logo1.png" alt="logo1" width={504} height={440} />
       </div>
     </div>
