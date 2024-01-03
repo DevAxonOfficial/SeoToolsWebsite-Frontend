@@ -17,7 +17,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        'xm': {'min': '360px', 'max': '639px'}
+        xm: {'min': '360px', 'max': '639px'},
+        xs: { min: "200px", max: "639px" },
       },
       colors: {
         border: "hsl(var(--border))",
@@ -25,10 +26,7 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        customColor1: "#e4fbfe",
-        customColor2: "#fde1e1",
-        customColor3: "#dbf3f2",
-        customColor4: "#fdf8e1",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

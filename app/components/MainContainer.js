@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import AdContainer from "./Ad2Container";
 
 
 const Components = () => {
   return (
+    <>
     
     <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    "> 
       <div className="  sm:justify-center sm:items-center xm:ml-6 lg:ml-36 ">
@@ -17,10 +19,13 @@ const Components = () => {
         
       </div>
       <div className="xm:flex xm:justify-center sm:flex sm:justify-center ">
-      <Image className="lg:mr-20 " src="/img/logo1.png" alt="logo1" width={504} height={440}  ></Image>
+      <Image className="lg:mr-20 " src="/img/logo1.png" alt="logo1" width={504} height={440}  />
       </div>
     </div>
-   
+    <div className="flex justify-center items-center">
+    <AdContainer  width={"w-[728px]"} height={"h-[90px]"}  />
+    </div>
+   </>
   );
 };
 
