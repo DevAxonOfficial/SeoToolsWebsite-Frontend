@@ -53,7 +53,7 @@ const Page = () => {
               <div className="flex justify-center items-center">
                 <div className="flex xl:p-16 xs:p-10  flex-col justify-center items-center">
                   <Image
-                    src="/img/Group14.png"
+                    src="/img/Merge.png"
                     alt="remove logo"
                     width={90}
                     height={90}

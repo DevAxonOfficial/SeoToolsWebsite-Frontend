@@ -57,7 +57,7 @@ const Header = () => {
                 Home
               </Link>
               <Link
-                href="/"
+                href="/splitpdf"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
@@ -71,7 +71,7 @@ const Header = () => {
                 Merge Pdf
               </Link>
               <Link
-                href="/"
+                href="/compresspdf"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >

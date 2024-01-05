@@ -1,11 +1,12 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import React from "react";
 import Image from "next/image";
 
 const Page = () => {
   const [files, setFiles] = useState([]);
+  const fileInputRef = useRef(null);
   const onDrop = useCallback((acceptedFiles) => {
     setFiles(
       acceptedFiles.map((file) =>
@@ -15,6 +16,7 @@ const Page = () => {
       )
     );
   }, []);
+
   const deleteFile = (fileName) => {
     const updatedFiles = files.filter((file) => file.name !== fileName);
     setFiles(updatedFiles);
@@ -23,6 +25,7 @@ const Page = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: "application/pdf",
+    accept: "/pdf",
   });
 
   const handleClick = (event) => {
@@ -31,6 +34,18 @@ const Page = () => {
       // Additional logic can be added here if needed
     }
   };
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click(); // Trigger file input click
+    }
+  };
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    // Do something with the selected file
+    console.log("Selected file:", selectedFile);
+    // Optionally, you can set the selected file to state or perform further operations
+  };
+
   return (
     <div>
       <div class="grid grid-cols-3">
@@ -44,7 +59,7 @@ const Page = () => {
             <div
               className="grid grid-cols-1  xl:w-[940px] md:w-[800px] lg:w-[850px] xs:w-[400px] sm:w-[700px] xl:h-[600px] lg:h-[370px] xs:h-[400px] sm:h-[700px]  justify-center items-center"
               style={{
-                backgroundImage: "url('/img/Rectangle23.png')",
+                backgroundImage: "url('/img/Rectangle25.png')",
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -67,10 +82,19 @@ const Page = () => {
                     intuitive{" "}
                     <strong className="font-bold">Pdf Merge Tool.</strong>
                   </p>
-                  <button className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px]   bg-gray-400 rounded-full text-white font-semibold">
+                  <button
+                    onClick={handleButtonClick}
+                    className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px]   bg-gray-400 rounded-full text-white font-semibold"
+                  >
                     Select Pdf file
                   </button>
-                  <input {...getInputProps()} />
+                  <input
+                    {...getInputProps()}
+                    ref={fileInputRef}
+                    type="file"
+                    style={{ display: "none" }}
+                    onChange={handleFileChange}
+                  />
                   {isDragActive ? (
                     <p>Drop files here...</p>
                   ) : (
@@ -90,6 +114,7 @@ const Page = () => {
                             height={100}
                             className="rounded-xl sm:w-[120px] w-[70px]"
                           />
+
                           <button onClick={() => deleteFile(file.name)}>
                             Delete
                           </button>

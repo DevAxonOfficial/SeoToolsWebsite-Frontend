@@ -44,7 +44,7 @@ const Page = () => {
             <div
               className="grid grid-cols-1  xl:w-[940px] md:w-[800px] lg:w-[850px] xs:w-[400px] sm:w-[700px] xl:h-[600px] lg:h-[370px] xs:h-[400px] sm:h-[700px]  justify-center items-center"
               style={{
-                backgroundImage: "url('/img/Rectangle23.png')",
+                backgroundImage: "url('/img/Rectangle24.png')",
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
