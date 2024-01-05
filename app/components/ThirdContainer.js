@@ -9,24 +9,28 @@ const arrayOfCards = [
     logoimage: "/img/Compress.png",
     heading: "Compress Pdf",
     img2: "/img/Group1.png",
+    Link: "/compresspdf",
   },
   {
     bgcolor: "#fde1e1",
     logoimage: "/img/Merge.png",
     heading: "Merge Pdf",
     img2: "/img/Group2.png",
+    Link: "/mergepdf",
   },
   {
     bgcolor: "#dbf3f2",
     logoimage: "/img/Split.png",
     heading: "Split Pdf",
     img2: "/img/Group3.png",
+    Link: "/splitpdf",
   },
   {
     bgcolor: "#fdf8e1",
     logoimage: "/img/remove.png",
     heading: "Remove Pages",
     img2: "/img/Group4.png",
+    Link: "/removepages",
   },
 ];
 
@@ -80,6 +84,7 @@ const ThirdContainer = () => {
         {arrayOfCards.map((cards, index) => (
           <ToolCards
             key={index}
+            Link={cards.Link}
             heading={cards.heading}
             logoimage={cards.logoimage}
             bgcolor={cards.bgcolor}
@@ -88,8 +93,8 @@ const ThirdContainer = () => {
         ))}
       </div>
       <div className="flex justify-center items-center">
-    <AdContainer  width={"w-[970px]"} height={"h-[90px]"}  />
-    </div>
+        <AdContainer width={"w-[970px]"} height={"h-[90px]"} />
+      </div>
       <p className=" text-center my-10 xm:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         Why Choose <strong>FREE SEO TOOLS </strong>
         Pdf?
@@ -107,8 +112,8 @@ const ThirdContainer = () => {
         })}
       </div>
       <div className="flex justify-center items-center">
-    <AdContainer  width={"w-[468px]"} height={"h-[60px]"}  />
-    </div>
+        <AdContainer width={"w-[468px]"} height={"h-[60px]"} />
+      </div>
     </div>
   );
 };
