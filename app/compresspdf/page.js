@@ -25,7 +25,6 @@ const Page = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: "application/pdf",
-    accept: "/pdf",
   });
 
   const handleClick = (event) => {
