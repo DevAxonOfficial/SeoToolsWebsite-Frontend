@@ -118,6 +118,9 @@ const Header = () => {
         <Link href="/removepages" className="text-black    ">
           <span> Remove Pages</span>
         </Link>
+        <Link href="/testing" className="text-black    ">
+          <span> Testing</span>
+        </Link>
       </div>
       <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
         <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
