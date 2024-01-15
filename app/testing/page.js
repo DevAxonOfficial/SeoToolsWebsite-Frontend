@@ -1,33 +1,35 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-
-import { uploadToS3 } from "../utils/action";
+import axios from "axios";
+import { uploadToS3 } from "../utils/AWS S3/action";
 import Image from "next/image";
+import { readFileAsBuffer } from "../utils/Buffered File";
+import { handleDragOver } from "../utils/Drag & Drop/drag";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
-  const readFileAsBuffer = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const buffer = event.target.result;
-        resolve(buffer);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  };
+  // const readFileAsBuffer = (file) => {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.onload = (event) => {
+  //       const buffer = event.target.result;
+  //       resolve(buffer);
+  //     };
+  //     reader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //     reader.readAsArrayBuffer(file);
+  //   });
+  // };
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
 
-  const handleDragOver = (event) => {
-    event.preventDefault();
-    // console.log(event);
-  };
+  // const handleDragOver = (event) => {
+  //   event.preventDefault();
+  //   // console.log(event);
+  // };
 
   const handleDrop = async (event) => {
     event.preventDefault();
@@ -69,8 +71,13 @@ const Page = () => {
         const buffer = await readFileAsBuffer(file);
         const fileName = file.name.split(".").slice(0, -1).join(".") + number;
         console.log(fileName);
+        // Make a POST request to your Next.js API route
+        const response = await axios.post("/pages/api/index", {
+          file: buffer,
+          fileName: fileName,
+        });
         // Now 'buffer' contains the file data as a buffer
-        const downloadUrl = await uploadToS3(buffer, fileName);
+        const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
 
         // const url = await uploadToS3(buffer);
@@ -160,27 +167,6 @@ const Page = () => {
                   {<button onClick={handleDownload}>Download</button>} */}
               </div>
             </div>
-            {/* <div className="flex justify-between ml-2 ">
-                <div className=" ">
-                  {files.map((file) => (
-                    <div key={file.name} className=" md:text-base text-sm">
-                      <div>{file.name}</div>
-                      <div>
-                        <Image
-                          src={file.preview}
-                          alt={file.name}
-                          width={100}
-                          height={100}
-                          className="rounded-xl sm:w-[120px] w-[70px]"
-                        />
-                        <button onClick={() => deleteFile(file.name)}>
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
           </div>
         </div>
         <div class=" p-10 flex justify-end">
