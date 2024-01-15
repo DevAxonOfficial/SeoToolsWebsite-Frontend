@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           <Script
             async
             id="adsbygoogle-init"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
             crossorigin="anonymous"
           ></Script>
