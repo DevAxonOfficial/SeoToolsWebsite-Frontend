@@ -71,13 +71,14 @@ const Page = () => {
         const buffer = await readFileAsBuffer(file);
         const fileName = file.name.split(".").slice(0, -1).join(".") + number;
         console.log(fileName);
+        console.log(buffer);
         // Make a POST request to your Next.js API route
-        const response = await axios.post("/pages/api/index", {
+        const response = await axios.get("/api", {
           file: buffer,
           fileName: fileName,
         });
         // Now 'buffer' contains the file data as a buffer
-        const downloadUrl = response.data.downloadUrl;
+        const downloadUrl = response.data.url;
         setDownload(downloadUrl);
 
         // const url = await uploadToS3(buffer);

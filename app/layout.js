@@ -14,11 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
-          crossorigin="anonymous"
-        ></script>
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
+            crossorigin="anonymous"
+          ></script>
+        )}
       </head>
       <body className={inter.className}>
         <Header />
