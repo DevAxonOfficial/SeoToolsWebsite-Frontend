@@ -2,6 +2,7 @@ import { Inter, Helvetica } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import { TailwindIndicator } from "./components/TailwindIndicator";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +16,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {process.env.NODE_ENV === "production" && (
-          <script
+          <Script
             async
+            id="adsbygoogle-init"
+            strategy="afterInteractive"
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
             crossorigin="anonymous"
-          ></script>
+          ></Script>
         )}
       </head>
       <body className={inter.className}>
