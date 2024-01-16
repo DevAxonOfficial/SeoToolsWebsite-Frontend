@@ -1,10 +1,9 @@
 "use client";
-import {
-  S3Client,
-  PutObjectCommand,
-  GetObjectCommand,
-} from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import axios from "axios";
+
+const numbers = Math.floor(Math.random() * 9000) + 1000;
+const number = numbers.toString();
 
 const client = new S3Client({
   apiVersion: "2006-03-01",
