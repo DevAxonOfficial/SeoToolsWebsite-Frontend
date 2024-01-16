@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { uploadToS3 } from "../utils/action";
 import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
-import { uploadToS3 } from "../utils/AWS S3/action";
+
 import Image from "next/image";
 import { readFileAsBuffer } from "../utils/Buffered File";
 import { handleDragOver } from "../utils/Drag & Drop/drag";
