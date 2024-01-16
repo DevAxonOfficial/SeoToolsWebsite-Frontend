@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { uploadToS3 } from "../utils/action";
+import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
 import { uploadToS3 } from "../utils/AWS S3/action";
 import Image from "next/image";
@@ -83,11 +85,9 @@ const Page = () => {
           file: buffer.toString("base64"),
           fileName: fileName,
         });
-        console.log(response);
         // Now 'buffer' contains the file data as a buffer
         const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
-        console.log(downloadUrl);
 
         // const url = await uploadToS3(buffer);
         // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -107,87 +107,83 @@ const Page = () => {
 
   return (
     <>
-      <div class="grid grid-cols-3">
-        <div class=" p-10">
-          <div className="xs:hidden sm:hidden lg:flex  w-[100px] h-[550px] bg-gray-300  items-center justify-center font-bold">
-            Ad
+      <div className=" relative flex justify-around  mt-10 ">
+        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
+          AD
+        </div>
+        <div
+          className="flex justify-center items-center xm:w-[100%] xm:h-[350px] xm:mx-2 sm:w-[100%] sm:mx-3 sm:h-[400px] md:w-[800px] md:mx-5  "
+          style={{
+            backgroundImage: "url('/img/Rectangle23.png')",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="">
+            <div className=" flex justify-center items-center">
+              <Image
+                src="/img/Merge.png"
+                alt="remove logo"
+                width={90}
+                height={90}
+              />
+            </div>
+            <p className=" text-center font-bold text-3xl">Any Thing To PDF</p>
+            <div className="w-96 mb-3 text-center">
+              Simplify your document management with our quick and intuitive
+              <span className="font-bold"> PDF Merge Tool.</span>
+            </div>
+            <div className=" flex justify-center ">
+              <button className="bg-[#4BC5BC]   xm:px-8 sm:px-16  rounded-full text-white font-semibold  ">
+                Select Pdf File
+              </button>
+              <div>
+                <Image
+                  className="mx-auto"
+                  src="/img/Group12.png"
+                  alt="Google Drive Icone"
+                  width={45}
+                  height={45}
+                />
+                <Image
+                  className="mx-auto "
+                  src="/img/Group13.png"
+                  alt="Google Drive Icone"
+                  width={38}
+                  height={38}
+                />
+              </div>
+            </div>
+            <span className="flex justify-center items-center  ">
+              or simply drag & drop files
+            </span>
           </div>
         </div>
-        <div class="p-4 flex justify-center items-center">
-          <div
-            className="grid grid-cols-1  xl:w-[940px] md:w-[800px] lg:w-[850px] xs:w-[400px] sm:w-[700px] xl:h-[600px] lg:h-[370px] xs:h-[400px] sm:h-[700px]  justify-center items-center"
-            style={{
-              backgroundImage: "url('/img/Rectangle23.png')",
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
-          >
-            <div className="flex justify-center items-center">
-              <div className="flex xl:p-16 xs:p-10  flex-col justify-center items-center">
+        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
+          AD
+        </div>
+        <div className="absolute sm:mt-[400px] xm:mt-[350px]  " >
+          <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
+            <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
+              <div className="flex justify-center items-center ml-2">
                 <Image
-                  src="/img/Merge.png"
-                  alt="remove logo"
-                  width={90}
-                  height={90}
-                  className=" lg:w-[90px] xs:w-[60px]   flex justify-center items-center "
+                  src="/img/Group13.png"
+                  alt="Google Drive Icone"
+                  width={38}
+                  height={38}
                 />
-                <h1 className="text-center md:mt-3 text-2xl md:text-3xl font-bold">
-                  Word To PDF
-                </h1>
-                <p className=" text-center md:mt-2 xs:leading-4 leading-5 md:text-base xs:text-sm">
-                  Simplify your document management with our <br /> quick and
-                  intuitive{" "}
-                  <strong className="font-bold">Pdf Merge Tool.</strong>
-                </p>
-
-                <label
-                  htmlFor="file-upload"
-                  className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
-                >
-                  Select Pdf File
-                </label>
-                <input
-                  type="file"
-                  id="file-upload"
-                  multiple={true}
-                  onChange={handleFileChange}
-                  style={{ display: "none" }} // Hide the file input
-                />
-                {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-                {download && (
-                  <button onClick={handleDownload}>Download File</button>
-                )}
-                <button
-                //  onClick={mergeFiles}
-                >
-                  Merge & Get Download Link
-                </button>
-
-                {/* {selectedFiles.length > 0 &&
-                  Array.from(selectedFiles).map((file, index) => (
-                    <li key={index}>{file.name}</li>
-                  ))}
-                <p>Drag and drop files here, or</p>
-                <div className=" m-12">
-                  {<button onClick={handleDownload}>Download</button>} */}
+                <p className="ml-4 ">Pdf File Name</p>
+              </div>
+              <div className="flex justify-center items-center">
+                <MdFileDownload  />
               </div>
             </div>
           </div>
         </div>
-        <div class=" p-10 flex justify-end">
-          <div className=" xs:hidden sm:hidden lg:flex w-[100px] h-[550px]  bg-gray-300  items-center justify-center font-bold">
-            Ad
-          </div>
-        </div>
       </div>
-
-      <div className="w-2/3 mt-4 mx-auto my-auto  h-[130px] flex flex-col justify-center items-center bg-gray-300 ">
-        <p className="font-bold flex flex-row justify-center items-center text-center">
-          Ad
-        </p>
+      <div className=" text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
+        Ad
       </div>
     </>
   );
