@@ -45,9 +45,15 @@ const Page = () => {
           const buffer = await readFileAsBuffer(file);
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
           console.log(fileName);
+          const response = await axios.post("/api", {
+            file: buffer.toString("base64"),
+            fileName: fileName,
+          });
+          console.log(response);
           // Now 'buffer' contains the file data as a buffer
-          const downloadUrl = await uploadToS3(buffer, fileName);
+          const downloadUrl = response.data.downloadUrl;
           setDownload(downloadUrl);
+          console.log(downloadUrl);
 
           // const url = await uploadToS3(buffer);
           // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -73,13 +79,15 @@ const Page = () => {
         console.log(fileName);
         console.log(buffer);
         // Make a POST request to your Next.js API route
-        const response = await axios.get("/api", {
-          file: buffer,
+        const response = await axios.post("/api", {
+          file: buffer.toString("base64"),
           fileName: fileName,
         });
+        console.log(response);
         // Now 'buffer' contains the file data as a buffer
-        const downloadUrl = response.data.url;
+        const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
+        console.log(downloadUrl);
 
         // const url = await uploadToS3(buffer);
         // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -94,7 +102,6 @@ const Page = () => {
     // Trigger the download using the download URL
     if (download) {
       window.open(download, "_blank"); // Open the download URL in a new tab
-      console.log(download);
     }
   };
 
