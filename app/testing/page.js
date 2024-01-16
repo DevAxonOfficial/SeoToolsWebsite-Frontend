@@ -3,31 +3,35 @@ import React from "react";
 import { useState } from "react";
 import { uploadToS3 } from "../utils/action";
 import { MdFileDownload } from "react-icons/md";
+import axios from "axios";
+import { uploadToS3 } from "../utils/AWS S3/action";
 import Image from "next/image";
+import { readFileAsBuffer } from "../utils/Buffered File";
+import { handleDragOver } from "../utils/Drag & Drop/drag";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
-  const readFileAsBuffer = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const buffer = event.target.result;
-        resolve(buffer);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  };
+  // const readFileAsBuffer = (file) => {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.onload = (event) => {
+  //       const buffer = event.target.result;
+  //       resolve(buffer);
+  //     };
+  //     reader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //     reader.readAsArrayBuffer(file);
+  //   });
+  // };
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
 
-  const handleDragOver = (event) => {
-    event.preventDefault();
-    // console.log(event);
-  };
+  // const handleDragOver = (event) => {
+  //   event.preventDefault();
+  //   // console.log(event);
+  // };
 
   const handleDrop = async (event) => {
     event.preventDefault();
@@ -43,9 +47,15 @@ const Page = () => {
           const buffer = await readFileAsBuffer(file);
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
           console.log(fileName);
+          const response = await axios.post("/api", {
+            file: buffer.toString("base64"),
+            fileName: fileName,
+          });
+          console.log(response);
           // Now 'buffer' contains the file data as a buffer
-          const downloadUrl = await uploadToS3(buffer, fileName);
+          const downloadUrl = response.data.downloadUrl;
           setDownload(downloadUrl);
+          console.log(downloadUrl);
 
           // const url = await uploadToS3(buffer);
           // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -69,8 +79,14 @@ const Page = () => {
         const buffer = await readFileAsBuffer(file);
         const fileName = file.name.split(".").slice(0, -1).join(".") + number;
         console.log(fileName);
+        console.log(buffer);
+        // Make a POST request to your Next.js API route
+        const response = await axios.post("/api", {
+          file: buffer.toString("base64"),
+          fileName: fileName,
+        });
         // Now 'buffer' contains the file data as a buffer
-        const downloadUrl = await uploadToS3(buffer, fileName);
+        const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
 
         // const url = await uploadToS3(buffer);
@@ -86,7 +102,6 @@ const Page = () => {
     // Trigger the download using the download URL
     if (download) {
       window.open(download, "_blank"); // Open the download URL in a new tab
-      console.log(download);
     }
   };
 
