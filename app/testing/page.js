@@ -118,6 +118,8 @@ const Page = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
         >
           <div className="">
             <div className=" flex justify-center items-center">
@@ -134,9 +136,23 @@ const Page = () => {
               <span className="font-bold"> PDF Merge Tool.</span>
             </div>
             <div className=" flex justify-center ">
-              <button className="bg-[#4BC5BC]   xm:px-8 sm:px-16  rounded-full text-white font-semibold  ">
+              <label
+                htmlFor="file-upload"
+                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+              >
                 Select Pdf File
-              </button>
+              </label>
+              <input
+                type="file"
+                id="file-upload"
+                multiple={true}
+                onChange={handleFileChange}
+                style={{ display: "none" }} // Hide the file input
+              />
+              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
+              {download && (
+                <button onClick={handleDownload}>Download File</button>
+              )}
               <div>
                 <Image
                   className="mx-auto"
