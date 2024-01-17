@@ -4,6 +4,7 @@ import { useCallback, useState, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import React from "react";
 import Image from "next/image";
+import axios from "axios";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);

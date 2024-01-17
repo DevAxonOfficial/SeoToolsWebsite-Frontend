@@ -27,7 +27,6 @@ const Page = () => {
 
   const handleDragOver = (event) => {
     event.preventDefault();
-    // console.log(event);
   };
 
   const handleDrop = async (event) => {
@@ -88,7 +87,6 @@ const Page = () => {
 
         const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
-        console.log(downloadUrl);
       } catch (error) {
         console.error("Error processing files:", error);
         // Handle error (e.g., show an error message to the user)
