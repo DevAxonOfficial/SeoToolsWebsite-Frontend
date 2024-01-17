@@ -65,31 +65,30 @@ const Page = () => {
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    // setSelectedFiles(file.name);
 
     if (file) {
       try {
-        // const numbers = Math.floor(Math.random() * 9000) + 1000;
-        // const number = numbers.toString();
-        // const buffer = await readFileAsBuffer(file);
-        // const fileName = file.name;
-        // console.log(fileName);
-        // console.log(buffer);
-        // Make a POST request to your Next.js API route
+        // Check if the file type is allowed (in this case, only allow .docx and .doc files)
+        const allowedFileTypes = [
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ];
+        if (!allowedFileTypes.includes(file.type)) {
+          throw new Error("Invalid file type. Please upload a Word document.");
+        }
+
         const formData = new FormData();
         formData.append("file", file);
         formData.append("name", file.name);
+
         const response = await axios.post("/api/anythingToPdf", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
-        // Now 'buffer' contains the file data as a buffer
+
         const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
-
-        // const url = await uploadToS3(buffer);
-        // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
       } catch (error) {
-        console.error("Error reading file:", error);
+        console.error("Error processing file:", error.message);
         // Handle error (e.g., show error message to the user)
       }
     }
@@ -128,7 +127,7 @@ const Page = () => {
                 height={90}
               />
             </div>
-            <p className=" text-center font-bold text-3xl">Any Thing To PDF</p>
+            <p className=" text-center font-bold text-3xl">Word To PDF</p>
             <div className="w-96 mb-3 text-center">
               Simplify your document management with our quick and intuitive
               <span className="font-bold"> PDF Merge Tool.</span>
