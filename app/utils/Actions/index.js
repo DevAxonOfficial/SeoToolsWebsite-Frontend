@@ -16,7 +16,7 @@ export const splitPDF = async (uniqueKey) => {
     // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
-    console.log("Error Merge PDF:", error);
+    console.log("Error Split PDF:", error);
   }
 };
 
@@ -42,6 +42,7 @@ export const compressPDF = async (
 ) => {
   try {
     const apiEndpoint = `${API_ENDPOINT2}/compress-pdf`;
+    console.log("fik=le=============", fileNames);
     const apiResponse = await axios.post(apiEndpoint, {
       keys: fileNames,
       compression_level: compressionLevel,
@@ -52,18 +53,19 @@ export const compressPDF = async (
     // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
-    console.log("Error Merge PDF:", error);
+    console.log("Error Compress PDF:", error);
   }
 };
 
-export const removePDF = async (key, ranges = 1) => {
+export const removePDF = async (key, ranges = "1") => {
   try {
-    const apiEndpoint = `${API_ENDPOINT2}/remove-pdf`;
+    const apiEndpoint = `${API_ENDPOINT2}/remove-pages`;
     const apiResponse = await axios.post(apiEndpoint, {
       key,
       page_ranges: ranges,
     });
     const downloadUrl = apiResponse.data.download_url;
+    console.log("api", apiResponse);
 
     // Extract the download URL from the API response
     // const downloadUrl = apiResponse.data;

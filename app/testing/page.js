@@ -67,20 +67,22 @@ const Page = () => {
     // setSelectedFiles(file.name);
 
     if (file) {
+      console.log("file: ", file);
       try {
         // const numbers = Math.floor(Math.random() * 9000) + 1000;
         // const number = numbers.toString();
-        const buffer = await readFileAsBuffer(file);
-        const fileName = file.name.split(".").slice(0, -1).join(".") + number;
-        console.log(fileName);
-        console.log(buffer);
+        // const buffer = await readFileAsBuffer(file);
+        // const fileName = file.name;
+        // console.log(fileName);
+        // console.log(buffer);
         // Make a POST request to your Next.js API route
-        const response = await axios.post("/api/upload", {
-          file: buffer.toString("base64"),
-          fileName: fileName,
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("name", file.name);
+        const response = await axios.post("/api/anythingToPdf", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
-        console.log(response);
-        // Now 'buffer' contains the file data as a buffer
+
         const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
         console.log(downloadUrl);

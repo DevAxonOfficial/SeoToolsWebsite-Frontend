@@ -17,7 +17,6 @@ export async function POST(req) {
 
     // Assuming you have a function in your API to merge PDF files
     const downloadUrl = await mergePDF(fileNames);
-    console.log(downloadUrl);
 
     // Return the download URL in the API response
     return Response.json({ downloadUrl });

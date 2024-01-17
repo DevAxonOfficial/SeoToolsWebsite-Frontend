@@ -3,6 +3,7 @@ import { useCallback, useState, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import React from "react";
 import Image from "next/image";
+import axios from "axios";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -66,6 +67,7 @@ const Page = () => {
       try {
         const formData = new FormData();
         const fileNames = [];
+        const compressionLevel = "recommended";
 
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
@@ -77,7 +79,6 @@ const Page = () => {
             console.warn(`File ${file.name} is not a PDF and will be skipped.`);
           }
         }
-
         formData.append("fileNames", JSON.stringify(fileNames));
 
         const response = await axios.post("/api/compressPdf", formData, {
