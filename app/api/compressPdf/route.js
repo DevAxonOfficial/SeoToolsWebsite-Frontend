@@ -1,6 +1,6 @@
 "use server";
 import { uploadToS3 } from "/app/utils/AWSS3/action";
-import { mergePDF } from "./../../utils/Actions";
+import { compressPDF } from "./../../utils/Actions";
 
 export async function POST(req) {
   try {
@@ -16,8 +16,7 @@ export async function POST(req) {
     }
 
     // Assuming you have a function in your API to merge PDF files
-    const downloadUrl = await mergePDF(fileNames);
-    console.log(downloadUrl);
+    const downloadUrl = await compressPDF(fileNames);
 
     // Return the download URL in the API response
     return Response.json({ downloadUrl });

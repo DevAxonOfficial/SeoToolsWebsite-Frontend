@@ -6,6 +6,7 @@ import { uploadToS3 } from "../utils/AWSS3/action";
 import Image from "next/image";
 import { readFileAsBuffer } from "../utils/Buffered File";
 import { handleDragOver } from "../utils/Drag & Drop/drag";
+import { anythingToPDF } from "../utils/Actions";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -46,8 +47,9 @@ const Page = () => {
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
           console.log(fileName);
           // Now 'buffer' contains the file data as a buffer
-          const downloadUrl = await uploadToS3(buffer, fileName);
-          setDownload(downloadUrl);
+          await uploadToS3(buffer, fileName);
+          const downloadURL = await anythingToPDF(fileName);
+          setDownload(downloadURL);
 
           // const url = await uploadToS3(buffer);
           // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)

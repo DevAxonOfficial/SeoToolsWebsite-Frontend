@@ -63,32 +63,38 @@ const Page = () => {
   const handleFileChange = async (event) => {
     const files = event.target.files;
 
-    if (files.length > 0) {
+    if (files && files.length > 0) {
       try {
         const formData = new FormData();
+        const fileNames = [];
 
-        // Append each file with the key "files[]"
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
-          // Check if the file is a PDF before appending
           if (file.type === "application/pdf") {
-            formData.append("files[]", file);
+            formData.append("files", file); // Use the same key for all files
+            fileNames.push(file.name);
           } else {
             console.warn(`File ${file.name} is not a PDF and will be skipped.`);
           }
         }
 
+        formData.append("fileNames", JSON.stringify(fileNames));
+
         const response = await axios.post("/api/mergePdf", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
-        // Log or handle the response as needed
-        console.log(response.data);
+        const downloadUrl = response.data.downloadUrl;
+        setDownload(downloadUrl);
+        console.log(downloadUrl);
       } catch (error) {
         console.error("Error processing files:", error);
         // Handle error (e.g., show an error message to the user)
       }
+    } else {
+      console.warn("No files selected.");
+      // You might want to notify the user that no files were selected
     }
   };
   // const handleFileChange = async (event) => {
