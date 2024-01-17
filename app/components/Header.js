@@ -118,8 +118,8 @@ const Header = () => {
         <Link href="/remove-pages" className="text-black    ">
           <span> Remove Pages</span>
         </Link>
-        <Link href="/testing" className="text-black    ">
-          <span>Any Thing To PDF</span>
+        <Link href="/word-to-pdf" className="text-black    ">
+          <span>Word To PDF</span>
         </Link>
       </div>
       <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
