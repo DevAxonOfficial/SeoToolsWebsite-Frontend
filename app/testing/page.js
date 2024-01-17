@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { uploadToS3 } from "../utils/AWS S3/action";
+import { uploadToS3 } from "../utils/AWSS3/action";
 import Image from "next/image";
 import { readFileAsBuffer } from "../utils/Buffered File";
 import { handleDragOver } from "../utils/Drag & Drop/drag";
@@ -45,15 +45,9 @@ const Page = () => {
           const buffer = await readFileAsBuffer(file);
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
           console.log(fileName);
-          const response = await axios.post("/api", {
-            file: buffer.toString("base64"),
-            fileName: fileName,
-          });
-          console.log(response);
           // Now 'buffer' contains the file data as a buffer
-          const downloadUrl = response.data.downloadUrl;
+          const downloadUrl = await uploadToS3(buffer, fileName);
           setDownload(downloadUrl);
-          console.log(downloadUrl);
 
           // const url = await uploadToS3(buffer);
           // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -79,7 +73,7 @@ const Page = () => {
         console.log(fileName);
         console.log(buffer);
         // Make a POST request to your Next.js API route
-        const response = await axios.post("/api", {
+        const response = await axios.post("/api/upload", {
           file: buffer.toString("base64"),
           fileName: fileName,
         });

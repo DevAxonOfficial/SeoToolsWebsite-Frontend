@@ -1,7 +1,8 @@
 "use client";
-import { uploadToS3 } from "../AWS S3/action";
+import { uploadToS3 } from "../AWSS3/action";
 import { useState } from "react";
 import { readFileAsBuffer } from "../Buffered File";
+
 export const HandleFileChange = async (event) => {
   const [download, setDownload] = useState();
 
@@ -17,9 +18,17 @@ export const HandleFileChange = async (event) => {
       const buffer = await readFileAsBuffer(file);
       const fileName = file.name.split(".").slice(0, -1).join(".") + number;
       console.log(fileName);
+      console.log(buffer);
+      // Make a POST request to your Next.js API route
+      const response = await axios.post("/api", {
+        file: buffer.toString("base64"),
+        fileName: fileName,
+      });
+      console.log(response);
       // Now 'buffer' contains the file data as a buffer
-      const downloadUrl = await uploadToS3(buffer, fileName);
+      const downloadUrl = response.data.downloadUrl;
       setDownload(downloadUrl);
+      console.log(downloadUrl);
 
       // const url = await uploadToS3(buffer);
       // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)

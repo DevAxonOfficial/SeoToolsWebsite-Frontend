@@ -3,81 +3,134 @@ import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import React from "react";
 import Image from "next/image";
+import axios from "axios";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [downloadLink, setDownloadLink] = useState(null);
+  const [download, setDownload] = useState();
+  const readFileAsBuffer = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const buffer = event.target.result;
+        resolve(buffer);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  };
+  // const numbers = Math.floor(Math.random() * 9000) + 1000;
+  // const number = numbers.toString();
 
   const handleDragOver = (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files);
+    const fileList = Array.from(files); // Corrected line
+    for (const file of fileList) {
+      await handleFileChange({ target: { files: [file] } });
+    }
+    // Rest of the code remains the same
+    // for (const file of fileList) {
+    //   const buffer = await readFileAsBuffer(file);
+    //   console.log(`File Name: ${file.name}, Buffer Size: ${buffer.byteLength}`);
+    //   if (file) {
+    //     try {
+    //       const buffer = await readFileAsBuffer(file);
+    //       const fileName = file.name;
+    //       console.log(fileName);
+    //       // Now 'buffer' contains the file data as a buffer
+    //       const downloadUrl = await uploadToS3(buffer, fileName);
+    //       setDownload(downloadUrl);
+
+    //       // const url = await uploadToS3(buffer);
+    //       // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
+    //     } catch (error) {
+    //       console.error("Error reading file:", error);
+    //       // Handle error (e.g., show error message to the user)
+    //     }
+    //   }
+    // }
+
     setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
   };
+  const handleFileChange = async (event) => {
+    const files = event.target.files;
 
-  const handleSelectFiles = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.multiple = true;
-    input.addEventListener("change", (event) => {
-      setSelectedFiles(event.target.files);
-    });
-    input.click();
-  };
-
-  const mergeFiles = async () => {
-    if (selectedFiles.length > 0) {
-      const formData = new FormData();
-      Array.from(selectedFiles).forEach((file) => {
-        formData.append("files", file);
-      });
-
+    if (files.length > 0) {
       try {
-        const response = await fetch("http://54.81.233.0/merge-pdf", {
-          method: "POST",
-          body: formData,
-          contentType: "application/pdf",
-          // Add any necessary headers like authorization, content-type, etc.
+        const formData = new FormData();
+
+        // Append each file with the key "files[]"
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+
+          // Check if the file is a PDF before appending
+          if (file.type === "application/pdf") {
+            formData.append("files[]", file);
+          } else {
+            console.warn(`File ${file.name} is not a PDF and will be skipped.`);
+          }
+        }
+
+        const response = await axios.post("/api/mergePdf", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
 
-        if (response.ok) {
-          const result = await response.text();
-          setDownloadLink(result.downloadLink); // Set the download link received from the API
-        } else {
-          // Handle API error or non-200 status code
-          console.error("Failed to merge files");
-        }
+        // Log or handle the response as needed
+        console.log(response.data);
       } catch (error) {
-        console.error("Error merging files:", error);
+        console.error("Error processing files:", error);
+        // Handle error (e.g., show an error message to the user)
       }
     }
   };
+  // const handleFileChange = async (event) => {
+  //   const file = event.target.files;
+  //   const fileList = Array.from(file);
+  //   console.log(fileList);
+  //   // setSelectedFiles(file.name);
 
-  const handleDownload = async () => {
-    // If download link is available, trigger download
-    if (downloadLink) {
-      try {
-        const response = await fetch(downloadLink);
+  //   if (file) {
+  //     console.log("file: ", file);
+  //     try {
+  //       // const numbers = Math.floor(Math.random() * 9000) + 1000;
+  //       // const number = numbers.toString();
+  //       // const buffer = await readFileAsBuffer(file);
+  //       // const fileName = file.name;
+  //       // console.log(fileName);
+  //       // console.log(buffer);
+  //       // Make a POST request to your Next.js API route
+  //       const formData = new FormData();
+  //       formData.append("file", file);
+  //       formData.append("name", file.name);
+  //       const response = await axios.post("/api/mergePdf", formData, {
+  //         headers: { "Content-Type": "multipart/form-data" },
+  //       });
+  //       // Now 'buffer' contains the file data as a buffer
+  //       const downloadUrl = response.data.downloadUrl;
+  //       setDownload(downloadUrl);
+  //       console.log(downloadUrl);
 
-        const blob = await response.blob();
+  //       // const url = await uploadToS3(buffer);
+  //       // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
+  //     } catch (error) {
+  //       console.error("Error reading file:", error);
+  //       // Handle error (e.g., show error message to the user)
+  //     }
+  //   }
+  // };
 
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", "merged_document.pdf");
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
-
-        setDownloadLink(null); // Clear the download link after downloading
-      } catch (error) {
-        console.error("Error downloading file:", error);
-      }
+  const handleDownload = () => {
+    // Trigger the download using the download URL
+    if (download) {
+      window.open(download, "_blank"); // Open the download URL in a new tab
     }
   };
   return (
@@ -117,14 +170,20 @@ const Page = () => {
                   intuitive{" "}
                   <strong className="font-bold">Pdf Merge Tool.</strong>
                 </p>
-                <button
-                  onClick={handleSelectFiles}
-                  className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px]   bg-gray-400 rounded-full text-white font-semibold"
+                <label
+                  htmlFor="file-upload"
+                  className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
                 >
-                  Select Pdf file
-                </button>
-                <button onClick={mergeFiles}>Merge & Get Download Link</button>
-
+                  Select Pdf File
+                </label>
+                <input
+                  type="file"
+                  name="file"
+                  id="file-upload"
+                  multiple={true}
+                  onChange={handleFileChange}
+                  style={{ display: "none" }} // Hide the file input
+                />
                 {selectedFiles.length > 0 &&
                   Array.from(selectedFiles).map((file, index) => (
                     <li key={index}>{file.name}</li>
