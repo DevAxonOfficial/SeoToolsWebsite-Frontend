@@ -57,28 +57,28 @@ const Header = () => {
                 Home
               </Link>
               <Link
-                href="/splitpdf"
+                href="/split-pdf"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
                 Split Pdf
               </Link>
               <Link
-                href="/mergepdf"
+                href="/merge-pdf"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
                 Merge Pdf
               </Link>
               <Link
-                href="/compresspdf"
+                href="/compress-pdf"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
                 Compress Pdf
               </Link>
               <Link
-                href="/removepages"
+                href="/remove-pages"
                 onClick={closeDropdown}
                 className="block px-4 py-2 text-black"
               >
@@ -106,20 +106,20 @@ const Header = () => {
         <Link href="/" className="text-black      ">
           <span>Home</span>
         </Link>
-        <Link href="/splitpdf" className="text-black     ">
+        <Link href="/split-pdf" className="text-black     ">
           <span className=""> Split Pdf </span>
         </Link>
-        <Link prefetch={false} href="/mergepdf" className="text-black     ">
+        <Link prefetch={false} href="/merge-pdf" className="text-black     ">
           <span>Merge Pdf</span>
         </Link>
-        <Link href="/compresspdf" className="text-black      ">
+        <Link href="/compress-pdf" className="text-black      ">
           <span>Compress Pdf</span>
         </Link>
-        <Link href="/removepages" className="text-black    ">
+        <Link href="/remove-pages" className="text-black    ">
           <span> Remove Pages</span>
         </Link>
         <Link href="/testing" className="text-black    ">
-          <span> Testing</span>
+          <span>Any Thing To PDF</span>
         </Link>
       </div>
       <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
