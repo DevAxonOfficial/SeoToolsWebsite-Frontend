@@ -9,28 +9,28 @@ const arrayOfCards = [
     logoimage: "/img/Compress.png",
     heading: "Compress Pdf",
     img2: "/img/Group1.png",
-    Link: "/compresspdf",
+    Link: "/compress-pdf",
   },
   {
     bgcolor: "#fde1e1",
     logoimage: "/img/Merge.png",
     heading: "Merge Pdf",
     img2: "/img/Group2.png",
-    Link: "/mergepdf",
+    Link: "/merge-pdf",
   },
   {
     bgcolor: "#dbf3f2",
     logoimage: "/img/Split.png",
     heading: "Split Pdf",
     img2: "/img/Group3.png",
-    Link: "/splitpdf",
+    Link: "/split-pdf",
   },
   {
     bgcolor: "#fdf8e1",
     logoimage: "/img/remove.png",
     heading: "Remove Pages",
     img2: "/img/Group4.png",
-    Link: "/removepages",
+    Link: "/remove-pages",
   },
 ];
 
