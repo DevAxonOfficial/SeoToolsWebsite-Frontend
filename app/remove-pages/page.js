@@ -27,7 +27,6 @@ const Page = () => {
 
   const handleDragOver = (event) => {
     event.preventDefault();
-    // console.log(event);
   };
 
   const handleDrop = async (event) => {
@@ -66,7 +65,6 @@ const Page = () => {
     // setSelectedFiles(file.name);
 
     if (file) {
-      console.log("file: ", file);
       try {
         // const numbers = Math.floor(Math.random() * 9000) + 1000;
         // const number = numbers.toString();
@@ -84,7 +82,6 @@ const Page = () => {
 
         const downloadUrl = response.data.downloadUrl;
         setDownload(downloadUrl);
-        console.log(downloadUrl);
 
         // const url = await uploadToS3(buffer);
         // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)

@@ -42,12 +42,11 @@ const Page = () => {
     // Rest of the code remains the same
     for (const file of fileList) {
       const buffer = await readFileAsBuffer(file);
-      console.log(`File Name: ${file.name}, Buffer Size: ${buffer.byteLength}`);
       if (file) {
         try {
           const buffer = await readFileAsBuffer(file);
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
-          console.log(fileName);
+
           // Now 'buffer' contains the file data as a buffer
           await uploadToS3(buffer, fileName);
           const downloadURL = await anythingToPDF(fileName);
@@ -69,7 +68,6 @@ const Page = () => {
     // setSelectedFiles(file.name);
 
     if (file) {
-      console.log("file: ", file);
       try {
         // const numbers = Math.floor(Math.random() * 9000) + 1000;
         // const number = numbers.toString();
