@@ -1,6 +1,6 @@
 import { uploadToS3 } from "@/app/utils/AWSS3/action";
 
-export default async function handler(req, res) {
+export default async function POST(req, res) {
   try {
     // Assuming you have a file and fileName in the request body
     const { file, fileName } = req.body;

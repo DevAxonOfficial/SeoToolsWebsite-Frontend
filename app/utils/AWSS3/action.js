@@ -1,8 +1,4 @@
-import {
-  S3Client,
-  PutObjectCommand,
-  GetObjectCommand,
-} from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import axios from "axios";
 
 const client = new S3Client({
@@ -15,11 +11,8 @@ const client = new S3Client({
 });
 
 const BUCKET = "raw-files-1";
-const API_ENDPOINT =
-  "https://gbmxwutwksccq5lgd6vqfn3m7i0vkpia.lambda-url.us-east-1.on.aws";
 
 export const uploadToS3 = async (file, fileName) => {
-  console.log("-================ file", fileName);
   try {
     const uniqueKey = fileName;
     console.log(uniqueKey);
@@ -30,18 +23,7 @@ export const uploadToS3 = async (file, fileName) => {
     });
 
     const response = await client.send(putCommand);
-    console.log("-================", response);
-
-    // Simulate an API action (you can replace this with your actual API call)
-    // For example, waiting for some seconds to simulate processing
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
-    const apiEndpoint = `${API_ENDPOINT}/?filename=${uniqueKey}`;
-    const apiResponse = await axios.get(apiEndpoint);
-    const downloadUrl = apiResponse.data.url;
-
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
-    return downloadUrl;
+    return response;
   } catch (error) {
     console.log("error", error);
   }

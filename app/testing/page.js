@@ -3,10 +3,12 @@ import React from "react";
 import { useState } from "react";
 import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
+import { uploadToS3 } from "../utils/AWSS3/action";
 
 import Image from "next/image";
 import { readFileAsBuffer } from "../utils/Buffered File";
 import { handleDragOver } from "../utils/Drag & Drop/drag";
+import { anythingToPDF } from "../utils/Actions";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -46,15 +48,10 @@ const Page = () => {
           const buffer = await readFileAsBuffer(file);
           const fileName = file.name.split(".").slice(0, -1).join(".") + number;
           console.log(fileName);
-          const response = await axios.post("/api", {
-            file: buffer.toString("base64"),
-            fileName: fileName,
-          });
-          console.log(response);
           // Now 'buffer' contains the file data as a buffer
-          const downloadUrl = response.data.downloadUrl;
-          setDownload(downloadUrl);
-          console.log(downloadUrl);
+          await uploadToS3(buffer, fileName);
+          const downloadURL = await anythingToPDF(fileName);
+          setDownload(downloadURL);
 
           // const url = await uploadToS3(buffer);
           // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
@@ -72,17 +69,20 @@ const Page = () => {
     // setSelectedFiles(file.name);
 
     if (file) {
+      console.log("file: ", file);
       try {
         // const numbers = Math.floor(Math.random() * 9000) + 1000;
         // const number = numbers.toString();
-        const buffer = await readFileAsBuffer(file);
-        const fileName = file.name.split(".").slice(0, -1).join(".") + number;
-        console.log(fileName);
-        console.log(buffer);
+        // const buffer = await readFileAsBuffer(file);
+        // const fileName = file.name;
+        // console.log(fileName);
+        // console.log(buffer);
         // Make a POST request to your Next.js API route
-        const response = await axios.post("/api", {
-          file: buffer.toString("base64"),
-          fileName: fileName,
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("name", file.name);
+        const response = await axios.post("/api/anythingToPdf", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
         // Now 'buffer' contains the file data as a buffer
         const downloadUrl = response.data.downloadUrl;
@@ -118,6 +118,8 @@ const Page = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
         >
           <div className="">
             <div className=" flex justify-center items-center">
@@ -134,9 +136,23 @@ const Page = () => {
               <span className="font-bold"> PDF Merge Tool.</span>
             </div>
             <div className=" flex justify-center ">
-              <button className="bg-[#4BC5BC]   xm:px-8 sm:px-16  rounded-full text-white font-semibold  ">
+              <label
+                htmlFor="file-upload"
+                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+              >
                 Select Pdf File
-              </button>
+              </label>
+              <input
+                type="file"
+                id="file-upload"
+                multiple={true}
+                onChange={handleFileChange}
+                style={{ display: "none" }} // Hide the file input
+              />
+              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
+              {download && (
+                <button onClick={handleDownload}>Download File</button>
+              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -162,7 +178,7 @@ const Page = () => {
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
           AD
         </div>
-        <div className="absolute sm:mt-[400px] xm:mt-[350px]  " >
+        <div className="absolute sm:mt-[400px] xm:mt-[350px]  ">
           <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
             <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
               <div className="flex justify-center items-center ml-2">
@@ -175,7 +191,7 @@ const Page = () => {
                 <p className="ml-4 ">Pdf File Name</p>
               </div>
               <div className="flex justify-center items-center">
-                <MdFileDownload  />
+                <MdFileDownload />
               </div>
             </div>
           </div>
