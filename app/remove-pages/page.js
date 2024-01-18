@@ -4,10 +4,13 @@ import { MdFileDownload } from "react-icons/md";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
+  const [error, setError] = useState(null);
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -28,25 +31,37 @@ const Page = () => {
 
     if (file) {
       try {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("name", file.name);
-        const response = await axios.post("/api/removePdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
-        const downloadUrl = response.data.downloadUrl;
-        setDownload(downloadUrl);
+        if (file.size <= maxFileSize) {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("name", file.name);
 
-        // const url = await uploadToS3(buffer);
-        // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
+          const response = await axios.post("/api/removePdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const downloadUrl = response.data.downloadUrl;
+          setDownload(downloadUrl);
+          setError(null); // Clear any previous errors
+        } else {
+          toast.error(
+            `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+          );
+          setError(`File ${file.name} exceeds the maximum size of 5 MB.`);
+        }
       } catch (error) {
         console.error("Error reading file:", error);
+        toast.error("Error processing file. Please try again.");
+        setError("Error processing file. Please try again.");
         // Handle error (e.g., show error message to the user)
       }
+    } else {
+      toast.warn("No file selected.");
+      setError("No file selected.");
     }
   };
-
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
@@ -122,6 +137,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">

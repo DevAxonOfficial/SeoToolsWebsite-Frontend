@@ -4,11 +4,13 @@ import { MdFileDownload } from "react-icons/md";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
-
+  const [error, setError] = useState(null);
   const handleDragOver = (event) => {
     event.preventDefault();
   };
@@ -25,22 +27,34 @@ const Page = () => {
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    // setSelectedFiles(file.name);
 
     if (file) {
       try {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("name", file.name);
-        const response = await axios.post("/api/splitPdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
-        const downloadUrl = response.data.downloadUrl;
-        setDownload(downloadUrl);
+        if (file.size <= maxFileSize) {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("name", file.name);
+
+          const response = await axios.post("/api/splitPdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const downloadUrl = response.data.downloadUrl;
+          setDownload(downloadUrl);
+        } else {
+          toast.error(
+            `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+          );
+        }
       } catch (error) {
         console.error("Error reading file:", error);
+        toast.error("Error processing file. Please try again.");
+        // Handle error (e.g., show error message to the user)
       }
+    } else {
+      toast.warn("No file selected.");
     }
   };
 
@@ -119,6 +133,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">

@@ -4,10 +4,13 @@ import { MdFileDownload } from "react-icons/md";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
+  const [error, setError] = useState(null);
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -57,36 +60,58 @@ const Page = () => {
       try {
         const formData = new FormData();
         const fileNames = [];
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+        // Check if at least two files are selected
+        if (files.length < 2) {
+          toast.error("Please select at least two files.");
+          setError("Please select at least two files.");
+          return;
+        }
 
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
           if (file.type === "application/pdf") {
-            formData.append("files", file); // Use the same key for all files
-            fileNames.push(file.name);
+            if (file.size <= maxFileSize) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+            } else {
+              toast.error(
+                `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+              );
+              setError(`File ${file.name} exceeds the maximum size of 5 MB.`);
+              return; // Stop processing further files on error
+            }
           } else {
-            console.warn(`File ${file.name} is not a PDF and will be skipped.`);
+            toast.warn(`File ${file.name} is not a PDF and will be skipped.`);
           }
         }
 
-        formData.append("fileNames", JSON.stringify(fileNames));
+        if (formData.has("files")) {
+          formData.append("fileNames", JSON.stringify(fileNames));
 
-        const response = await axios.post("/api/mergePdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+          const response = await axios.post("/api/mergePdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
 
-        const downloadUrl = response.data.downloadUrl;
-        setDownload(downloadUrl);
+          const downloadUrl = response.data.downloadUrl;
+          setDownload(downloadUrl);
+          setError(null); // Clear any previous errors
+        } else {
+          toast.warn("No valid files selected.");
+          setError("No valid files selected.");
+        }
       } catch (error) {
         console.error("Error processing files:", error);
-        // Handle error (e.g., show an error message to the user)
+        toast.error("Error processing files. Please try again.");
+        setError("Error processing files. Please try again.");
       }
     } else {
-      console.warn("No files selected.");
-      // You might want to notify the user that no files were selected
+      toast.warn("No files selected.");
+      setError("No files selected.");
     }
   };
-
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
@@ -166,6 +191,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
