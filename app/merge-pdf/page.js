@@ -1,13 +1,12 @@
 "use client";
-import { useCallback, useState } from "react";
-import { MdFileDownload } from "react-icons/md";
-import { useDropzone } from "react-dropzone";
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
   const readFileAsBuffer = (file) => {
     return new Promise((resolve, reject) => {
@@ -62,12 +61,12 @@ const Page = () => {
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
-
+    setLoader(true);
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
         const fileNames = [];
-
+        setSelectedFiles(fileNames);
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
@@ -86,6 +85,7 @@ const Page = () => {
         });
 
         const downloadUrl = response.data.downloadUrl;
+        setLoader(false);
         setDownload(downloadUrl);
       } catch (error) {
         console.error("Error processing files:", error);
@@ -172,7 +172,7 @@ const Page = () => {
             <div className=" flex justify-center ">
               <label
                 htmlFor="file-upload"
-                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+                className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
               >
                 Select Pdf File
               </label>
@@ -184,10 +184,6 @@ const Page = () => {
                 onChange={handleFileChange}
                 style={{ display: "none" }} // Hide the file input
               />
-              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-              {download && (
-                <button onClick={handleDownload}>Download File</button>
-              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -223,11 +219,29 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-                <p className="ml-4 ">Pdf File Name</p>
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  <p className="ml-4 ">{selectedFiles}</p>
+                )}
               </div>
-              <div className="flex justify-center items-center">
-                <MdFileDownload />
-              </div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center mr-2 items-center hover:cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
