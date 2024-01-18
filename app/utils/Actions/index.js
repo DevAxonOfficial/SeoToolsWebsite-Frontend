@@ -42,7 +42,6 @@ export const compressPDF = async (
 ) => {
   try {
     const apiEndpoint = `${API_ENDPOINT2}/compress-pdf`;
-    console.log("fik=le=============", fileNames);
     const apiResponse = await axios.post(apiEndpoint, {
       keys: fileNames,
       compression_level: compressionLevel,
@@ -65,7 +64,6 @@ export const removePDF = async (key, ranges = "1") => {
       page_ranges: ranges,
     });
     const downloadUrl = apiResponse.data.download_url;
-    console.log("api", apiResponse);
 
     // Extract the download URL from the API response
     // const downloadUrl = apiResponse.data;
@@ -82,7 +80,6 @@ export const anythingToPDF = async (uniqueKey) => {
     // await new Promise((resolve) => setTimeout(resolve, 5000));
     const apiEndpoint = `${API_ENDPOINT}/?filename=${uniqueKey}`;
     const apiResponse = await axios.get(apiEndpoint);
-    console.log("====  :", apiResponse);
     const downloadUrl = apiResponse.data.url;
 
     // Extract the download URL from the API response

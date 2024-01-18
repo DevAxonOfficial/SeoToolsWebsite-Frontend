@@ -18,14 +18,8 @@ const Header = () => {
   };
   return (
     <div className="flex justify-between items-center bg-customHeader shadow-lg">
-      <div className=" xs:px-1 xs:w-[250px] px-10   ">
-        <Image
-          src="/img/logo.png"
-          alt="logo"
-          width={270}
-          height={60}
-          className=""
-        />
+      <div className=" xs:px-1 w-auto h-auto  px-10   ">
+        <Image src="/img/logo2.png" alt="logo" width={270} height={60} />
       </div>
       <div className=" sm:space-x-10   relative right-1 xs:ml-3">
         {/* Mobile Dropdown */}
@@ -83,6 +77,13 @@ const Header = () => {
                 className="block px-4 py-2 text-black"
               >
                 Remove Pages
+              </Link>
+              <Link
+                href="/word-to-pdf"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-black"
+              >
+                Word To Pdf
               </Link>
               <div className="justify-between space-x-4 ml-5">
                 <button

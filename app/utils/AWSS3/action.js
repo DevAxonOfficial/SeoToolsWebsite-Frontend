@@ -1,5 +1,4 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import axios from "axios";
 
 const client = new S3Client({
   apiVersion: "2006-03-01",
@@ -27,36 +26,4 @@ export const uploadToS3 = async (file, fileName) => {
   } catch (error) {
     console.log("error", error);
   }
-  //     // Download the processed file
-  //     const processedFileKey = `${fileName}_processed`; // Modify the key if needed
-  //     const getCommand = new GetObjectCommand({
-  //       Bucket: BUCKET,
-  //       Key: fileName,
-  //     });
-
-  //     const downloadUrl = await client.getSignedUrl(getCommand, {
-  //       expiresIn: 3600,
-  //     });
-  //     window.open(downloadUrl, "_blank"); // Open the download URL in a new tab
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  // Handle error (e.g., show error message to the user)
-  //}
 };
-// const handleFileChange = (event) => {
-//   const file = event.target.files[0];
-//   if (file) {
-//     uploadToS3(body);
-//   } else {
-//     console.error("No file selected");
-//     // Handle case when no file is selected
-//   }
-// };
-// export default async function FileUploader() {
-//   return (
-//     <div>
-//       <input type="file" onChange={handleFileChange} />
-//       {/* Other components or UI */}
-//     </div>
-//   );
-// }
