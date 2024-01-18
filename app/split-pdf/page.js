@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { MdFileDownload } from "react-icons/md";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
@@ -9,8 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  const [error, setError] = useState(null);
   const handleDragOver = (event) => {
     event.preventDefault();
   };
@@ -18,15 +17,17 @@ const Page = () => {
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); // Corrected line
+    const fileList = Array.from(files); 
     for (const file of fileList) {
       await handleFileChange({ target: { files: [file] } });
     }
 
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
+   
   };
   const handleFileChange = async (event) => {
-    const file = event.target.files[0];
+    const file = event.target.files[0]
+    setSelectedFiles(file.name);
+    setLoader(true);
 
     if (file) {
       try {
@@ -42,6 +43,7 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
+          setLoader(false);
           setDownload(downloadUrl);
         } else {
           toast.error(
@@ -51,7 +53,7 @@ const Page = () => {
       } catch (error) {
         console.error("Error reading file:", error);
         toast.error("Error processing file. Please try again.");
-        // Handle error (e.g., show error message to the user)
+       
       }
     } else {
       toast.warn("No file selected.");
@@ -61,7 +63,7 @@ const Page = () => {
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank"); 
     }
   };
   return (
@@ -98,7 +100,7 @@ const Page = () => {
             <div className=" flex justify-center ">
               <label
                 htmlFor="file-upload"
-                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+                className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
               >
                 Select Pdf File
               </label>
@@ -107,12 +109,8 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
-              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-              {download && (
-                <button onClick={handleDownload}>Download File</button>
-              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -149,11 +147,30 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-                <p className="ml-4 ">Pdf File Name</p>
+
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  <p className="ml-4 ">{selectedFiles}</p>
+                )}
               </div>
-              <div className="flex justify-center items-center">
-                <MdFileDownload />
-              </div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

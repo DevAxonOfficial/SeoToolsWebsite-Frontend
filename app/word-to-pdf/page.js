@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,8 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [loader ,setLoader] = useState(false)
   const [download, setDownload] = useState();
-  const [error, setError] = useState(null);
+  
 
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
@@ -22,16 +22,17 @@ const Page = () => {
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); // Corrected line
+    const fileList = Array.from(files); 
     for (const file of fileList) {
       await handleFileChange({ target: { files: [file] } });
     }
 
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
+    
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-
+    setSelectedFiles(file.name)
+    setLoader(true)
     if (file) {
       try {
         const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
@@ -56,6 +57,7 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
+          setLoader(false)
           setDownload(downloadUrl);
         } else {
           toast.error(
@@ -74,7 +76,7 @@ const Page = () => {
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank"); 
     }
   };
 
@@ -121,12 +123,8 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
-              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-              {download && (
-                <button onClick={handleDownload}>Download File</button>
-              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -154,7 +152,7 @@ const Page = () => {
           AD
         </div>
         <div className="absolute sm:mt-[400px] xm:mt-[350px]  ">
-          <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
+        <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
             <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
               <div className="flex justify-center items-center ml-2">
                 <Image
@@ -163,11 +161,30 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-                <p className="ml-4 ">Pdf File Name</p>
+
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  <p className="ml-4 ">{selectedFiles}</p>
+                )}
               </div>
-              <div className="flex justify-center items-center">
-                <MdFileDownload />
-              </div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

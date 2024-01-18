@@ -9,8 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  const [error, setError] = useState(null);
+  
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -22,7 +23,8 @@ const Page = () => {
 
     const files = event.dataTransfer.files;
     const fileList = Array.from(files);
-
+    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+    setLoader(true)
     try {
       const formData = new FormData();
       const fileNames = [];
@@ -45,27 +47,28 @@ const Page = () => {
       });
 
       const downloadUrl = response.data.downloadUrl;
+      setLoader(false )
       setDownload(downloadUrl);
     } catch (error) {
       console.error("Error processing files:", error);
-      // Handle error (e.g., show an error message to the user)
+      
     }
 
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
+    
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
-
+    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+    setLoader(true);
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
         const fileNames = [];
         const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
-        // Check if at least two files are selected
         if (files.length < 2) {
           toast.error("Please select at least two files.");
-          setError("Please select at least two files.");
+         
           return;
         }
 
@@ -80,8 +83,7 @@ const Page = () => {
               toast.error(
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
-              setError(`File ${file.name} exceeds the maximum size of 5 MB.`);
-              return; // Stop processing further files on error
+              return; 
             }
           } else {
             toast.warn(`File ${file.name} is not a PDF and will be skipped.`);
@@ -96,26 +98,27 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
+          setLoader(false)
           setDownload(downloadUrl);
-          setError(null); // Clear any previous errors
+      
         } else {
           toast.warn("No valid files selected.");
-          setError("No valid files selected.");
+          
         }
       } catch (error) {
         console.error("Error processing files:", error);
         toast.error("Error processing files. Please try again.");
-        setError("Error processing files. Please try again.");
+       
       }
     } else {
       toast.warn("No files selected.");
-      setError("No files selected.");
+     
     }
   };
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank");
     }
   };
   return (
@@ -155,7 +158,7 @@ const Page = () => {
             <div className=" flex justify-center ">
               <label
                 htmlFor="file-upload"
-                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+                className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
               >
                 Select Pdf File
               </label>
@@ -165,12 +168,8 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
-              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-              {download && (
-                <button onClick={handleDownload}>Download File</button>
-              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -207,11 +206,36 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-                <p className="ml-4 ">Pdf File Name</p>
+                <div>
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  selectedFiles.map((file, index) => (
+                    <p className="ml-4" key={index}>
+                      {file.name}
+                      <br />
+                    </p>  
+                  ))
+                )}
+                </div>
               </div>
-              <div className="flex justify-center items-center">
-                <MdFileDownload />
-              </div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center mr-2 items-center hover:cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
