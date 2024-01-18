@@ -4,10 +4,13 @@ import { useState } from "react";
 import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
+  const [error, setError] = useState(null);
 
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
@@ -31,29 +34,40 @@ const Page = () => {
 
     if (file) {
       try {
-        // Check if the file type is allowed (in this case, only allow .docx and .doc files)
-        const allowedFileTypes = [
-          "application/msword",
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        ];
-        if (!allowedFileTypes.includes(file.type)) {
-          throw new Error("Invalid file type. Please upload a Word document.");
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+        if (file.size <= maxFileSize) {
+          const allowedFileTypes = [
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          ];
+
+          if (!allowedFileTypes.includes(file.type)) {
+            toast.error("Invalid file type. Please upload a Word document.");
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("name", file.name);
+
+          const response = await axios.post("/api/anythingToPdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const downloadUrl = response.data.downloadUrl;
+          setDownload(downloadUrl);
+        } else {
+          toast.error(
+            `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+          );
         }
-
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("name", file.name);
-
-        const response = await axios.post("/api/anythingToPdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-
-        const downloadUrl = response.data.downloadUrl;
-        setDownload(downloadUrl);
       } catch (error) {
         console.error("Error processing file:", error.message);
-        // Handle error (e.g., show error message to the user)
+        toast.error(`Error processing file: ${error.message}`);
       }
+    } else {
+      toast.warn("No file selected.");
     }
   };
 
@@ -133,6 +147,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
