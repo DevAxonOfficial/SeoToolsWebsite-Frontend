@@ -3,62 +3,25 @@ import React from "react";
 import { useState } from "react";
 import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
-import { uploadToS3 } from "../utils/AWSS3/action";
-
 import Image from "next/image";
-import { readFileAsBuffer } from "../utils/Buffered File";
-import { handleDragOver } from "../utils/Drag & Drop/drag";
-import { anythingToPDF } from "../utils/Actions";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [download, setDownload] = useState();
-  // const readFileAsBuffer = (file) => {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.onload = (event) => {
-  //       const buffer = event.target.result;
-  //       resolve(buffer);
-  //     };
-  //     reader.onerror = (error) => {
-  //       reject(error);
-  //     };
-  //     reader.readAsArrayBuffer(file);
-  //   });
-  // };
+
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
 
-  // const handleDragOver = (event) => {
-  //   event.preventDefault();
-  //   // console.log(event);
-  // };
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
 
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
     const fileList = Array.from(files); // Corrected line
-
-    // Rest of the code remains the same
     for (const file of fileList) {
-      const buffer = await readFileAsBuffer(file);
-      if (file) {
-        try {
-          const buffer = await readFileAsBuffer(file);
-          const fileName = file.name.split(".").slice(0, -1).join(".") + number;
-
-          // Now 'buffer' contains the file data as a buffer
-          await uploadToS3(buffer, fileName);
-          const downloadURL = await anythingToPDF(fileName);
-          setDownload(downloadURL);
-
-          // const url = await uploadToS3(buffer);
-          // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
-        } catch (error) {
-          console.error("Error reading file:", error);
-          // Handle error (e.g., show error message to the user)
-        }
-      }
+      await handleFileChange({ target: { files: [file] } });
     }
 
     setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);

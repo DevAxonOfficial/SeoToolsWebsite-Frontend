@@ -1,7 +1,6 @@
 "use client";
 import { MdFileDownload } from "react-icons/md";
-import { useCallback, useState, useRef } from "react";
-import { useDropzone } from "react-dropzone";
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
@@ -92,7 +91,7 @@ const Page = () => {
             <p className=" text-center font-bold text-3xl">Compress Pages</p>
             <div className="w-96 mb-3 text-center">
               Simplify your document management with our quick and intuitive
-              <span className="font-bold"> Remove Pages.</span>
+              <span className="font-bold"> Compress PDF.</span>
             </div>
             <div className=" flex justify-center ">
               <label
