@@ -5,9 +5,9 @@ import { mergePDF } from "./../../utils/Actions";
 export async function POST(req) {
   try {
     const formData = await req.formData();
-    console.log(formData);
+
     const files = formData.getAll("files");
-    console.log(files);
+
     const fileNames = JSON.parse(formData.get("fileNames"));
 
     for (let i = 0; i < files.length; i++) {

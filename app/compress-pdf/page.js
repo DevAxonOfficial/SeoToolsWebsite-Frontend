@@ -1,20 +1,20 @@
 "use client";
-import { MdFileDownload } from "react-icons/md";
-import { useCallback, useState, useRef } from "react";
-import { useDropzone } from "react-dropzone";
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader ,setLoader] = useState(false) 
   const [download, setDownload] = useState();
-
+  
   const handleDragOver = (event) => {
     event.preventDefault();
   };
-
+  
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -22,7 +22,6 @@ const Page = () => {
     for (const file of fileList) {
       await handleFileChange({ target: { files: [file] } });
     }
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
@@ -32,39 +31,57 @@ const Page = () => {
       try {
         const formData = new FormData();
         const fileNames = [];
-        setSelectedFiles(fileNames)
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
           if (file.type === "application/pdf") {
-            formData.append("files", file); // Use the same key for all files
-            fileNames.push(file.name);
+            if (file.size <= maxFileSize) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+              setSelectedFiles(fileNames)
+            } else {
+              toast.error(
+                `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+              );
+             
+              return;
+            }
           } else {
-            console.warn(`File ${file.name} is not a PDF and will be skipped.`);
+            toast.warn(`File ${file.name} is not a PDF and will be skipped.`);
           }
         }
-        formData.append("fileNames", JSON.stringify(fileNames));
 
-        const response = await axios.post("/api/compressPdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-        console.log(response);
+        if (formData.has("files")) {
+          formData.append("fileNames", JSON.stringify(fileNames));
 
-        const downloadUrl = response.data.downloadUrl;
-        setLoader(false)
-        setDownload(downloadUrl);
+          const response = await axios.post("/api/compressPdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const downloadUrl = response.data.downloadUrl;
+          setLoader(false )
+          setDownload(downloadUrl);
+          
+        } else {
+          toast.warn("No valid files selected.");
+          
+        }
       } catch (error) {
         console.error("Error processing files:", error);
+        toast.error("Error processing files. Please try again.");
+        
       }
     } else {
-      console.warn("No files selected.");
+      toast.warn("No files selected.");
+     
     }
   };
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank"); 
     }
   };
 
@@ -97,7 +114,7 @@ const Page = () => {
             <p className=" text-center font-bold text-3xl">Compress Pages</p>
             <div className="w-96 mb-3 text-center">
               Simplify your document management with our quick and intuitive
-              <span className="font-bold"> Remove Pages.</span>
+              <span className="font-bold"> Compress PDF.</span>
             </div>
             <div className=" flex justify-center ">
               <label
@@ -112,7 +129,7 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
             
               <div>
@@ -135,6 +152,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
@@ -150,7 +168,9 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
+               <div>
                {selectedFiles.length==0?<p className="ml-4 ">Pdf File Name</p>: <p className="ml-4 ">{selectedFiles}</p> }
+               </div>
               </div>
               {loader && (
               <div>

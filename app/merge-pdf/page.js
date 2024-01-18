@@ -1,28 +1,17 @@
 "use client";
 import { useState } from "react";
+import { MdFileDownload } from "react-icons/md";
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  const readFileAsBuffer = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const buffer = event.target.result;
-        resolve(buffer);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  };
-  // const numbers = Math.floor(Math.random() * 9000) + 1000;
-  // const number = numbers.toString();
+  
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -30,112 +19,106 @@ const Page = () => {
 
   const handleDrop = async (event) => {
     event.preventDefault();
+    event.stopPropagation();
+
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); // Corrected line
-    for (const file of fileList) {
-      await handleFileChange({ target: { files: [file] } });
+    const fileList = Array.from(files);
+    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+    setLoader(true)
+    try {
+      const formData = new FormData();
+      const fileNames = [];
+
+      for (let i = 0; i < fileList.length; i++) {
+        const file = fileList[i];
+
+        if (file.type === "application/pdf") {
+          formData.append("files", file);
+          fileNames.push(file.name);
+        } else {
+          console.warn(`File ${file.name} is not a PDF and will be skipped.`);
+        }
+      }
+
+      formData.append("fileNames", JSON.stringify(fileNames));
+
+      const response = await axios.post("/api/mergePdf", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      const downloadUrl = response.data.downloadUrl;
+      setLoader(false )
+      setDownload(downloadUrl);
+    } catch (error) {
+      console.error("Error processing files:", error);
+      
     }
-    // Rest of the code remains the same
-    // for (const file of fileList) {
-    //   const buffer = await readFileAsBuffer(file);
-    //   console.log(`File Name: ${file.name}, Buffer Size: ${buffer.byteLength}`);
-    //   if (file) {
-    //     try {
-    //       const buffer = await readFileAsBuffer(file);
-    //       const fileName = file.name;
-    //       console.log(fileName);
-    //       // Now 'buffer' contains the file data as a buffer
-    //       const downloadUrl = await uploadToS3(buffer, fileName);
-    //       setDownload(downloadUrl);
 
-    //       // const url = await uploadToS3(buffer);
-    //       // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
-    //     } catch (error) {
-    //       console.error("Error reading file:", error);
-    //       // Handle error (e.g., show error message to the user)
-    //     }
-    //   }
-    // }
-
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
+    
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
+    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
     setLoader(true);
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
         const fileNames = [];
-        setSelectedFiles(fileNames);
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+        if (files.length < 2) {
+          toast.error("Please select at least two files.");
+         
+          return;
+        }
+
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
           if (file.type === "application/pdf") {
-            formData.append("files", file); // Use the same key for all files
-            fileNames.push(file.name);
+            if (file.size <= maxFileSize) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+            } else {
+              toast.error(
+                `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+              );
+              return; 
+            }
           } else {
-            console.warn(`File ${file.name} is not a PDF and will be skipped.`);
+            toast.warn(`File ${file.name} is not a PDF and will be skipped.`);
           }
         }
 
-        formData.append("fileNames", JSON.stringify(fileNames));
+        if (formData.has("files")) {
+          formData.append("fileNames", JSON.stringify(fileNames));
 
-        const response = await axios.post("/api/mergePdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+          const response = await axios.post("/api/mergePdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
 
-        const downloadUrl = response.data.downloadUrl;
-        setLoader(false);
-        setDownload(downloadUrl);
+          const downloadUrl = response.data.downloadUrl;
+          setLoader(false)
+          setDownload(downloadUrl);
+      
+        } else {
+          toast.warn("No valid files selected.");
+          
+        }
       } catch (error) {
         console.error("Error processing files:", error);
-        // Handle error (e.g., show an error message to the user)
+        toast.error("Error processing files. Please try again.");
+       
       }
     } else {
-      console.warn("No files selected.");
-      // You might want to notify the user that no files were selected
+      toast.warn("No files selected.");
+     
     }
   };
-  // const handleFileChange = async (event) => {
-  //   const file = event.target.files;
-  //   const fileList = Array.from(file);
-  //   console.log(fileList);
-  //   // setSelectedFiles(file.name);
-
-  //   if (file) {
-  //     console.log("file: ", file);
-  //     try {
-  //       // const numbers = Math.floor(Math.random() * 9000) + 1000;
-  //       // const number = numbers.toString();
-  //       // const buffer = await readFileAsBuffer(file);
-  //       // const fileName = file.name;
-  //       // console.log(fileName);
-  //       // console.log(buffer);
-  //       // Make a POST request to your Next.js API route
-  //       const formData = new FormData();
-  //       formData.append("file", file);
-  //       formData.append("name", file.name);
-  //       const response = await axios.post("/api/mergePdf", formData, {
-  //         headers: { "Content-Type": "multipart/form-data" },
-  //       });
-  //       // Now 'buffer' contains the file data as a buffer
-  //       const downloadUrl = response.data.downloadUrl;
-  //       setDownload(downloadUrl);
-  //       console.log(downloadUrl);
-
-  //       // const url = await uploadToS3(buffer);
-  //       // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
-  //     } catch (error) {
-  //       console.error("Error reading file:", error);
-  //       // Handle error (e.g., show error message to the user)
-  //     }
-  //   }
-  // };
-
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank");
     }
   };
   return (
@@ -152,7 +135,10 @@ const Page = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-          onDragOver={handleDragOver}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
           onDrop={handleDrop}
         >
           <div className="">
@@ -182,7 +168,7 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
               <div>
                 <Image
@@ -204,6 +190,7 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
@@ -219,11 +206,18 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
+                <div>
                 {selectedFiles.length == 0 ? (
                   <p className="ml-4 ">Pdf File Name</p>
                 ) : (
-                  <p className="ml-4 ">{selectedFiles}</p>
+                  selectedFiles.map((file, index) => (
+                    <p className="ml-4" key={index}>
+                      {file.name}
+                      <br />
+                    </p>  
+                  ))
                 )}
+                </div>
               </div>
               {loader && (
                 <div>

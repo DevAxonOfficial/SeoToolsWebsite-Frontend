@@ -1,103 +1,82 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { MdFileDownload } from "react-icons/md";
 import axios from "axios";
-import { uploadToS3 } from "../utils/AWSS3/action";
-
 import Image from "next/image";
-import { readFileAsBuffer } from "../utils/Buffered File";
-import { handleDragOver } from "../utils/Drag & Drop/drag";
-import { anythingToPDF } from "../utils/Actions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [loader ,setLoader] = useState(false)
   const [download, setDownload] = useState();
-  // const readFileAsBuffer = (file) => {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.onload = (event) => {
-  //       const buffer = event.target.result;
-  //       resolve(buffer);
-  //     };
-  //     reader.onerror = (error) => {
-  //       reject(error);
-  //     };
-  //     reader.readAsArrayBuffer(file);
-  //   });
-  // };
+  
+
   const numbers = Math.floor(Math.random() * 9000) + 1000;
   const number = numbers.toString();
 
-  // const handleDragOver = (event) => {
-  //   event.preventDefault();
-  //   // console.log(event);
-  // };
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
 
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); // Corrected line
-
-    // Rest of the code remains the same
+    const fileList = Array.from(files); 
     for (const file of fileList) {
-      const buffer = await readFileAsBuffer(file);
-      if (file) {
-        try {
-          const buffer = await readFileAsBuffer(file);
-          const fileName = file.name.split(".").slice(0, -1).join(".") + number;
-
-          // Now 'buffer' contains the file data as a buffer
-          await uploadToS3(buffer, fileName);
-          const downloadURL = await anythingToPDF(fileName);
-          setDownload(downloadURL);
-
-          // const url = await uploadToS3(buffer);
-          // setDownloadUrl(url); // Upload the buffer to S3 (modify your upload function accordingly)
-        } catch (error) {
-          console.error("Error reading file:", error);
-          // Handle error (e.g., show error message to the user)
-        }
-      }
+      await handleFileChange({ target: { files: [file] } });
     }
 
-    setSelectedFiles((prevFiles) => [...prevFiles, ...fileList]);
+    
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-
+    setSelectedFiles(file.name)
+    setLoader(true)
     if (file) {
       try {
-        // Check if the file type is allowed (in this case, only allow .docx and .doc files)
-        const allowedFileTypes = [
-          "application/msword",
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        ];
-        if (!allowedFileTypes.includes(file.type)) {
-          throw new Error("Invalid file type. Please upload a Word document.");
+        const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+        if (file.size <= maxFileSize) {
+          const allowedFileTypes = [
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          ];
+
+          if (!allowedFileTypes.includes(file.type)) {
+            toast.error("Invalid file type. Please upload a Word document.");
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("name", file.name);
+
+          const response = await axios.post("/api/anythingToPdf", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const downloadUrl = response.data.downloadUrl;
+          setLoader(false)
+          setDownload(downloadUrl);
+        } else {
+          toast.error(
+            `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+          );
         }
-
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("name", file.name);
-
-        const response = await axios.post("/api/anythingToPdf", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-
-        const downloadUrl = response.data.downloadUrl;
-        setDownload(downloadUrl);
       } catch (error) {
         console.error("Error processing file:", error.message);
-        // Handle error (e.g., show error message to the user)
+        toast.error(`Error processing file: ${error.message}`);
       }
+    } else {
+      toast.warn("No file selected.");
     }
   };
 
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); // Open the download URL in a new tab
+      window.open(download, "_blank"); 
     }
   };
 
@@ -144,12 +123,8 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} // Hide the file input
+                style={{ display: "none" }} 
               />
-              {/* {selectedFiles && <p> {selectedFiles}</p>} */}
-              {download && (
-                <button onClick={handleDownload}>Download File</button>
-              )}
               <div>
                 <Image
                   className="mx-auto"
@@ -170,13 +145,14 @@ const Page = () => {
             <span className="flex justify-center items-center  ">
               or simply drag & drop files
             </span>
+            <ToastContainer />
           </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
           AD
         </div>
         <div className="absolute sm:mt-[400px] xm:mt-[350px]  ">
-          <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
+        <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
             <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
               <div className="flex justify-center items-center ml-2">
                 <Image
@@ -185,11 +161,30 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-                <p className="ml-4 ">Pdf File Name</p>
+
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  <p className="ml-4 ">{selectedFiles}</p>
+                )}
               </div>
-              <div className="flex justify-center items-center">
-                <MdFileDownload />
-              </div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
