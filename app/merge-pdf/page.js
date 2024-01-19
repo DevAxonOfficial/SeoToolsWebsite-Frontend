@@ -123,12 +123,13 @@ const Page = () => {
   };
   return (
     <>
-      <div className=" relative flex justify-around  mt-10 ">
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
+      <div className=" flex justify-around  mt-10 ">
+        <div className="  xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
           AD
         </div>
+        <div>
         <div
-          className="flex justify-center items-center xm:w-[100%] xm:h-[350px] xm:mx-2 sm:w-[100%] sm:mx-3 sm:h-[400px] md:w-[800px] md:mx-5  "
+          className=" flex justify-center items-center xm:w-[100%] xm:h-[350px]  sm:w-[100%]  sm:h-[400px] md:w-[800px]   "
           style={{
             backgroundImage: "url('/img/Rectangle23.png')",
             backgroundSize: "100% 100%",
@@ -193,11 +194,8 @@ const Page = () => {
             <ToastContainer />
           </div>
         </div>
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
-          AD
-        </div>
-        <div className="absolute sm:mt-[400px] xm:mt-[350px]  ">
-          <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
+        <div>
+          <div className="flex justify-center items-center rounded-3xl mt-4 py-4 xm:px-8 sm:px-28  bg-[#FDE1E1]">
             <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
               <div className="flex justify-center items-center ml-2">
                 <Image
@@ -239,8 +237,12 @@ const Page = () => {
             </div>
           </div>
         </div>
+        </div>
+        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
+          AD
+        </div>
       </div>
-      <div className=" text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
+      <div className=" text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-3  mx-auto font-semibold bg-[#d9d9d9]">
         Ad
       </div>
     </>
