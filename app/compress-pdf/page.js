@@ -8,13 +8,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [loader ,setLoader] = useState(false) 
+  const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  
+
   const handleDragOver = (event) => {
     event.preventDefault();
   };
-  
+
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -25,8 +25,8 @@ const Page = () => {
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
-    setLoader(true)
-    
+    setLoader(true);
+
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
@@ -40,12 +40,12 @@ const Page = () => {
             if (file.size <= maxFileSize) {
               formData.append("files", file);
               fileNames.push(file.name);
-              setSelectedFiles(fileNames)
+              setSelectedFiles(fileNames);
             } else {
               toast.error(
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
-             
+
               return;
             }
           } else {
@@ -61,27 +61,23 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
-          setLoader(false )
+          setLoader(false);
           setDownload(downloadUrl);
-          
         } else {
           toast.warn("No valid files selected.");
-          
         }
       } catch (error) {
         console.error("Error processing files:", error);
         toast.error("Error processing files. Please try again.");
-        
       }
     } else {
       toast.warn("No files selected.");
-     
     }
   };
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); 
+      window.open(download, "_blank");
     }
   };
 
@@ -130,9 +126,9 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} 
+                style={{ display: "none" }}
               />
-            
+
               <div>
                 <Image
                   className="mx-auto"
@@ -166,24 +162,30 @@ const Page = () => {
                   width={38}
                   height={38}
                 />
-               <div>
-               {selectedFiles.length==0?<p className="ml-4 ">Pdf File Name</p>: <p className="ml-4 ">{selectedFiles}</p> }
-               </div>
+                <div>
+                  {selectedFiles.length == 0 ? (
+                    <p className="ml-4 ">Pdf File Name</p>
+                  ) : (
+                    <p className="ml-4 ">{selectedFiles}</p>
+                  )}
+                </div>
               </div>
               {loader && (
-              <div>
-                <div class="flex items-center justify-center ">
-                      <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
                 </div>
-                </div>
-             ) }
+              )}
               {download && (
                 <div className="flex justify-center items-center mr-2  hover:cursor-pointer">
                   <Image
-                  width={24}
-                  height={24}
-                  src="/img/down2.png"
-                  onClick={handleDownload}/>
+                    alt="downloadlogo"
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
                 </div>
               )}
             </div>

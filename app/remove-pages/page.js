@@ -158,6 +158,7 @@ const Page = () => {
                 {download && (
                   <div className="flex justify-center mr-2 items-center hover:cursor-pointer">
                     <Image
+                      alt="downloadLogo"
                       width={24}
                       height={24}
                       src="/img/down2.png"

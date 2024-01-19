@@ -11,7 +11,6 @@ const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -24,7 +23,7 @@ const Page = () => {
     const files = event.dataTransfer.files;
     const fileList = Array.from(files);
     setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
-    setLoader(true)
+    setLoader(true);
     try {
       const formData = new FormData();
       const fileNames = [];
@@ -47,14 +46,11 @@ const Page = () => {
       });
 
       const downloadUrl = response.data.downloadUrl;
-      setLoader(false )
+      setLoader(false);
       setDownload(downloadUrl);
     } catch (error) {
       console.error("Error processing files:", error);
-      
     }
-
-    
   };
   const handleFileChange = async (event) => {
     const files = event.target.files;
@@ -68,7 +64,7 @@ const Page = () => {
 
         if (files.length < 2) {
           toast.error("Please select at least two files.");
-         
+
           return;
         }
 
@@ -83,7 +79,7 @@ const Page = () => {
               toast.error(
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
-              return; 
+              return;
             }
           } else {
             toast.warn(`File ${file.name} is not a PDF and will be skipped.`);
@@ -98,21 +94,17 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
-          setLoader(false)
+          setLoader(false);
           setDownload(downloadUrl);
-      
         } else {
           toast.warn("No valid files selected.");
-          
         }
       } catch (error) {
         console.error("Error processing files:", error);
         toast.error("Error processing files. Please try again.");
-       
       }
     } else {
       toast.warn("No files selected.");
-     
     }
   };
   const handleDownload = () => {
@@ -169,7 +161,7 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} 
+                style={{ display: "none" }}
               />
               <div>
                 <Image
@@ -205,16 +197,16 @@ const Page = () => {
                   height={38}
                 />
                 <div>
-                {selectedFiles.length == 0 ? (
-                  <p className="ml-4 ">Pdf File Name</p>
-                ) : (
-                  selectedFiles.map((file, index) => (
-                    <p className="ml-4" key={index}>
-                      {file.name}
-                      <br />
-                    </p>  
-                  ))
-                )}
+                  {selectedFiles.length == 0 ? (
+                    <p className="ml-4 ">Pdf File Name</p>
+                  ) : (
+                    selectedFiles.map((file, index) => (
+                      <p className="ml-4" key={index}>
+                        {file.name}
+                        <br />
+                      </p>
+                    ))
+                  )}
                 </div>
               </div>
               {loader && (
@@ -227,6 +219,7 @@ const Page = () => {
               {download && (
                 <div className="flex justify-center mr-2 items-center hover:cursor-pointer">
                   <Image
+                    alt="downloadlogo"
                     width={24}
                     height={24}
                     src="/img/down2.png"
