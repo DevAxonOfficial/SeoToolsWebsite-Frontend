@@ -17,27 +17,45 @@ const Footer = () => {
       </p>
       <div className="flex  flex-wrap lg:ml-3 xm:justify-center xm:my-2  sm:mt-2 sm:justify-center items-center">
         <div className="flex space-x-2 lg:ml-5 xm:mb-2 ">
-          <Link href="https://www.linkedin.com/company/devaxon/">
-            <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center">
+          <div className="w-[30px] h-[30px]  rounded-full border border-black flex justify-center items-center focus:outline-none">
+            <Link
+              href="https://www.linkedin.com/company/devaxon/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <RiLinkedinFill />
-            </div>
-          </Link>
+            </Link>
+          </div>
 
-          <Link href="https://www.facebook.com/devaxonn?mibextid=LQQJ4d">
-            <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center">
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+            <Link
+              href="https://www.facebook.com/devaxonn?mibextid=LQQJ4d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <RiFacebookFill />
-            </div>
-          </Link>
-          <Link href="https://www.instagram.com/devaxonn/?igshid=MzRlODBiNWFlZA%3D%3D">
-            <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center">
+            </Link>
+          </div>
+
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+            <Link
+              href="https://www.instagram.com/devaxonn/?igshid=MzRlODBiNWFlZA%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <TiSocialInstagram className="w-[18px] h-[18px]" />
-            </div>
-          </Link>
-          <Link href="https://twitter.com/DevAxonn">
-            <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center">
+            </Link>
+          </div>
+
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+            <Link
+              href="https://twitter.com/DevAxonn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <IoLogoTwitter />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         <div className="flex mr-5 items-center xm:text-xs">
           <p className="mx-4">Terms & Conditions</p>
