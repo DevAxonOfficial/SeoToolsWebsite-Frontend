@@ -83,48 +83,6 @@ const Page = () => {
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
           AD
         </div>
-<<<<<<< HEAD
-        <div
-          className="flex justify-center items-center xm:w-[100%] xm:h-[350px] xm:mx-2 sm:w-[100%] sm:mx-3 sm:h-[400px] md:w-[800px] md:mx-5  "
-          style={{
-            backgroundImage: "url('/img/Rectangle23.png')",
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-        >
-          <div className="">
-            <div className=" flex justify-center items-center">
-              <Image
-                src="/img/Merge.png"
-                alt="remove logo"
-                width={90}
-                height={90}
-              />
-            </div>
-            <p className=" text-center font-bold text-3xl">Word To PDF</p>
-            <div className="w-96 mb-3 text-center">
-              Simplify your document management with our quick and intuitive
-              <span className="font-bold"> PDF Merge Tool.</span>
-            </div>
-            <div className=" flex justify-center ">
-              <label
-                htmlFor="file-upload"
-                className="sm:p-7 sm:w-[170px] md:mt-2 xs:p-2 w-[150px] md:w-[250px] text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
-              >
-                Select Pdf File
-              </label>
-              <input
-                type="file"
-                id="file-upload"
-                multiple={true}
-                onChange={handleFileChange}
-                style={{ display: "none" }}
-              />
-              <div>
-=======
         <div>
           <div
             className="flex justify-center items-center xm:w-[100%] xm:h-[350px] sm:w-[100%] sm:h-[400px] md:w-[800px]   "
@@ -139,7 +97,6 @@ const Page = () => {
           >
             <div className="">
               <div className=" flex justify-center items-center">
->>>>>>> a0167a57df19609d1d339a17bc5e775b2439aa48
                 <Image
                   src="/img/Merge.png"
                   alt="remove logo"
@@ -189,53 +146,44 @@ const Page = () => {
               <ToastContainer />
             </div>
           </div>
-<<<<<<< HEAD
-        </div>
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
-          AD
-        </div>
-        <div className="absolute sm:mt-[400px] xm:mt-[350px]  ">
-          <div className="flex justify-center items-center rounded-2xl py-4 xm:px-8 sm:px-28 lg:px-52 bg-[#FDE1E1]">
-=======
-          <div >
-          <div className="flex justify-center items-center rounded-3xl mt-4 py-4 xm:px-8 sm:px-28  bg-[#FDE1E1]">
->>>>>>> a0167a57df19609d1d339a17bc5e775b2439aa48
-            <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
-              <div className="flex justify-center items-center ml-2">
-                <Image
-                  src="/img/Group13.png"
-                  alt="Google Drive Icone"
-                  width={38}
-                  height={38}
-                />
+          <div>
+            <div className="flex justify-center items-center rounded-3xl mt-4 py-4 xm:px-8 sm:px-28  bg-[#FDE1E1]">
+              <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
+                <div className="flex justify-center items-center ml-2">
+                  <Image
+                    src="/img/Group13.png"
+                    alt="Google Drive Icone"
+                    width={38}
+                    height={38}
+                  />
 
-                {selectedFiles.length == 0 ? (
-                  <p className="ml-4 ">Pdf File Name</p>
-                ) : (
-                  <p className="ml-4 ">{selectedFiles}</p>
+                  {selectedFiles.length == 0 ? (
+                    <p className="ml-4 ">Pdf File Name</p>
+                  ) : (
+                    <p className="ml-4 ">{selectedFiles}</p>
+                  )}
+                </div>
+                {loader && (
+                  <div>
+                    <div class="flex items-center justify-center ">
+                      <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                    </div>
+                  </div>
+                )}
+                {download && (
+                  <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
+                    <Image
+                      alt="downloadlogo"
+                      width={24}
+                      height={24}
+                      src="/img/down2.png"
+                      onClick={handleDownload}
+                    />
+                  </div>
                 )}
               </div>
-              {loader && (
-                <div>
-                  <div class="flex items-center justify-center ">
-                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
-                  </div>
-                </div>
-              )}
-              {download && (
-                <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
-                  <Image
-                    alt="downloadlogo"
-                    width={24}
-                    height={24}
-                    src="/img/down2.png"
-                    onClick={handleDownload}
-                  />
-                </div>
-              )}
             </div>
           </div>
-        </div>
         </div>
         <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
           AD
