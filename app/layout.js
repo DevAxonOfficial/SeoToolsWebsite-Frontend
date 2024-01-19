@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import { TailwindIndicator } from "./components/TailwindIndicator";
 import Script from "next/script";
+import Footer from "../app/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
       <TailwindIndicator />
     </html>

@@ -17,15 +17,13 @@ const Page = () => {
   const handleDrop = async (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); 
+    const fileList = Array.from(files);
     for (const file of fileList) {
       await handleFileChange({ target: { files: [file] } });
     }
-
-   
   };
   const handleFileChange = async (event) => {
-    const file = event.target.files[0]
+    const file = event.target.files[0];
     setSelectedFiles(file.name);
     setLoader(true);
 
@@ -53,7 +51,6 @@ const Page = () => {
       } catch (error) {
         console.error("Error reading file:", error);
         toast.error("Error processing file. Please try again.");
-       
       }
     } else {
       toast.warn("No file selected.");
@@ -63,7 +60,7 @@ const Page = () => {
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); 
+      window.open(download, "_blank");
     }
   };
   return (
@@ -109,7 +106,7 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} 
+                style={{ display: "none" }}
               />
               <div>
                 <Image
@@ -164,6 +161,7 @@ const Page = () => {
               {download && (
                 <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
                   <Image
+                    alt="downloadlogo"
                     width={24}
                     height={24}
                     src="/img/down2.png"

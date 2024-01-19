@@ -9,29 +9,25 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [loader ,setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
-  
 
   const handleDragOver = (event) => {
     event.preventDefault();
   };
 
   const handleDrop = async (event) => {
-    
     event.preventDefault();
     const files = event.dataTransfer.files;
-    const fileList = Array.from(files); 
+    const fileList = Array.from(files);
     for (const file of fileList) {
       await handleFileChange({ target: { files: [file] } });
     }
-
-    
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    setSelectedFiles(file.name)
-    setLoader(true)
+    setSelectedFiles(file.name);
+    setLoader(true);
     if (file) {
       try {
         const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
@@ -46,13 +42,12 @@ const Page = () => {
           });
 
           const downloadUrl = response.data.downloadUrl;
-          setLoader(false)
+          setLoader(false);
           setDownload(downloadUrl);
         } else {
           toast.error(
             `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
           );
-         
         }
       } catch (error) {
         console.error("Error reading file:", error);
@@ -60,13 +55,12 @@ const Page = () => {
       }
     } else {
       toast.warn("No file selected.");
-     
     }
   };
   const handleDownload = () => {
     // Trigger the download using the download URL
     if (download) {
-      window.open(download, "_blank"); 
+      window.open(download, "_blank");
     }
   };
   return (
@@ -112,7 +106,7 @@ const Page = () => {
                 id="file-upload"
                 multiple={true}
                 onChange={handleFileChange}
-                style={{ display: "none" }} 
+                style={{ display: "none" }}
               />
               <div>
                 <Image
@@ -156,16 +150,17 @@ const Page = () => {
                   <p className="ml-4 ">{selectedFiles}</p>
                 )}
               </div>
-             {loader && (
-              <div>
-                <div class="flex items-center justify-center ">
-                      <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+              {loader && (
+                <div>
+                  <div class="flex items-center justify-center ">
+                    <div class="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
                 </div>
-                </div>
-             ) }
+              )}
               {download && (
                 <div className="flex justify-center mr-2 items-center hover:cursor-pointer">
                   <Image
+                    alt="downloadlogo"
                     width={24}
                     height={24}
                     src="/img/down2.png"
