@@ -4,9 +4,9 @@ import { GoHeartFill } from "react-icons/go";
 import Link from "next/link";
 import { RiFacebookFill } from "react-icons/ri";
 import { TiSocialInstagram } from "react-icons/ti";
-import { IoLogoTwitter } from "react-icons/io";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { RiLinkedinFill } from "react-icons/ri";
+import { RiTwitterXFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
@@ -53,7 +53,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IoLogoTwitter />
+              <RiTwitterXFill />
             </Link>
           </div>
         </div>

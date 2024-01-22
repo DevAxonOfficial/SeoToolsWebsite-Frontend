@@ -1,5 +1,13 @@
+"use client";
 import React from "react";
 const Banner = () => {
+  const scrollToSection = () => {
+    // Scroll to the section using JavaScript
+    const targetSection = document.getElementById("targetSection");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div
       className="relative "
@@ -18,8 +26,11 @@ const Banner = () => {
           </h1>
         </div>
         <div className="flex justify-center">
-          <button className=" bg-red-500 hover:bg-red-300 text-white py-3 px-10  text-lg rounded-lg text-left">
-            Edit Pdf ➡
+          <button
+            onClick={scrollToSection}
+            className=" bg-red-500 hover:bg-red-300 text-white py-3 px-10  text-lg rounded-lg text-left"
+          >
+            View All ➡
           </button>
         </div>
       </div>

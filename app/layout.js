@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/img/Logo3.png" />
         {process.env.NODE_ENV === "production" && (
           <Script
             async

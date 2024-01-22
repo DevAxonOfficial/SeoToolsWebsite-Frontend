@@ -19,7 +19,9 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center bg-customHeader shadow-lg">
       <div className=" xs:px-1 w-auto h-auto  px-10   ">
-        <Image src="/img/logo2.png" alt="logo" width={270} height={60} />
+        <Link href="/">
+          <Image src="/img/logo2.png" alt="logo" width={270} height={60} />
+        </Link>
       </div>
       <div className=" sm:space-x-10   relative right-1 xs:ml-3">
         {/* Mobile Dropdown */}
