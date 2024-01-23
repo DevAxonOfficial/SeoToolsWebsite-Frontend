@@ -5,14 +5,15 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import AdContainer from "./Ad2Container";
 import Link from "next/link";
 
-const Components = () => {
-  const scrollToSection = () => {
-    // Scroll to the section using JavaScript
-    const targetSection = document.getElementById("targetSection");
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+export const scrollToSection = () => {
+  // Scroll to the section using JavaScript
+  const targetSection = document.getElementById("targetSection");
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
+export const Components = () => {
+  
   return (
     <>
       <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    ">
@@ -49,4 +50,4 @@ const Components = () => {
   );
 };
 
-export default Components;
+

@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           ></Script>
         )}
       </head>
-      <body className={inter.className}>
+      <body className= {inter.className} >
         <Header />
         {children}
         <Footer />

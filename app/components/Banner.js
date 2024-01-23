@@ -1,13 +1,7 @@
 "use client";
 import React from "react";
+import { scrollToSection } from "./MainContainer";
 const Banner = () => {
-  const scrollToSection = () => {
-    // Scroll to the section using JavaScript
-    const targetSection = document.getElementById("targetSection");
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <div
       className="relative "
