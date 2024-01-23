@@ -17,7 +17,7 @@ const Footer = () => {
       </p>
       <div className="flex  flex-wrap lg:ml-3 xm:justify-center xm:my-2  sm:mt-2 sm:justify-center items-center">
         <div className="flex space-x-2 lg:ml-5 xm:mb-2 ">
-          <div className="w-[30px] h-[30px]  rounded-full border border-black flex justify-center items-center focus:outline-none">
+          <div className="w-[30px] h-[30px]  rounded-full border border-black flex justify-center items-center focus:outline-none hover:bg-[#0a66c2] hover:text-white hover:scale-125 hover:transition hover:ease-in hover:border-none  ">
             <Link
               href="https://www.linkedin.com/company/devaxon/"
               target="_blank"
@@ -27,7 +27,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none hover:bg-[#0866FF] hover:text-white hover:scale-125 hover:transition hover:ease-in hover:border-none">
             <Link
               href="https://www.facebook.com/devaxonn?mibextid=LQQJ4d"
               target="_blank"
@@ -37,7 +37,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none hover:text-white hover:scale-125 hover:transition hover:ease-in hover:border-none hover:bg-gradient-to-tr hover:from-[#feda75] hover:from-20% hover:via-[#fa7e1e] hover:via-30% hover:to-[#d62976] hover:to-50% ">
             <Link
               href="https://www.instagram.com/devaxonn/?igshid=MzRlODBiNWFlZA%3D%3D"
               target="_blank"
@@ -47,7 +47,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none">
+          <div className="w-[30px] h-[30px] rounded-full border border-black flex justify-center items-center focus:outline-none hover:bg-black hover:text-white hover:scale-125 hover:transition hover:ease-in hover:border-none">
             <Link
               href="https://twitter.com/DevAxonn"
               target="_blank"
