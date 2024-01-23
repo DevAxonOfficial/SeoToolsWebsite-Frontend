@@ -16,8 +16,11 @@ module.exports = {
       },
     },
     extend: {
+      listStyleImage: {
+        checkmark: 'url("/img/insta.png")',
+      },
       screens: {
-        xm: {'min': '360px', 'max': '639px'},
+        xm: { min: "360px", max: "639px" },
         xs: { min: "200px", max: "639px" },
       },
       colors: {
