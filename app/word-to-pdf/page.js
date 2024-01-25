@@ -1,18 +1,12 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
+import { WORD_TOOLS } from "../utils/constants";
 
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop
-        backgroundImage={"/img/Rectangle24.png"}
-        logoImage={"/img/Split.png"}
-        toolName={"Word To Pdf"}
-        toolSpec={" Word To PDF"}
-        bgColor={"bg-[#DBF3F2]"}
-        apiEndpoint={"/api/anythingToPdf"}
-      />
+      <HandleDragnDrop {...WORD_TOOLS} />
     </>
   );
 };

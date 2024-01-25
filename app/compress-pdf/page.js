@@ -1,18 +1,12 @@
 "use client";
 
+import { COMPRESS_TOOLS } from "../utils/constants";
 import HandleDragnDrop from "./../components/HandleDragnDrop";
 
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop
-        backgroundImage={"/img/Rectangle25.png"}
-        logoImage={"/img/compress.png"}
-        toolName={"Compress Pdf"}
-        toolSpec={" Compress PDF"}
-        bgColor={"bg-[#EAEFF0]"}
-        apiEndpoint={"/api/compressPdf"}
-      />
+      <HandleDragnDrop {...COMPRESS_TOOLS} />
     </>
   );
 };

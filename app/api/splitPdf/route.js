@@ -15,9 +15,8 @@ export async function POST(req) {
       await uploadToS3(fileBuffer, fileName);
     }
     const downloadUrl = await splitPDF(fileName);
-
     return Response.json({ downloadUrl });
   } catch (error) {
-    console.error("Error:", error);
+    return Response.error({ error });
   }
 }

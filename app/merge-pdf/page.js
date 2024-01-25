@@ -1,18 +1,12 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
+import { MERGE_TOOLS } from "../utils/constants";
 
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop
-        backgroundImage={"/img/Rectangle23.png"}
-        logoImage={"/img/Merge.png"}
-        toolName={"Merge Pdf"}
-        toolSpec={" Merge PDF"}
-        bgColor={"bg-[#FDE1E1]"}
-        apiEndpoint={"/api/mergePdf"}
-      />
+      <HandleDragnDrop {...MERGE_TOOLS} />
     </>
   );
 };

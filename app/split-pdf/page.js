@@ -1,18 +1,11 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
-
+import { SPLIT_TOOLS } from "../utils/constants";
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop
-        backgroundImage={"/img/Rectangle24.png"}
-        logoImage={"/img/Split.png"}
-        toolName={"Split Pdf"}
-        toolSpec={" Split PDF"}
-        bgColor={"bg-[#DBF3F2]"}
-        apiEndpoint={"/api/splitPdf"}
-      />
+      <HandleDragnDrop {...SPLIT_TOOLS} />
     </>
   );
 };
