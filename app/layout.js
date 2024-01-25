@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/img/Logo3.png" />
         {process.env.NODE_ENV === "production" && (
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           ></Script>
         )}
       </head>
-      <body className= {inter.className} >
+      <body className={inter.className}>
         <Header />
         {children}
         <Footer />
