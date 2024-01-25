@@ -1,12 +1,12 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
-import { WORD_TOOLS } from "../utils/constants";
+import { WORD_TOOL_PROPS } from "../utils/constants";
 
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop {...WORD_TOOLS} />
+      <HandleDragnDrop {...WORD_TOOL_PROPS} />
     </>
   );
 };

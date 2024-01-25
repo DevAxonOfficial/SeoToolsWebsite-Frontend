@@ -1,12 +1,12 @@
 "use client";
 
-import { COMPRESS_TOOLS } from "../utils/constants";
+import { COMPRESS_TOOL_PROPS } from "../utils/constants";
 import HandleDragnDrop from "./../components/HandleDragnDrop";
 
 const Page = () => {
   return (
     <>
-      <HandleDragnDrop {...COMPRESS_TOOLS} />
+      <HandleDragnDrop {...COMPRESS_TOOL_PROPS} />
     </>
   );
 };

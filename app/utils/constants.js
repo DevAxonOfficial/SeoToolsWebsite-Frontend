@@ -1,4 +1,4 @@
-export const SPLIT_TOOLS = {
+export const SPLIT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle24.png",
   logoImage: "/img/Split.png",
   toolName: "Split Pdf",
@@ -6,7 +6,7 @@ export const SPLIT_TOOLS = {
   bgColor: "bg-[#DBF3F2]",
   apiEndpoint: "/api/splitPdf",
 };
-export const REMOVE_TOOLS = {
+export const REMOVE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle22.png",
   logoImage: "/img/remove.png",
   toolName: "Remove Pages",
@@ -14,7 +14,7 @@ export const REMOVE_TOOLS = {
   bgColor: "bg-[#FDF8E1]",
   apiEndpoint: "/api/removePdf",
 };
-export const MERGE_TOOLS = {
+export const MERGE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle23.png",
   logoImage: "/img/Merge.png",
   toolName: "Merge Pdf",
@@ -22,7 +22,7 @@ export const MERGE_TOOLS = {
   bgColor: "bg-[#FDE1E1]",
   apiEndpoint: "/api/mergePdf",
 };
-export const COMPRESS_TOOLS = {
+export const COMPRESS_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle25.png",
   logoImage: "/img/compress.png",
   toolName: "Compress Pdf",
@@ -30,7 +30,7 @@ export const COMPRESS_TOOLS = {
   bgColor: "bg-[#EAEFF0]",
   apiEndpoint: "/api/compressPdf",
 };
-export const WORD_TOOLS = {
+export const WORD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle26.png",
   logoImage: "/img/WORD.png",
   toolName: "Word To Pdf",
