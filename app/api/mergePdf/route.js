@@ -17,7 +17,6 @@ export async function POST(req) {
 
     const downloadUrl = await mergePDF(fileNames);
 
-    // Return the download URL in the API response
     return Response.json({ downloadUrl });
   } catch (error) {
     console.error("Error:", error);
