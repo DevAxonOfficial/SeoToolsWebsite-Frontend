@@ -24,7 +24,7 @@ export const MERGE_TOOL_PROPS = {
 };
 export const COMPRESS_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle25.png",
-  logoImage: "/img/compress.png",
+  logoImage: "/img/Compress.png",
   toolName: "Compress Pdf",
   toolSpec: " Compress PDF",
   bgColor: "bg-[#EAEFF0]",
