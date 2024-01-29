@@ -1,131 +1,54 @@
 "use client";
-import React from "react";
+import { FaCaretDown } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
-  const [showImage, setShowImage] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  // const [showImage, setShowImage] = useState(true);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen); // Function to toggle dropdown visibility
-    setShowImage(!showImage);
-    // Additional logic related to your dropdown functionality
-  };
-  const closeDropdown = () => {
-    setIsOpen(false); // Function to close dropdown
+   if (isOpen===false) {
+    setIsOpen(true)
+   }else{
+    setIsOpen(false)
+   }
   };
   return (
-    <div className="flex justify-between items-center bg-customHeader shadow-lg">
-      <div className=" xs:px-1 w-auto h-auto  px-10   ">
-        <Link href="/">
-          <Image src="/img/logo2.png" alt="logo" width={270} height={60} />
-        </Link>
-      </div>
-      <div className=" sm:space-x-10   relative right-1 xs:ml-3">
-        {/* Mobile Dropdown */}
-        <div className="lg:hidden ">
-          <button
-            onClick={toggleDropdown}
-            className="text-black rounded-lg p-6 flex items-center"
-          >
-            All Pdf Tools
-            {showImage && ( // Render the Image component conditionally based on showImage state
-              <Image
-                src="/img/down 1.png"
-                alt="down"
-                width={14}
-                height={14}
-                className=""
-              />
-            )}
-          </button>
-          {/* Dropdown Content */}
-          {isOpen && (
-            <div className="absolute z-10 right-0 mt-2 bg-white shadow-md rounded-lg py-2 w-48">
-              {/* Dropdown Links */}
-              <Link
-                href="/"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Home
-              </Link>
-              <Link
-                href="/split-pdf"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Split Pdf
-              </Link>
-              <Link
-                href="/merge-pdf"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Merge Pdf
-              </Link>
-              <Link
-                href="/compress-pdf"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Compress Pdf
-              </Link>
-              <Link
-                href="/remove-pages"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Remove Pages
-              </Link>
-              <Link
-                href="/word-to-pdf"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-black"
-              >
-                Word To Pdf
-              </Link>
-              <div className="justify-between space-x-4 ml-5">
-                <button
-                  onClick={closeDropdown}
-                  className="bg-transparent hover:shodow-lg text-black hover:text-black md:py-2 md:px-4 hover:border-transparent rounded md:text-base text-sm"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={closeDropdown}
-                  className="bg-red-500 hover:bg-red-300 text-white md:font-bold font-semibold md:py-2 md:px-4 p-2 text-xs md:text-base rounded-xl md:-mr-0 "
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          )}
+    <>
+      <div className="bg-[#F2F2F2] flex sm:justify-between items-center ">
+        <div className="flex   items-center ">
+        <div className="ml-10">
+          <Link href="/">
+            <Image
+              src="/img/logo2.png"
+              alt="logo of company"
+              width={200}
+              height={10}
+            />
+          </Link>
         </div>
-      </div>
-      <div className="xs:hidden sm:hidden lg:flex lg:space-x-10 lg:mr-20 ">
-        <Link href="/" className="text-black      ">
-          <span>Home</span>
-        </Link>
-        <Link href="/split-pdf" className="text-black     ">
-          <span className=""> Split Pdf </span>
-        </Link>
-        <Link prefetch={false} href="/merge-pdf" className="text-black     ">
-          <span>Merge Pdf</span>
-        </Link>
-        <Link href="/compress-pdf" className="text-black      ">
-          <span>Compress Pdf</span>
-        </Link>
-        <Link href="/remove-pages" className="text-black    ">
-          <span> Remove Pages</span>
-        </Link>
-        <Link href="/word-to-pdf" className="text-black    ">
-          <span>Word To PDF</span>
-        </Link>
-      </div>
-      <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
+        <div className="hover:cursor-pointer mx-6 " onClick={toggleDropdown}>
+          <p className="text-[#185058] flex font-bold">
+            ALL Tools <FaCaretDown className="text-red-500" />
+          </p>
+        </div>
+        <div className="xm:hidden">
+          <ul className="flex">
+            <li>
+              <Link className=" mx-4 font-semibold text-[#185058]" href="/compress-pdf">Compress </Link>
+            </li>
+            <li>
+              <Link className=" mx-4 font-semibold text-[#185058]" href="/merge-pdf">Merge</Link>
+            </li>
+            <li>
+              <Link className=" mx-4 font-semibold text-[#185058]" href="/split-pdf">Split</Link>
+            </li>
+          </ul>
+        </div>
+        </div>
+        <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
         <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
           <button className="bg-transparent hover:shodow-lg text-black hover:text-black md:py-2 md:px-4 hover:border-transparent rounded md:text-base text-sm">
             Login
@@ -137,7 +60,77 @@ const Header = () => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+      {isOpen &&
+          <div className="bg-[#F2F2F2] xm:ml-5 xm:block sm:flex justify-evenly" >
+            <ul className=" py-3">
+              <p className=" text-sm font-semibold text-gray-500"> Convert & Compress </p>
+              <li className=" mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#185058] hover:text-white rounded ">
+                <Link href="/compress-pdf">
+                <div className="flex items-center ">
+                <Image src="/img/Compress.png" alt="compress logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >Compress PDF</p>
+                </div>
+                </Link>
+              </li>
+            </ul>
+            <ul className="py-3">
+            <p className="text-sm font-semibold text-gray-500"> Organize </p>
+              <li className=" mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#f56767] hover:text-white rounded ">
+                <Link href="/merge-pdf" >
+                <div className="flex items-center ">
+                <Image src="/img/Merge.png" alt="Merge logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >Merge PDF</p>
+                </div>
+                </Link>
+              </li>
+              <li className="  py-1 px-3 hover:cursor-pointer hover:bg-[#4bc5bc] hover:text-white rounded ">
+                <Link href="/split-pdf" >
+                <div className="flex items-center ">
+                <Image src="/img/Split.png" alt="Merge logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >Split PDF</p>
+                </div>
+                </Link>
+              </li>
+              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#f0d54d] hover:text-white rounded ">
+                <Link href="/remove-pages" >
+                <div className="flex items-center ">
+                <Image src="/img/remove.png" alt="Remove Pages logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >Remove Pages</p>
+                </div>
+                </Link>
+              </li>
+            </ul>
+            <ul className="py-3 ">
+            <p className="text-sm font-semibold text-gray-500"> Convert to PDF </p>
+            <li className="mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
+                <Link href="/word-to-pdf" >
+                <div className="flex  items-center ">
+                <Image src="/img/WORD.png" alt="Word To Pdf logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >Word To Pdf</p>
+                </div>
+                </Link>
+              </li>
+              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
+                <Link href="/csv-to-pdf" >
+                <div className="flex  items-center ">
+                <Image src="/img/WORD.png" alt="CSV To Pdf logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >CSV To Pdf</p>
+                </div>
+                </Link>
+              </li>
+              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
+                <Link href="/txt-to-pdf" >
+                <div className="flex  items-center ">
+                <Image src="/img/WORD.png" alt="TXT To Pdf logo" width={30} height={30}   /> 
+                <p className="font-medium px-5" >TXT To Pdf</p>
+                </div>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          }
+    </>
   );
 };
 
