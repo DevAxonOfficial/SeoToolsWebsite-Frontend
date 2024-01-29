@@ -5,7 +5,7 @@ const ToolCards = (cards) => {
   return (
     <Link href={`${cards.Link}`}>
       <div
-        className=" xm:mx-auto sm:mx-auto  xm:my-6 sm:my-6 flex justify-evenly items-center  w-[308px] h-[305px] shadow-md rounded-[35px]"
+        className=" xm:mx-auto sm:mx-auto  xm:my-6 sm:my-6 flex justify-evenly items-center w-[209px] h-[207px] shadow-lg rounded-[18px]"
         style={{ background: `${cards.bgcolor}` }}
       >
         <div className="">
@@ -13,24 +13,17 @@ const ToolCards = (cards) => {
             <Image
               src={cards.logoimage}
               alt="compress"
-              width={82}
-              height={82}
-              className=""
+              width={55}
+              height={55}
             />
           </div>
           <div>
-            <h1 className="font-semibold text-lg mt-2 text-center">
+            <h1 className="font-semibold text-base mt-2 text-center">
               {cards.heading}
             </h1>
           </div>
           <div className="mt-8 flex justify-center items-center">
-            <Image
-              src={cards.img2}
-              alt="group1"
-              width={124}
-              height={37}
-              className=""
-            />
+            <Image src={cards.img2} alt="group1" width={84} height={25} />
           </div>
         </div>
       </div>

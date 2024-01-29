@@ -12,8 +12,6 @@ export const splitPDF = async (uniqueKey) => {
     });
     const downloadUrl = apiResponse.data.download_url;
 
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
     console.log("Error Split PDF:", error);
@@ -28,8 +26,6 @@ export const mergePDF = async (fileNames) => {
     });
     const downloadUrl = apiResponse.data.download_url;
 
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
     console.log("Error Merge PDF:", error);
@@ -48,8 +44,6 @@ export const compressPDF = async (
     });
     const downloadUrl = apiResponse.data.download_url;
 
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
     console.log("Error Compress PDF:", error);
@@ -65,8 +59,6 @@ export const removePDF = async (key, ranges = "1") => {
     });
     const downloadUrl = apiResponse.data.download_url;
 
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
     console.log("Error Merge PDF:", error);
@@ -75,15 +67,10 @@ export const removePDF = async (key, ranges = "1") => {
 
 export const anythingToPDF = async (uniqueKey) => {
   try {
-    // Simulate an API action (you can replace this with your actual API call)
-    // For example, waiting for some seconds to simulate processing
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
     const apiEndpoint = `${API_ENDPOINT}/?filename=${uniqueKey}`;
     const apiResponse = await axios.get(apiEndpoint);
     const downloadUrl = apiResponse.data.url;
 
-    // Extract the download URL from the API response
-    // const downloadUrl = apiResponse.data;
     return downloadUrl;
   } catch (error) {
     console.log("Error : ", error);

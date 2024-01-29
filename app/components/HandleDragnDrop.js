@@ -11,6 +11,7 @@ const HandleDragnDrop = ({
   toolSpec,
   apiEndpoint,
   bgColor,
+  fileType,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -34,7 +35,29 @@ const HandleDragnDrop = ({
 
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
-            // If the endpoint is for anythingToPdf, accept only Word files
+            if (fileType === "CSV" && file.type !== "text/csv") {
+              toast.warn(
+                `File ${file.name} is not a CSV file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "TXT" && file.type !== "text/plain") {
+              toast.warn(
+                `File ${file.name} is not a TXT file and will be skipped.`
+              );
+              continue;
+            }
+            if (file.size <= maxFileSize) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+              setSelectedFiles(fileNames);
+            } else {
+              toast.error(
+                `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+              );
+              return;
+            }
+          } else if (apiEndpoint === "/api/wordToPdf") {
+            // If the endpoint is for wordToPdf, accept only Word files
             if (
               file.type ===
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
