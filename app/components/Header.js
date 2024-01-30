@@ -34,9 +34,9 @@ const Header = () => {
         </div>
         <div className="xm:hidden">
           <ul className="flex">
-            {Tools.map(tool => (
+            {Tools.map(Tool => (
               <li>
-              <Link className=" mx-4 font-semibold text-[#185058]" href={tool.url}>{tool.name}</Link>
+              <Link className=" mx-4 font-semibold text-[#185058]" href={Tool.Url}>{Tool.Name}</Link>
             </li>
             ))}
           </ul>
@@ -58,14 +58,14 @@ const Header = () => {
       {isOpen &&
           <div className="bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly" >
               <p className=" mb-4 text-sm font-semibold text-gray-500"> Convert And Compress  
-            {ALL_TOOLS.convert_and_compress.map((tool, index)=>{
+            {ALL_TOOLS.convert_and_compress.map((Tool, index)=>{
               return(
               <ul key={index}>
-              <li className={` py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
-                <Link href={`${tool.UrlLink}`}>
+              <li className={` py-1 px-3 hover:cursor-pointer hover:${Tool.BgColor} hover:text-white rounded `}>
+                <Link href={`${Tool.UrlLink}`}>
                 <div className="flex items-center ">
-                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
-                <p className="font-medium px-5" >{tool.LiName}</p>
+                <Image src={Tool.Image} alt={Tool.Alt} width={30} height={30}   /> 
+                <p className="font-medium px-5" >{Tool.LiName}</p>
                 </div>
                 </Link>
               </li>

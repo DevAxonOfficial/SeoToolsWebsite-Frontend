@@ -111,38 +111,38 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
 
 export const PROMPS_FREE_SEO_TOOLS = [
   {
-    heading: "Fast & Effective Conversion:",
-    imgurl: "/img/Group6.png",
-    detail: "Our cutting-edge technology ensures that your files are converted",
+    Heading: "Fast & Effective Conversion:",
+    ImgUrl: "/img/Group6.png",
+    Detail: "Our cutting-edge technology ensures that your files are converted",
   },
   {
-    heading: "No Software Installation:",
-    imgurl: "/img/Group7.png",
-    detail:
+    Heading: "No Software Installation:",
+    ImgUrl: "/img/Group7.png",
+    Detail:
       "Our web-based PDF converter eliminates the need for downloads or installations, allowing you to convert files hassle-free.",
   },
   {
-    heading: "24/7 Positive Feedback:",
-    imgurl: "/img/Group8.png",
-    detail:
+    Heading: "24/7 Positive Feedback:",
+    ImgUrl: "/img/Group8.png",
+    Detail:
       "Receive comprehensive assistance whenever you require it, thanks to our 24/7 customer support.",
   },
   {
-    heading: "Cost-Effective Solutions:",
-    imgurl: "/img/Group9.png",
-    detail:
+    Heading: "Cost-Effective Solutions:",
+    ImgUrl: "/img/Group9.png",
+    Detail:
       "Enjoy the benefits of a feature-rich PDF converter tool without breaking the bank.",
   },
   {
-    heading: "People Trust Us:",
-    imgurl: "/img/Group10.png",
-    detail:
+    Heading: "People Trust Us:",
+    ImgUrl: "/img/Group10.png",
+    Detail:
       "Our service has been utilized by over a billion users, streamlining their tasks with digital documents.",
   },
   {
-    heading: "Regular Updates and Support:",
-    imgurl: "/img/Group11.png",
-    detail:
+    Heading: "Regular Updates and Support:",
+    ImgUrl: "/img/Group11.png",
+    Detail:
       "Our team is dedicated to providing regular updates to enhance functionality and address user needs.`",
   },
 ];
@@ -154,7 +154,7 @@ export const ALL_TOOLS = {
       Image: "/img/Compress.png",
       Alt: "compress logo",
       LiName: "Compress PDF",
-      bgColor: "bg-[#185058]",
+      BgColor: "bg-[#185058]",
     },
   ],
   Organize: [
@@ -163,21 +163,21 @@ export const ALL_TOOLS = {
       Image: "/img/Merge.png",
       Alt: "Merge logo",
       LiName: "Merge PDF",
-      bgColor: "bg-[#f56767]",
+      BgColor: "bg-[#f56767]",
     },
     {
       UrlLink: "/split-pdf",
       Image: "/img/Split.png",
       Alt: "Merge logo",
       LiName: "Split PDF",
-      bgColor: "bg-[#4bc5bc]",
+      BgColor: "bg-[#4bc5bc]",
     },
     {
       UrlLink: "/remove-pages",
       Image: "/img/remove.png",
       Alt: "Remove Pages logo",
       LiName: "Remove Pages",
-      bgColor: "bg-[#f0d54d]",
+      BgColor: "bg-[#f0d54d]",
     },
   ],
   Convert_to_PDF: [
@@ -186,26 +186,26 @@ export const ALL_TOOLS = {
       Image: "/img/WORD.png",
       Alt: "Word To Pdf logo",
       LiName: "Word To Pdf",
-      bgColor: "bg-[#a981ff]",
+      BgColor: "bg-[#a981ff]",
     },
     {
       UrlLink: "/txt-to-pdf",
       Image: "/img/WORD.png",
       Alt: "TXT To Pdf logo",
       LiName: "TXT To Pdf",
-      bgColor: "bg-[#a981ff]",
+      BgColor: "bg-[#a981ff]",
     },
     {
       UrlLink: "/csv-to-pdf",
       Image: "/img/WORD.png",
       Alt: "CSV To Pdf logo",
       LiName: "CSV To Pdf",
-      bgColor: "bg-[#a981ff]",
+      BgColor: "bg-[#a981ff]",
     },
   ],
 };
 export const Tools = [
-  { name: "Merge", url: "/merge-pdf" },
-  { name: "Compress", url: "/compress-pdf" },
-  { name: "Split", url: "/split-pdf" },
+  { Name: "Merge", Url: "/merge-pdf" },
+  { Name: "Compress", Url: "/compress-pdf" },
+  { Name: "Split", Url: "/split-pdf" },
 ];
