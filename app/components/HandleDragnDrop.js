@@ -140,7 +140,7 @@ const HandleDragnDrop = ({
   return (
     <>
       <div className="  flex justify-around  mt-10 ">
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
+        <div className="hidden  bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
           AD
         </div>
         <div>
@@ -247,11 +247,11 @@ const HandleDragnDrop = ({
             </div>
           </div>
         </div>
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
+        <div className="hidden bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
           AD
         </div>
       </div>
-      <div className=" text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
+      <div className=" hidden text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
         Ad
       </div>
     </>

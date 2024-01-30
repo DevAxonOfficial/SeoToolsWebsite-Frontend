@@ -3,21 +3,19 @@ import { FaCaretDown } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { ALL_TOOLS, ArrayOfUl } from "../utils/constants";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [showImage, setShowImage] = useState(true);
+  const [icon, seticon] = useState(true);
 
   const toggleDropdown = () => {
-   if (isOpen===false) {
-    setIsOpen(true)
-   }else{
-    setIsOpen(false)
-   }
+   setIsOpen(!isOpen)
   };
+
   return (
     <>
-      <div className="bg-[#F2F2F2] flex sm:justify-between items-center ">
+      <div className="bg-[#F2F2F2] flex sm:justify-between items-center shadow-lg">
         <div className="flex   items-center ">
         <div className="ml-10">
           <Link href="/">
@@ -31,7 +29,7 @@ const Header = () => {
         </div>
         <div className="hover:cursor-pointer mx-6 " onClick={toggleDropdown}>
           <p className="text-[#185058] flex font-bold">
-            ALL Tools <FaCaretDown className="text-red-500" />
+            ALL Tools <FaCaretDown className="text-red-500 text-2xl" />
           </p>
         </div>
         <div className="xm:hidden">
@@ -62,72 +60,52 @@ const Header = () => {
       </div>
       </div>
       {isOpen &&
-          <div className="bg-[#F2F2F2] xm:ml-5 xm:block sm:flex justify-evenly" >
-            <ul className=" py-3">
-              <p className=" text-sm font-semibold text-gray-500"> Convert & Compress </p>
-              <li className=" mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#185058] hover:text-white rounded ">
-                <Link href="/compress-pdf">
+          <div className="bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly" >
+              <p className=" mb-4 text-sm font-semibold text-gray-500"> Convert And Compress  
+            {ALL_TOOLS.convert_and_compress.map((tool, index)=>{
+              return(
+              <ul key={index}>
+              <li className={` py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
+                <Link href={`${tool.UrlLink}`}>
                 <div className="flex items-center ">
-                <Image src="/img/Compress.png" alt="compress logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >Compress PDF</p>
+                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
+                <p className="font-medium px-5" >{tool.LiName}</p>
                 </div>
                 </Link>
               </li>
-            </ul>
-            <ul className="py-3">
-            <p className="text-sm font-semibold text-gray-500"> Organize </p>
-              <li className=" mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#f56767] hover:text-white rounded ">
-                <Link href="/merge-pdf" >
+            </ul>)
+            })}
+            </p>
+            <p className=" mb-4 text-sm font-semibold text-gray-500"> Organize
+            {ALL_TOOLS.Organize.map((tool, index)=>{
+              return(
+              <ul  key={index}>
+              <li className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
+                <Link href={`${tool.UrlLink}`}>
                 <div className="flex items-center ">
-                <Image src="/img/Merge.png" alt="Merge logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >Merge PDF</p>
+                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
+                <p className="font-medium px-5" >{tool.LiName}</p>
                 </div>
                 </Link>
               </li>
-              <li className="  py-1 px-3 hover:cursor-pointer hover:bg-[#4bc5bc] hover:text-white rounded ">
-                <Link href="/split-pdf" >
+            </ul>)
+            })}
+            </p>
+            <p className=" mb-4 text-sm font-semibold text-gray-500"> Convert to PDF
+            {ALL_TOOLS.Convert_to_PDF.map((tool, index)=>{
+              return(
+              <ul  key={index}>
+              <li className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
+                <Link href={`${tool.UrlLink}`}>
                 <div className="flex items-center ">
-                <Image src="/img/Split.png" alt="Merge logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >Split PDF</p>
+                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
+                <p className="font-medium px-5" >{tool.LiName}</p>
                 </div>
                 </Link>
               </li>
-              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#f0d54d] hover:text-white rounded ">
-                <Link href="/remove-pages" >
-                <div className="flex items-center ">
-                <Image src="/img/remove.png" alt="Remove Pages logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >Remove Pages</p>
-                </div>
-                </Link>
-              </li>
-            </ul>
-            <ul className="py-3 ">
-            <p className="text-sm font-semibold text-gray-500"> Convert to PDF </p>
-            <li className="mt-3 py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
-                <Link href="/word-to-pdf" >
-                <div className="flex  items-center ">
-                <Image src="/img/WORD.png" alt="Word To Pdf logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >Word To Pdf</p>
-                </div>
-                </Link>
-              </li>
-              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
-                <Link href="/csv-to-pdf" >
-                <div className="flex  items-center ">
-                <Image src="/img/WORD.png" alt="CSV To Pdf logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >CSV To Pdf</p>
-                </div>
-                </Link>
-              </li>
-              <li className=" py-1 px-3 hover:cursor-pointer hover:bg-[#a981ff] hover:text-white rounded ">
-                <Link href="/txt-to-pdf" >
-                <div className="flex  items-center ">
-                <Image src="/img/WORD.png" alt="TXT To Pdf logo" width={30} height={30}   /> 
-                <p className="font-medium px-5" >TXT To Pdf</p>
-                </div>
-                </Link>
-              </li>
-            </ul>
+            </ul>)
+            })}
+            </p>
           </div>
           }
     </>

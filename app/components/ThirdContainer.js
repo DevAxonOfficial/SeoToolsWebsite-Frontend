@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import ToolCards from "./ToolCards";
 import AdContainer from "./Ad2Container";
-import { ARRAY_OF_CARDS, CARDS_OBJ } from "../utils/constants";
+import { ARRAY_OF_CARDS, CARDS } from "../utils/constants";
 
 const ThirdContainer = () => {
   return (
@@ -26,12 +26,12 @@ const ThirdContainer = () => {
         Pdf?
       </p>
       <div className="flex justify-evenly  xm:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap">
-        {CARDS_OBJ.map((CARDS_OBJ, index) => {
-          return <Card key={index} {...CARDS_OBJ} />;
+        {CARDS.map((ArrayOfCards, index) => {
+          return <Card key={index} {...ArrayOfCards} />;
         })}
       </div>
-      <div className="flex justify-center items-center">
-        <AdContainer width={"w-[468px]"} height={"h-[60px]"} />
+      <div className=" flex justify-center items-center">
+        <AdContainer  width={"w-[468px]"} height={"h-[60px]"} />
       </div>
     </div>
   );
