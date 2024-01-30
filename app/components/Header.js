@@ -61,7 +61,7 @@ const Header = () => {
       </div>
       {isOpen && (
         <div className="bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly">
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             {" "}
             Convert And Compress
             {ALL_TOOLS.convert_and_compress.map((Tool, index) => {
@@ -85,8 +85,8 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          </div>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             {" "}
             Organize
             {ALL_TOOLS.Organize.map((tool, index) => {
@@ -110,8 +110,8 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          </div>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             {" "}
             Convert to PDF
             {ALL_TOOLS.Convert_to_PDF.map((tool, index) => {
@@ -135,7 +135,7 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
+          </div>
         </div>
       )}
     </>
