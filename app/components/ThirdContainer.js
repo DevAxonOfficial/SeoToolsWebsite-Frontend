@@ -2,7 +2,10 @@ import React from "react";
 import Card from "./Card";
 import ToolCards from "./ToolCards";
 import AdContainer from "./Ad2Container";
-import { ARRAY_OF_CARDS, CARDS_OBJ } from "../utils/constants";
+import {
+  PROMPS_POPULAR_PDF_TOOLS,
+  PROMPS_FREE_SEO_TOOLS,
+} from "../utils/constants";
 
 const ThirdContainer = () => {
   return (
@@ -14,8 +17,8 @@ const ThirdContainer = () => {
       </div>
 
       <div className="xs:grid xm:grid-cols-1 sm:grid sm:grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-6 -mx-4  ">
-        {ARRAY_OF_CARDS.map((ARRAY_OF_CARDS, index) => (
-          <ToolCards key={index} {...ARRAY_OF_CARDS} />
+        {PROMPS_POPULAR_PDF_TOOLS.map((POPULAR_PDF_TOOLS, index) => (
+          <ToolCards key={index} {...POPULAR_PDF_TOOLS} />
         ))}
       </div>
       <div className="flex justify-center items-center">
@@ -26,11 +29,11 @@ const ThirdContainer = () => {
         Pdf?
       </p>
       <div className="flex justify-evenly  xm:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap">
-        {CARDS_OBJ.map((CARDS_OBJ, index) => {
-          return <Card key={index} {...CARDS_OBJ} />;
+        {PROMPS_FREE_SEO_TOOLS.map((SEO_TOOLS, index) => {
+          return <Card key={index} {...SEO_TOOLS} />;
         })}
       </div>
-      <div className="flex justify-center items-center">
+      <div className=" flex justify-center items-center">
         <AdContainer width={"w-[468px]"} height={"h-[60px]"} />
       </div>
     </div>
