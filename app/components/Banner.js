@@ -4,7 +4,7 @@ import { scrollToSection } from "./MainContainer";
 const Banner = () => {
   return (
     <div
-      className="relative "
+      className="mt-14 relative "
       style={{
         backgroundImage: "url('/img/Rectangle 20.png')",
         backgroundSize: "cover",

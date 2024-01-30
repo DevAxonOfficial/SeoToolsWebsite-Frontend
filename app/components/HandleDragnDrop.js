@@ -11,6 +11,7 @@ const HandleDragnDrop = ({
   toolSpec,
   apiEndpoint,
   bgColor,
+  fileType,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -34,7 +35,29 @@ const HandleDragnDrop = ({
 
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
-            // If the endpoint is for anythingToPdf, accept only Word files
+            if (fileType === "CSV" && file.type !== "text/csv") {
+              toast.warn(
+                `File ${file.name} is not a CSV file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "TXT" && file.type !== "text/plain") {
+              toast.warn(
+                `File ${file.name} is not a TXT file and will be skipped.`
+              );
+              continue;
+            }
+            if (file.size <= maxFileSize) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+              setSelectedFiles(fileNames);
+            } else {
+              toast.error(
+                `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
+              );
+              return;
+            }
+          } else if (apiEndpoint === "/api/wordToPdf") {
+            // If the endpoint is for wordToPdf, accept only Word files
             if (
               file.type ===
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
@@ -117,7 +140,7 @@ const HandleDragnDrop = ({
   return (
     <>
       <div className="  flex justify-around  mt-10 ">
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
+        <div className="hidden  bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px] justify-center items-center text-xl font-bold  ">
           AD
         </div>
         <div>
@@ -224,11 +247,11 @@ const HandleDragnDrop = ({
             </div>
           </div>
         </div>
-        <div className=" xm:hidden sm:hidden lg:flex bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
+        <div className="hidden bg-[#d9d9d9] xl:w-[120px] h-[550px] lg:w-[80px]  justify-center items-center text-xl font-bold  ">
           AD
         </div>
       </div>
-      <div className=" text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
+      <div className=" hidden text-center py-16 w-[70%] xm:mt-24 sm:mt-24 lg:mt-0 mx-auto font-semibold bg-[#d9d9d9]">
         Ad
       </div>
     </>
