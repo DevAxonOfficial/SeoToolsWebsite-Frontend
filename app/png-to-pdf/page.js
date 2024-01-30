@@ -1,10 +1,10 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
-import { TXT_TOOL_PROPS } from "../utils/constants";
+import { PNG_TOOL_PROPS } from "../utils/constants";
 
 const Page = () => {
-  return <HandleDragnDrop {...TXT_TOOL_PROPS} />;
+  return <HandleDragnDrop {...PNG_TOOL_PROPS} />;
 };
 
 export default Page;

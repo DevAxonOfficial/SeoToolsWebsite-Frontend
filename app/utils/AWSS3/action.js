@@ -14,7 +14,7 @@ const BUCKET = "raw-files-1";
 export const uploadToS3 = async (file, fileName) => {
   try {
     const uniqueKey = fileName;
-    console.log(uniqueKey);
+
     const putCommand = new PutObjectCommand({
       Bucket: BUCKET,
       Key: uniqueKey,
@@ -24,6 +24,6 @@ export const uploadToS3 = async (file, fileName) => {
     const response = await client.send(putCommand);
     return response;
   } catch (error) {
-    console.log("error", error);
+    return Response.error({ error });
   }
 };

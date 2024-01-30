@@ -17,14 +17,24 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/img/Logo3.png" />
+
         {process.env.NODE_ENV === "production" && (
-          <Script
-            async
-            id="adsbygoogle-init"
-            strategy="lazyOnload"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
-            crossorigin="anonymous"
-          ></Script>
+          <Script type="text/javascript" id="AD">
+            {
+              (atOptions = {
+                key: "1a26ef3314cb0fb63793eb96ad8c870c",
+                format: "iframe",
+                height: 60,
+                width: 468,
+                params: {},
+              })
+            }
+            {document.write(
+              "<scr" +
+                "ipt type=“text/javascript” src=“//www.topcreativeformat.com/1a26ef3314cb0fb63793eb96ad8c870c/invoke.js“></scr" +
+                "ipt>"
+            )}
+          </Script>
         )}
       </head>
       <body className={inter.className}>
