@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ALL_TOOLS, ArrayOfUl } from "../utils/constants";
+import { Tools } from "../utils/constants";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,15 +36,11 @@ const Header = () => {
         </div>
         <div className="xm:hidden">
           <ul className="flex">
-            <li>
-              <Link className=" mx-4 font-semibold text-[#185058]" href="/compress-pdf">Compress </Link>
+            {Tools.map(tool => (
+              <li>
+              <Link className=" mx-4 font-semibold text-[#185058]" href={tool.url}>{tool.name}</Link>
             </li>
-            <li>
-              <Link className=" mx-4 font-semibold text-[#185058]" href="/merge-pdf">Merge</Link>
-            </li>
-            <li>
-              <Link className=" mx-4 font-semibold text-[#185058]" href="/split-pdf">Split</Link>
-            </li>
+            ))}
           </ul>
         </div>
         </div>

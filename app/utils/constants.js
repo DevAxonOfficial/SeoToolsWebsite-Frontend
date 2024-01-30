@@ -213,3 +213,8 @@ export const ALL_TOOLS = {
     },
   ],
 };
+export const Tools = [
+  { name: "Merge", url: "/merge-pdf" },
+  { name: "Compress", url: "/compress-pdf" },
+  { name: "Split", url: "/split-pdf" },
+];
