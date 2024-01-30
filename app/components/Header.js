@@ -9,11 +9,9 @@ import { Tools } from "../utils/constants";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [icon, seticon] = useState(true);
+  const [icon, setIcon] = useState(true);
 
-  const toggleDropdown = () => {
-   setIsOpen(!isOpen)
-  };
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
   return (
     <>

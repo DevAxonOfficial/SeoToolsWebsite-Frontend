@@ -57,7 +57,7 @@ export const TXT_TOOL_PROPS = {
   fileType: "TXT",
 };
 
-export const ARRAY_OF_CARDS = [
+export const PROMPS_POPULAR_PDF_TOOLS = [
   {
     bgcolor: "#e4fbfe",
     logoimage: "/img/Compress.png",
@@ -109,7 +109,7 @@ export const ARRAY_OF_CARDS = [
   },
 ];
 
-export const CARDS = [
+export const PROMPS_FREE_SEO_TOOLS = [
   {
     heading: "Fast & Effective Conversion:",
     imgurl: "/img/Group6.png",
@@ -144,15 +144,6 @@ export const CARDS = [
     imgurl: "/img/Group11.png",
     detail:
       "Our team is dedicated to providing regular updates to enhance functionality and address user needs.`",
-  },
-];
-export const ArrayOfUl = [
-  {
-    UiHeading: "Convert & Compress",
-    UrlLink: "/compress-pdf",
-    Image: "/img/Compress.png",
-    Alt: "compress logo",
-    LiName: "Compress PDF",
   },
 ];
 
