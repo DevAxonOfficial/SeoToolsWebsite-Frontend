@@ -24,6 +24,6 @@ export const uploadToS3 = async (file, fileName) => {
     const response = await client.send(putCommand);
     return response;
   } catch (error) {
-    return Response.error({ error });
+    return Response.error({ error }, { status: 500 });
   }
 };
