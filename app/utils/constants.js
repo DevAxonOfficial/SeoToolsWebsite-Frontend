@@ -286,18 +286,18 @@ export const ALL_TOOLS = {
       BgColor: "hover:bg-[#a981ff]",
     },
     {
-      UrlLink: "/txt-to-pdf",
-      Image: "/img/Txt.png",
-      Alt: "TXT To Pdf logo",
-      LiName: "TXT To Pdf",
-      BgColor: "hover:bg-[#1ed3ef]",
+      UrlLink: "/excel-to-pdf",
+      Image: "/img/Excel.png",
+      Alt: "Excel To Pdf logo",
+      LiName: "Excel To Pdf",
+      BgColor: "hover:bg-[#3ab15b]",
     },
     {
-      UrlLink: "/csv-to-pdf",
-      Image: "/img/Csv.png",
-      Alt: "CSV To Pdf logo",
-      LiName: "CSV To Pdf",
-      BgColor: "hover:bg-[#91ca7c]",
+      UrlLink: "/ppt-to-pdf",
+      Image: "/img/Ppt.png",
+      Alt: "PPT To Pdf logo",
+      LiName: "PPT To Pdf",
+      BgColor: "hover:bg-[#ff6161]",
     },
     {
       UrlLink: "/jpg-to-pdf",
@@ -306,41 +306,7 @@ export const ALL_TOOLS = {
       LiName: "JPG To Pdf",
       BgColor: "hover:bg-[#f492f6]",
     },
-    {
-      UrlLink: "/png-to-pdf",
-      Image: "/img/Png.png",
-      Alt: "PNG To Pdf logo",
-      LiName: "PNG To Pdf",
-      BgColor: "hover:bg-[#f8ca29]",
-    },
   ],
-  Convert_to_PDF_2:[
-    {
-      UrlLink: "/png-to-pdf",
-      Image: "/img/Png.png",
-      Alt: "PNG To Pdf logo",
-      LiName: "PNG To Pdf",
-      BgColor: "hover:bg-[#f8ca29]",
-    },{
-      UrlLink: "/png-to-pdf",
-      Image: "/img/Png.png",
-      Alt: "PNG To Pdf logo",
-      LiName: "PNG To Pdf",
-      BgColor: "hover:bg-[#f8ca29]",
-    },{
-      UrlLink: "/png-to-pdf",
-      Image: "/img/Png.png",
-      Alt: "PNG To Pdf logo",
-      LiName: "PNG To Pdf",
-      BgColor: "hover:bg-[#f8ca29]",
-    },{
-      UrlLink: "/png-to-pdf",
-      Image: "/img/Png.png",
-      Alt: "PNG To Pdf logo",
-      LiName: "PNG To Pdf",
-      BgColor: "hover:bg-[#f8ca29]",
-    },
-  ]
 };
 export const Tools = [
   { Name: "Merge", Url: "/merge-pdf" },
