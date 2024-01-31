@@ -62,6 +62,7 @@ const Header = () => {
               return(
               <ul key={index}>
               <li className={` py-1 px-3 hover:cursor-pointer ${Tool.BgColor} hover:text-white rounded `}>
+
                 <Link href={`${Tool.UrlLink}`}>
                 <div className="flex items-center ">
                 <Image src={Tool.Image} alt={Tool.Alt} width={30} height={30}   /> 
@@ -70,13 +71,15 @@ const Header = () => {
                 </Link>
               </li>
             </ul>)
-            })}
+            })
+            }
             </div>
             <div className=" mb-4 text-sm font-semibold text-gray-500"> Organize
+
             {ALL_TOOLS.Organize.map((tool, index)=>{
               return(
               <ul  key={index}>
-              <li className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}>
+              <li className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
                 <Link href={`${tool.UrlLink}`}>
                 <div className="flex items-center ">
                 <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
@@ -91,7 +94,7 @@ const Header = () => {
             {ALL_TOOLS.Convert_to_PDF.map((tool, index)=>{
               return(
               <ul  key={index}>
-              <li className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}>
+              <li className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}>
                 <Link href={`${tool.UrlLink}`}>
                 <div className="flex items-center ">
                 <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
