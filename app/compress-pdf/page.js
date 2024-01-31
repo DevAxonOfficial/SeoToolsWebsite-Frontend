@@ -2,7 +2,14 @@
 
 import { COMPRESS_TOOL_PROPS } from "../utils/constants";
 import HandleDragnDrop from "./../components/HandleDragnDrop";
-
-const Page = () => <HandleDragnDrop {...COMPRESS_TOOL_PROPS} />;
+import AdScript from "../AdScript";
+const Page = () => {
+  return (
+    <>
+      <AdScript />
+      <HandleDragnDrop {...COMPRESS_TOOL_PROPS} />;
+    </>
+  );
+};
 
 export default Page;
