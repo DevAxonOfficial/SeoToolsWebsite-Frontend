@@ -5,7 +5,6 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import AdContainer from "./Ad2Container";
 import { Slider } from "../utils/constants";
 
-
 export const scrollToSection = () => {
   // Scroll to the section using JavaScript
   const targetSection = document.getElementById("targetSection");
@@ -22,7 +21,16 @@ export const Components = () => {
             <div className="font-bold lg:font-semibold xl:text-[42px] xm:text-xl  lg:text-2xl flex justify-center items-center overflow-hidden h-[50px]   text-left ">
               Simplify
               <div className=" ml-4   font-extrabold box-border animate-slider ">
-                {Slider.map((sliderAnimation,index)=>{return <div key={index} className={`${sliderAnimation.bgColor} text-white text-center py-3 px-3 my-4`} >{sliderAnimation.heading}</div>})}
+                {Slider.map((sliderAnimation, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`${sliderAnimation.bgColor} text-white text-center py-3 px-3 my-4`}
+                    >
+                      {sliderAnimation.heading}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
