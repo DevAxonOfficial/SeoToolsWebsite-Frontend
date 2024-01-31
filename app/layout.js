@@ -17,28 +17,6 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/img/Logo3.png" />
-
-        {/* {process.env.NODE_ENV === "production" && (
-          <Script
-            type="text/javascript"
-            id="AD"
-            strategy="lazyOnLoad"
-            onLoad={() => {
-              atOptions = {
-                key: "1a26ef3314cb0fb63793eb96ad8c870c",
-                format: "iframe",
-                height: 60,
-                width: 468,
-                params: {},
-              };
-              document.write(
-                '<script type="text/javascript" src="//www.topcreativeformat.com/1a26ef3314cb0fb63793eb96ad8c870c/invoke.js"></script>'
-              );
-            }}
-          >
-            {}
-          </Script>
-        )} */}
       </head>
       <body className={inter.className}>
         <Header />

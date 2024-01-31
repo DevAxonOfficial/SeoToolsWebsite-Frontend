@@ -33,6 +33,7 @@ const HandleDragnDrop = ({
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
           const fileExtension = file.name.split(".").pop().toLowerCase();
+          console.log(file);
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
             if (fileType === "CSV" && file.type !== "text/csv") {

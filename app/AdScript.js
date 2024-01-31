@@ -36,34 +36,3 @@ export default function AdScript() {
     ></div>
   );
 }
-
-// "use client";
-// import Script from "next/script";
-// import { useEffect } from "react";
-
-// const AdScript = () => {
-//   useEffect(() => {
-//     if (process.env.NODE_ENV === "production") {
-//       const script = document.createElement("script");
-//       script.type = "text/javascript";
-//       script.id = "AD";
-//       script.src =
-//         "//www.topcreativeformat.com/1a26ef3314cb0fb63793eb96ad8c870c/invoke.js";
-//       script.async = true;
-//       script.onload = () => {
-//         // Additional onLoad logic here
-//       };
-
-//       document.head.appendChild(script);
-
-//       return () => {
-//         // Cleanup: Remove the script when the component is unmounted
-//         document.head.removeChild(script);
-//       };
-//     }
-//   }, []);
-
-//   return null; // You don't need to render anything for this component
-// };
-
-// export default AdScript;
