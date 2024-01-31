@@ -78,3 +78,43 @@ body.dark-mode {
   background-color: #1a202c;
   color: #ffffff;
 }
+@keyframes slider {
+  0% {
+   margin-top:-380px ;
+  }
+  
+  10% {
+   margin-top:-285px ;
+  }
+  20% {
+   margin-top:-285px;
+  }
+  30%{
+    margin-top:-145px ;
+  }
+  40%{
+    margin-top:-145px ;
+  }
+  50% {
+   
+    margin-top:0px ;
+  }
+  60% {
+    margin-top:0px ;
+  }
+  70% {
+    margin-top:145px ;
+  }
+  80% {
+    margin-top:145px ;
+  }
+  90% {
+    margin-top:285px ;
+  }
+  100% {
+    margin-top:285px ;
+  }
+}
+.animate-slider {
+  animation: slider 10s linear infinite;
+}
