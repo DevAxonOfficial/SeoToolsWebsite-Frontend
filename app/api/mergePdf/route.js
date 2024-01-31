@@ -19,6 +19,6 @@ export async function POST(req) {
 
     return Response.json({ downloadUrl });
   } catch (error) {
-    return Response.error({ error });
+    return Response.error({ error }, { status: 500 });
   }
 }

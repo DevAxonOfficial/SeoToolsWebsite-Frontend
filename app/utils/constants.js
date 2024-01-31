@@ -39,24 +39,77 @@ export const WORD_TOOL_PROPS = {
   apiEndpoint: "/api/wordToPdf",
 };
 export const CSV_TOOL_PROPS = {
-  backgroundImage: "/img/Rectangle26.png",
-  logoImage: "/img/WORD.png",
+  backgroundImage: "/img/Rectangle32.png",
+  logoImage: "/img/Group 32.png",
   toolName: "CSV To Pdf",
   toolSpec: " CSV To PDF",
-  bgColor: "bg-[#EEE6FF]",
+  bgColor: "bg-[#E9F4E5]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "CSV",
 };
 export const TXT_TOOL_PROPS = {
-  backgroundImage: "/img/Rectangle26.png",
-  logoImage: "/img/WORD.png",
+  backgroundImage: "/img/Rectangle33.png",
+  logoImage: "/img/Group33.png",
   toolName: "TXT To Pdf",
   toolSpec: " TXT To PDF",
-  bgColor: "bg-[#EEE6FF]",
+  bgColor: "bg-[#D2F6FC]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "TXT",
 };
-
+export const EXCEL_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle34.png",
+  logoImage: "/img/Excel.png",
+  toolName: "Excel To Pdf",
+  toolSpec: " Excel To PDF",
+  bgColor: "bg-[#D8EFDE]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "EXCEL",
+};
+export const PPT_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle35.png",
+  logoImage: "/img/Ppt.png",
+  toolName: "PPT To Pdf",
+  toolSpec: " PPT To PDF",
+  bgColor: "bg-[#FFDFDF]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "PPT",
+};
+export const HTML_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle36.png",
+  logoImage: "/img/Html.png",
+  toolName: "HTML To Pdf",
+  toolSpec: " HTML To PDF",
+  bgColor: "bg-[#FFF4D6]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "HTML",
+};
+export const PNG_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle39.png",
+  logoImage: "/img/Png.png",
+  toolName: "PNG To Pdf",
+  toolSpec: " PNG To PDF",
+  bgColor: "bg-[#FDF8E1]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "PNG",
+};
+export const JPG_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle38.png",
+  logoImage: "/img/Jpeg.png",
+  toolName: "JPG To Pdf",
+  toolSpec: " JPG To PDF",
+  bgColor: "bg-[#FDE9FD]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "JPG",
+};
+export const PSD_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle37.png",
+  logoImage: "/img/Psd.png",
+  toolName: "PSD To Pdf",
+  toolSpec: " PSD To PDF",
+  bgColor: "bg-[#D3E9F3]",
+  apiEndpoint: "/api/anythingToPdf",
+  fileType: "PSD",
+};
 export const PROMPS_POPULAR_PDF_TOOLS = [
   {
     bgcolor: "#e4fbfe",
@@ -95,17 +148,61 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
   },
   {
     bgcolor: "#fde9fd",
-    logoimage: "/img/Group16.png",
-    heading: "CSV to Pdf",
-    img2: "/img/Group17.png",
-    Link: "/csv-to-pdf",
+    logoimage: "/img/Jpeg.png",
+    heading: "JPG to Pdf",
+    img2: "/img/Group39.png",
+    Link: "/jpg-to-pdf",
   },
   {
-    bgcolor: "#fde9fd",
-    logoimage: "/img/Group16.png",
+    bgcolor: "#fef4d4",
+    logoimage: "/img/Png.png",
+    heading: "PNG to Pdf",
+    img2: "/img/Group40.png",
+    Link: "/png-to-pdf",
+  },
+  {
+    bgcolor: "#fff4d6",
+    logoimage: "/img/Html.png",
+    heading: "HTML to Pdf",
+    img2: "/img/Group37.png",
+    Link: "/html-to-pdf",
+  },
+  {
+    bgcolor: "#e9f4e5",
+    logoimage: "/img/Csv.png",
+    heading: "CSV to Pdf",
+    img2: "/img/Group18.png",
+    Link: "/csv-to-pdf",
+  },
+
+  {
+    bgcolor: "#d8efde",
+    logoimage: "/img/Excel.png",
+    heading: "Excel to Pdf",
+    img2: "/img/Group35.png",
+    Link: "/excel-to-pdf",
+  },
+  {
+    bgcolor: "#ffdfdf",
+    logoimage: "/img/Ppt.png",
+    heading: "PPT to Pdf",
+    img2: "/img/Group36.png",
+    Link: "/ppt-to-pdf",
+  },
+
+  {
+    bgcolor: "#d2f6fc",
+    logoimage: "/img/Txt.png",
     heading: "TXT to Pdf",
-    img2: "/img/Group17.png",
+    img2: "/img/Group34.png",
     Link: "/txt-to-pdf",
+  },
+  {
+    bgcolor: "#d3e9f3",
+    logoimage: "/img/Psd.png",
+    heading: "PSD to Pdf",
+    img2: "/img/Group38.png",
+    Link: "/psd-to-pdf",
   },
 ];
 
@@ -154,7 +251,7 @@ export const ALL_TOOLS = {
       Image: "/img/Compress.png",
       Alt: "compress logo",
       LiName: "Compress PDF",
-      BgColor: "bg-[#185058]",
+      BgColor: "hover:bg-[#185058]",
     },
   ],
   Organize: [
@@ -163,21 +260,21 @@ export const ALL_TOOLS = {
       Image: "/img/Merge.png",
       Alt: "Merge logo",
       LiName: "Merge PDF",
-      BgColor: "bg-[#f56767]",
+      BgColor: "hover:bg-[#f56767]",
     },
     {
       UrlLink: "/split-pdf",
       Image: "/img/Split.png",
       Alt: "Merge logo",
       LiName: "Split PDF",
-      BgColor: "bg-[#4bc5bc]",
+      BgColor: "hover:bg-[#4bc5bc]",
     },
     {
       UrlLink: "/remove-pages",
       Image: "/img/remove.png",
       Alt: "Remove Pages logo",
       LiName: "Remove Pages",
-      BgColor: "bg-[#f0d54d]",
+      BgColor: "hover:bg-[#f0d54d]",
     },
   ],
   Convert_to_PDF: [
@@ -186,21 +283,21 @@ export const ALL_TOOLS = {
       Image: "/img/WORD.png",
       Alt: "Word To Pdf logo",
       LiName: "Word To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
     {
       UrlLink: "/txt-to-pdf",
       Image: "/img/WORD.png",
       Alt: "TXT To Pdf logo",
       LiName: "TXT To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
     {
       UrlLink: "/csv-to-pdf",
       Image: "/img/WORD.png",
       Alt: "CSV To Pdf logo",
       LiName: "CSV To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
   ],
 };

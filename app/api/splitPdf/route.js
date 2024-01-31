@@ -17,6 +17,6 @@ export async function POST(req) {
     const downloadUrl = await splitPDF(fileName);
     return Response.json({ downloadUrl });
   } catch (error) {
-    return Response.error({ error });
+    return Response.error({ error }, { status: 500 });
   }
 }

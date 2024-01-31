@@ -2,7 +2,10 @@ import React from "react";
 import Card from "./Card";
 import ToolCards from "./ToolCards";
 import AdContainer from "./Ad2Container";
-import { PROMPS_POPULAR_PDF_TOOLS, PROMPS_FREE_SEO_TOOLS } from "../utils/constants";
+import {
+  PROMPS_POPULAR_PDF_TOOLS,
+  PROMPS_FREE_SEO_TOOLS,
+} from "../utils/constants";
 
 const ThirdContainer = () => {
   return (
@@ -31,7 +34,7 @@ const ThirdContainer = () => {
         })}
       </div>
       <div className=" flex justify-center items-center">
-        <AdContainer  width={"w-[468px]"} height={"h-[60px]"} />
+        <AdContainer width={"w-[468px]"} height={"h-[60px]"} />
       </div>
     </div>
   );

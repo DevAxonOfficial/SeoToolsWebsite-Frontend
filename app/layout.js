@@ -2,7 +2,7 @@ import { Inter, Helvetica } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import { TailwindIndicator } from "./components/TailwindIndicator";
-import Script from "next/script";
+
 import Footer from "../app/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,15 +17,6 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/img/Logo3.png" />
-        {process.env.NODE_ENV === "production" && (
-          <Script
-            async
-            id="adsbygoogle-init"
-            strategy="lazyOnload"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379513597707126"
-            crossorigin="anonymous"
-          ></Script>
-        )}
       </head>
       <body className={inter.className}>
         <Header />
