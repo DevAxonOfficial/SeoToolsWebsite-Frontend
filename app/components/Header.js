@@ -16,30 +16,35 @@ const Header = () => {
     <>
       <div className="bg-[#F2F2F2] flex sm:justify-between items-center shadow-lg">
         <div className="flex   items-center ">
-        <div className="ml-10">
-          <Link href="/">
-            <Image
-              src="/img/logo2.png"
-              alt="logo of company"
-              width={200}
-              height={10}
-            />
-          </Link>
-        </div>
-        <div className="hover:cursor-pointer mx-6 " onClick={toggleDropdown}>
-          <p className="text-[#185058] flex font-bold">
-            ALL Tools <FaCaretDown className="text-red-500 text-2xl" />
-          </p>
-        </div>
-        <div className="xm:hidden">
-          <ul className="flex">
-            {Tools.map((Tool,index) => (
-              <li key={index}>
-              <Link className=" mx-4 font-semibold text-[#185058]" href={Tool.Url}>{Tool.Name}</Link>
-            </li>
-            ))}
-          </ul>
-        </div>
+          <div className="ml-10">
+            <Link href="/">
+              <Image
+                src="/img/logo2.png"
+                alt="logo of company"
+                width={200}
+                height={10}
+              />
+            </Link>
+          </div>
+          <div className="hover:cursor-pointer mx-6 " onClick={toggleDropdown}>
+            <p className="text-[#185058] flex font-bold">
+              ALL Tools <FaCaretDown className="text-red-500 text-2xl" />
+            </p>
+          </div>
+          <div className="xm:hidden">
+            <ul className="flex">
+              {Tools.map((Tool, index) => (
+                <li key={index}>
+                  <Link
+                    className=" mx-4 font-semibold text-[#185058]"
+                    href={Tool.Url}
+                  >
+                    {Tool.Name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
           <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
@@ -54,53 +59,81 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {isOpen &&
-          <div className=" bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly" >
-              <p className=" mb-4 text-sm font-semibold text-gray-500"> Convert And Compress  
-            {ALL_TOOLS.convert_and_compress.map((Tool, index)=>{
-              
-              return(
-              <ul key={index}>
-              
-              <li className={` py-1 px-3 hover:cursor-pointer ${Tool.BgColor} hover:text-white rounded `}>
-                <Link href={`${Tool.UrlLink}`}>
-                <div className="flex items-center ">
-                <Image src={Tool.Image} alt={Tool.Alt} width={30} height={30}   /> 
-                <p className="font-medium px-5" >{Tool.LiName}</p>
-                </div>
-                </Link>
-              </li>
-            </ul>)
+      {isOpen && (
+        <div className=" bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly">
+          <p className=" mb-4 text-sm font-semibold text-gray-500">
+            {" "}
+            Convert And Compress
+            {ALL_TOOLS.convert_and_compress.map((Tool, index) => {
+              return (
+                <ul key={index}>
+                  <li
+                    className={` py-1 px-3 hover:cursor-pointer ${Tool.BgColor} hover:text-white rounded `}
+                  >
+                    <Link href={`${Tool.UrlLink}`}>
+                      <div className="flex items-center ">
+                        <Image
+                          src={Tool.Image}
+                          alt={Tool.Alt}
+                          width={30}
+                          height={30}
+                        />
+                        <p className="font-medium px-5">{Tool.LiName}</p>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              );
             })}
-            </p>
-            <div className=" mb-4 text-sm font-semibold text-gray-500"> Organize
-            {ALL_TOOLS.Organize.map((tool, index)=>{
-              return(
-              <ul  key={index}>
-              <li className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}>
-                <Link href={`${tool.UrlLink}`}>
-                <div className="flex items-center ">
-                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
-                <p className="font-medium px-5" >{tool.LiName}</p>
-                </div>
-                </Link>
-              </li>
-            </ul>)
+          </p>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
+            {" "}
+            Organize
+            {ALL_TOOLS.Organize.map((tool, index) => {
+              return (
+                <ul key={index}>
+                  <li
+                    className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
+                  >
+                    <Link href={`${tool.UrlLink}`}>
+                      <div className="flex items-center ">
+                        <Image
+                          src={tool.Image}
+                          alt={tool.Alt}
+                          width={30}
+                          height={30}
+                        />
+                        <p className="font-medium px-5">{tool.LiName}</p>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              );
             })}
-            </div>
-            <p className=" mb-4 text-sm font-semibold text-gray-500"> Convert to PDF
-            {ALL_TOOLS.Convert_to_PDF.map((tool, index)=>{
-              return(
-              <ul  key={index}>
-              <li className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}>
-                <Link href={`${tool.UrlLink}`}>
-                <div className="flex items-center ">
-                <Image src={tool.Image} alt={tool.Alt} width={30} height={30}   /> 
-                <p className="font-medium px-5" >{tool.LiName}</p>
-                </div>
-                </Link>
-              </li>
-            </ul>)
+          </div>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
+            {" "}
+            Convert to PDF
+            {ALL_TOOLS.Convert_to_PDF.map((tool, index) => {
+              return (
+                <ul key={index}>
+                  <li
+                    className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
+                  >
+                    <Link href={`${tool.UrlLink}`}>
+                      <div className="flex items-center ">
+                        <Image
+                          src={tool.Image}
+                          alt={tool.Alt}
+                          width={30}
+                          height={30}
+                        />
+                        <p className="font-medium px-5">{tool.LiName}</p>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              );
             })}
           </div>
         </div>
