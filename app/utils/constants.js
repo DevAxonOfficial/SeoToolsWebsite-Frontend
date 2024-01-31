@@ -154,7 +154,7 @@ export const ALL_TOOLS = {
       Image: "/img/Compress.png",
       Alt: "compress logo",
       LiName: "Compress PDF",
-      BgColor: "bg-[#185058]",
+      BgColor: "hover:bg-[#185058]",
     },
   ],
   Organize: [
@@ -163,21 +163,21 @@ export const ALL_TOOLS = {
       Image: "/img/Merge.png",
       Alt: "Merge logo",
       LiName: "Merge PDF",
-      BgColor: "bg-[#f56767]",
+      BgColor: "hover:bg-[#f56767]",
     },
     {
       UrlLink: "/split-pdf",
       Image: "/img/Split.png",
       Alt: "Merge logo",
       LiName: "Split PDF",
-      BgColor: "bg-[#4bc5bc]",
+      BgColor: "hover:bg-[#4bc5bc]",
     },
     {
       UrlLink: "/remove-pages",
       Image: "/img/remove.png",
       Alt: "Remove Pages logo",
       LiName: "Remove Pages",
-      BgColor: "bg-[#f0d54d]",
+      BgColor: "hover:bg-[#f0d54d]",
     },
   ],
   Convert_to_PDF: [
@@ -186,21 +186,21 @@ export const ALL_TOOLS = {
       Image: "/img/WORD.png",
       Alt: "Word To Pdf logo",
       LiName: "Word To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
     {
       UrlLink: "/txt-to-pdf",
       Image: "/img/WORD.png",
       Alt: "TXT To Pdf logo",
       LiName: "TXT To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
     {
       UrlLink: "/csv-to-pdf",
       Image: "/img/WORD.png",
       Alt: "CSV To Pdf logo",
       LiName: "CSV To Pdf",
-      BgColor: "bg-[#a981ff]",
+      BgColor: "hover:bg-[#a981ff]",
     },
   ],
 };
@@ -209,3 +209,19 @@ export const Tools = [
   { Name: "Compress", Url: "/compress-pdf" },
   { Name: "Split", Url: "/split-pdf" },
 ];
+export const Slider=[{
+  bgColor:"bg-[#185058]",
+  heading:"Everything",
+},{
+  bgColor:"bg-[#f56767]",
+  heading:"Your Life",
+},{
+  bgColor:"bg-[#4bc5bc]",
+  heading:"Education",
+},{
+  bgColor:"bg-[#f492f6]",
+  heading:"Business",
+},{
+  bgColor:"bg-[#a981ff]",
+  heading:"SEO",
+}]

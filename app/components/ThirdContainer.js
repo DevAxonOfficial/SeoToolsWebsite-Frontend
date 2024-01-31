@@ -4,6 +4,7 @@ import ToolCards from "./ToolCards";
 import AdContainer from "./Ad2Container";
 import { PROMPS_POPULAR_PDF_TOOLS, PROMPS_FREE_SEO_TOOLS } from "../utils/constants";
 
+
 const ThirdContainer = () => {
   return (
     <div className="container mt-10 mx-auto">
@@ -22,8 +23,8 @@ const ThirdContainer = () => {
         <AdContainer width={"w-[970px]"} height={"h-[90px]"} />
       </div>
       <p className=" text-center my-10 xm:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-        Why Choose <strong>FREE SEO TOOLS </strong>
-        Pdf?
+        Why Choose <strong>Our Tools</strong>
+        
       </p>
       <div className="flex justify-evenly  xm:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap">
         {PROMPS_FREE_SEO_TOOLS.map((SEO_TOOLS, index) => {
