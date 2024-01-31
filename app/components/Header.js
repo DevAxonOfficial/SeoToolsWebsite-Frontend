@@ -6,7 +6,6 @@ import { useState } from "react";
 import { ALL_TOOLS, ArrayOfUl } from "../utils/constants";
 import { Tools } from "../utils/constants";
 
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [icon, setIcon] = useState(true);
@@ -43,17 +42,17 @@ const Header = () => {
         </div>
         </div>
         <div className="sm:hidden  h-16 md:hidden lg:flex xs:hidden items-center mt-1 md:mt-0 md:mr-6 md:ml-0 ml-10">
-        <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
-          <button className="bg-transparent hover:shodow-lg text-black hover:text-black md:py-2 md:px-4 hover:border-transparent rounded md:text-base text-sm">
-            Login
-          </button>
+          <div className="flex ml-4 md:ml-0 md:mr-2 mr-24 ">
+            <button className="bg-transparent hover:shodow-lg text-black hover:text-black md:py-2 md:px-4 hover:border-transparent rounded md:text-base text-sm">
+              Login
+            </button>
+          </div>
+          <div className="flex">
+            <button className="bg-red-500 hover:bg-red-300 text-white md:font-bold font-semibold md:py-2 md:px-4 p-2 text-xs md:text-base rounded-xl md:-mr-0 ">
+              Sign Up
+            </button>
+          </div>
         </div>
-        <div className="flex">
-          <button className="bg-red-500 hover:bg-red-300 text-white md:font-bold font-semibold md:py-2 md:px-4 p-2 text-xs md:text-base rounded-xl md:-mr-0 ">
-            Sign Up
-          </button>
-        </div>
-      </div>
       </div>
       {isOpen &&
           <div className=" bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly" >
@@ -103,9 +102,9 @@ const Header = () => {
               </li>
             </ul>)
             })}
-            </p>
           </div>
-          }
+        </div>
+      )}
     </>
   );
 };

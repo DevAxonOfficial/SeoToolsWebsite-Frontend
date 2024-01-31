@@ -32,6 +32,7 @@ const HandleDragnDrop = ({
 
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
+          const fileExtension = file.name.split(".").pop().toLowerCase();
 
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
@@ -43,6 +44,50 @@ const HandleDragnDrop = ({
             } else if (fileType === "TXT" && file.type !== "text/plain") {
               toast.warn(
                 `File ${file.name} is not a TXT file and will be skipped.`
+              );
+              continue;
+            } else if (
+              fileType === "EXCEL" &&
+              !(
+                file.type ===
+                  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
+                file.type === "application/vnd.ms-excel"
+              )
+            ) {
+              toast.warn(
+                `File ${file.name} is not an Excel file and will be skipped.`
+              );
+              continue;
+            } else if (
+              fileType === "PPT" &&
+              !(
+                file.type ===
+                  "application/vnd.openxmlformats-officedocument.presentationml.presentation" ||
+                file.type === "application/vnd.ms-powerpoint"
+              )
+            ) {
+              toast.warn(
+                `File ${file.name} is not a PowerPoint file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "HTML" && file.type !== "text/html") {
+              toast.warn(
+                `File ${file.name} is not an HTML file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "PNG" && file.type !== "image/png") {
+              toast.warn(
+                `File ${file.name} is not a PNG file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "JPG" && file.type !== "image/jpeg") {
+              toast.warn(
+                `File ${file.name} is not a JPG file and will be skipped.`
+              );
+              continue;
+            } else if (fileType === "PSD" && fileExtension !== "psd") {
+              toast.warn(
+                `File ${file.name} is not a PSD file and will be skipped.`
               );
               continue;
             }

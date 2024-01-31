@@ -14,7 +14,7 @@ export const splitPDF = async (uniqueKey) => {
 
     return downloadUrl;
   } catch (error) {
-    console.log("Error Split PDF:", error);
+    return Response.error({ error }, { status: 500 });
   }
 };
 
@@ -28,7 +28,7 @@ export const mergePDF = async (fileNames) => {
 
     return downloadUrl;
   } catch (error) {
-    console.log("Error Merge PDF:", error);
+    return Response.error({ error }, { status: 500 });
   }
 };
 
@@ -46,7 +46,7 @@ export const compressPDF = async (
 
     return downloadUrl;
   } catch (error) {
-    console.log("Error Compress PDF:", error);
+    return Response.error({ error }, { status: 500 });
   }
 };
 
@@ -61,7 +61,7 @@ export const removePDF = async (key, ranges = "1") => {
 
     return downloadUrl;
   } catch (error) {
-    console.log("Error Merge PDF:", error);
+    return Response.error({ error }, { status: 500 });
   }
 };
 
@@ -73,6 +73,6 @@ export const anythingToPDF = async (uniqueKey) => {
 
     return downloadUrl;
   } catch (error) {
-    console.log("Error : ", error);
+    return Response.error({ error }, { status: 500 });
   }
 };
