@@ -313,19 +313,25 @@ export const Tools = [
   { Name: "Compress", Url: "/compress-pdf" },
   { Name: "Split", Url: "/split-pdf" },
 ];
-export const Slider=[{
-  bgColor:"bg-[#185058]",
-  heading:"Everything",
-},{
-  bgColor:"bg-[#f56767]",
-  heading:"Your Life",
-},{
-  bgColor:"bg-[#4bc5bc]",
-  heading:"Education",
-},{
-  bgColor:"bg-[#f492f6]",
-  heading:"Business",
-},{
-  bgColor:"bg-[#a981ff]",
-  heading:"SEO",
-}]
+export const Slider = [
+  {
+    bgColor: "bg-[#185058]",
+    heading: "Everything",
+  },
+  {
+    bgColor: "bg-[#f56767]",
+    heading: "Your Life",
+  },
+  {
+    bgColor: "bg-[#4bc5bc]",
+    heading: "Education",
+  },
+  {
+    bgColor: "bg-[#f492f6]",
+    heading: "Business",
+  },
+  {
+    bgColor: "bg-[#a981ff]",
+    heading: "SEO",
+  },
+];
