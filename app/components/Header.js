@@ -34,8 +34,8 @@ const Header = () => {
         </div>
         <div className="xm:hidden">
           <ul className="flex">
-            {Tools.map(Tool => (
-              <li>
+            {Tools.map((Tool, index) => (
+              <li key={index} >
               <Link className=" mx-4 font-semibold text-[#185058]" href={Tool.Url}>{Tool.Name}</Link>
             </li>
             ))}
