@@ -8,6 +8,7 @@ import {
 } from "../utils/constants";
 import AdScript from "../AdScript";
 
+
 const ThirdContainer = () => {
   return (
     <div className="container mt-10 mx-auto">
@@ -24,8 +25,8 @@ const ThirdContainer = () => {
         ))}
       </div>
       <p className=" text-center my-10 xm:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-        Why Choose <strong>FREE SEO TOOLS </strong>
-        Pdf?
+        Why Choose <strong>Our Tools</strong>
+        
       </p>
       <div className="flex justify-evenly  xm:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap">
         {PROMPS_FREE_SEO_TOOLS.map((SEO_TOOLS, index) => {

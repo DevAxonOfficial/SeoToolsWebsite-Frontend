@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import AdContainer from "./Ad2Container";
+import { Slider } from "../utils/constants";
 
 export const scrollToSection = () => {
   // Scroll to the section using JavaScript
@@ -17,10 +18,22 @@ export const Components = () => {
       <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    ">
         <div className="  sm:justify-center sm:items-center xm:ml-6 lg:ml-36 ">
           <p className="font-light py-8  xm:text-center xm:text-lg sm:text-center sm:mx-auto  sm:text-2xl   xl:text-[34px] lg:text-2xl lg:text-start  ">
-            <span className="font-bold lg:font-semibold xl:text-[42px] xm:text-xl  lg:text-2xl">
-              Simplify SEO
-            </span>
-            <span> with our</span>
+            <div className="font-bold lg:font-semibold xl:text-[42px] xm:text-xl  lg:text-2xl flex justify-center items-center overflow-hidden h-[50px]   text-left ">
+              Simplify
+              <div className=" ml-4   font-extrabold box-border animate-slider ">
+                {Slider.map((sliderAnimation, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`${sliderAnimation.bgColor} text-white text-center py-3 px-3 my-4`}
+                    >
+                      {sliderAnimation.heading}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <p className="mt-4">user-friendly approach</p>
           </p>
 
