@@ -2,7 +2,11 @@
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
 import { JPG_TOOL_PROPS } from "../utils/constants";
-
-const Page = () => <HandleDragnDrop {...JPG_TOOL_PROPS} />;
+import AdScript from "../AdScript";
+const Page = () => (
+  <>
+    <AdScript /> <HandleDragnDrop {...JPG_TOOL_PROPS} />;
+  </>
+);
 
 export default Page;
