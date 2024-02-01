@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { FiFileText } from "react-icons/fi";
 import "react-toastify/dist/ReactToastify.css";
 
 const HandleDragnDrop = ({
@@ -228,22 +229,6 @@ const HandleDragnDrop = ({
                   onChange={handleFileChange}
                   style={{ display: "none" }}
                 />
-                <div>
-                  <Image
-                    className="mx-auto"
-                    src="/img/Group12.png"
-                    alt="Google Drive Icone"
-                    width={45}
-                    height={45}
-                  />
-                  <Image
-                    className="mx-auto "
-                    src="/img/Group13.png"
-                    alt="Google Drive Icone"
-                    width={38}
-                    height={38}
-                  />
-                </div>
               </div>
               <span className="flex justify-center items-center  ">
                 or simply drag & drop files
@@ -257,13 +242,7 @@ const HandleDragnDrop = ({
             >
               <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
                 <div className="flex justify-center items-center ml-2">
-                  <Image
-                    src="/img/Group13.png"
-                    alt="Google Drive Icone"
-                    width={38}
-                    height={38}
-                  />
-
+                  <FiFileText className="text-2xl" />
                   {selectedFiles.length == 0 ? (
                     <p className="ml-4 ">Pdf File Name</p>
                   ) : (

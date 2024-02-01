@@ -62,7 +62,6 @@ const Header = () => {
       {isOpen && (
         <div className="bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly">
           <div className=" mb-4 text-sm font-semibold text-gray-500">
-            {" "}
             Convert And Compress
             {ALL_TOOLS.convert_and_compress.map((Tool, index) => {
               return (
@@ -87,7 +86,6 @@ const Header = () => {
             })}
           </div>
           <div className=" mb-4 text-sm font-semibold text-gray-500">
-            {" "}
             Organize
             {ALL_TOOLS.Organize.map((tool, index) => {
               return (
