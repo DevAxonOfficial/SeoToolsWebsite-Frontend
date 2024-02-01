@@ -1,17 +1,20 @@
 import React from "react";
 import Card from "./Card";
 import ToolCards from "./ToolCards";
-import AdContainer from "./Ad2Container";
+
 import {
   PROMPS_POPULAR_PDF_TOOLS,
   PROMPS_FREE_SEO_TOOLS,
+  adOptions2,
+  scriptSrc2,
 } from "../utils/constants";
 import AdScript from "../AdScript";
 
 const ThirdContainer = () => {
   return (
     <div className="container mt-10 mx-auto">
-      <AdScript />
+      <AdScript atOptions={adOptions2} scriptSrc={scriptSrc2} />
+
       <div id="targetSection">
         <h1 className="font-bold md:text-3xl text-[27px]  my-10 text-center ">
           Most Popular Pdf Tools

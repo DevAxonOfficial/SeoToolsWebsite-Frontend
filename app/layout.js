@@ -16,13 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/img/Logo3.png" />
+        <link rel="icon" href="/img/favicon.ico" />
       </head>
       <body className={inter.className}>
         <Header />
         {children}
         <Footer />
-        <Analytics />
+
+        {process.env === "production" && <Analytics />}
       </body>
       <TailwindIndicator />
     </html>
