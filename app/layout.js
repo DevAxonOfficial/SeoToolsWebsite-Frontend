@@ -16,9 +16,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" sizes="32x32" href="/img/favicon.ico" />
-        <link rel="icon" sizes="16x16" href="/img/favicon.ico" />
+        <link rel="icon" sizes="any" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="any"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="any"
+          href="/favicon-16x16.png"
+        />
       </head>
+
       <body className={inter.className}>
         <Header />
         {children}
