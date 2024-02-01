@@ -1,11 +1,12 @@
 "use client";
 
 import HandleDragnDrop from "../components/HandleDragnDrop";
-import { PSD_TOOL_PROPS } from "../utils/constants";
+import { PSD_TOOL_PROPS, adOptions3, scriptSrc3 } from "../utils/constants";
 import AdScript from "../AdScript";
 const Page = () => (
   <>
-    <AdScript /> <HandleDragnDrop {...PSD_TOOL_PROPS} />;
+    <AdScript atOptions={adOptions3} scriptSrc={scriptSrc3} />
+    <HandleDragnDrop {...PSD_TOOL_PROPS} />;
   </>
 );
 
