@@ -2,7 +2,7 @@ import { Inter, Helvetica } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import { TailwindIndicator } from "./components/TailwindIndicator";
-
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "../app/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
       <TailwindIndicator />
     </html>
