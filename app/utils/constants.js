@@ -286,18 +286,25 @@ export const ALL_TOOLS = {
       BgColor: "hover:bg-[#a981ff]",
     },
     {
-      UrlLink: "/txt-to-pdf",
-      Image: "/img/WORD.png",
-      Alt: "TXT To Pdf logo",
-      LiName: "TXT To Pdf",
-      BgColor: "hover:bg-[#a981ff]",
+      UrlLink: "/excel-to-pdf",
+      Image: "/img/Excel.png",
+      Alt: "Excel To Pdf logo",
+      LiName: "Excel To Pdf",
+      BgColor: "hover:bg-[#3ab15b]",
     },
     {
-      UrlLink: "/csv-to-pdf",
-      Image: "/img/WORD.png",
-      Alt: "CSV To Pdf logo",
-      LiName: "CSV To Pdf",
-      BgColor: "hover:bg-[#a981ff]",
+      UrlLink: "/ppt-to-pdf",
+      Image: "/img/Ppt.png",
+      Alt: "PPT To Pdf logo",
+      LiName: "PPT To Pdf",
+      BgColor: "hover:bg-[#ff6161]",
+    },
+    {
+      UrlLink: "/jpg-to-pdf",
+      Image: "/img/Jpeg.png",
+      Alt: "JPG To Pdf logo",
+      LiName: "JPG To Pdf",
+      BgColor: "hover:bg-[#f492f6]",
     },
   ],
 };
@@ -306,19 +313,25 @@ export const Tools = [
   { Name: "Compress", Url: "/compress-pdf" },
   { Name: "Split", Url: "/split-pdf" },
 ];
-export const Slider=[{
-  bgColor:"bg-[#185058]",
-  heading:"Everything",
-},{
-  bgColor:"bg-[#f56767]",
-  heading:"Your Life",
-},{
-  bgColor:"bg-[#4bc5bc]",
-  heading:"Education",
-},{
-  bgColor:"bg-[#f492f6]",
-  heading:"Business",
-},{
-  bgColor:"bg-[#a981ff]",
-  heading:"SEO",
-}]
+export const Slider = [
+  {
+    bgColor: "bg-[#185058]",
+    heading: "Everything",
+  },
+  {
+    bgColor: "bg-[#f56767]",
+    heading: "Your Life",
+  },
+  {
+    bgColor: "bg-[#4bc5bc]",
+    heading: "Education",
+  },
+  {
+    bgColor: "bg-[#f492f6]",
+    heading: "Business",
+  },
+  {
+    bgColor: "bg-[#a981ff]",
+    heading: "SEO",
+  },
+];

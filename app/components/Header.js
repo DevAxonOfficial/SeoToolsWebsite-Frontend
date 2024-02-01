@@ -61,13 +61,13 @@ const Header = () => {
       </div>
       {isOpen && (
         <div className="bg-[#F2F2F2] xm:pl-5 xm:block sm:flex justify-evenly">
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             Convert And Compress
             {ALL_TOOLS.convert_and_compress.map((Tool, index) => {
               return (
                 <ul key={index}>
                   <li
-                    className={` py-1 px-3 hover:cursor-pointer hover:${Tool.BgColor} hover:text-white rounded `}
+                    className={` py-1 px-3 hover:cursor-pointer ${Tool.BgColor} hover:text-white rounded `}
                   >
                     <Link href={`${Tool.UrlLink}`}>
                       <div className="flex items-center ">
@@ -84,14 +84,14 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          </div>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             Organize
             {ALL_TOOLS.Organize.map((tool, index) => {
               return (
                 <ul key={index}>
                   <li
-                    className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}
+                    className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
                   >
                     <Link href={`${tool.UrlLink}`}>
                       <div className="flex items-center ">
@@ -108,14 +108,14 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
-          <p className=" mb-4 text-sm font-semibold text-gray-500">
+          </div>
+          <div className=" mb-4 text-sm font-semibold text-gray-500">
             Convert to PDF
             {ALL_TOOLS.Convert_to_PDF.map((tool, index) => {
               return (
                 <ul key={index}>
                   <li
-                    className={`  py-1 px-3 hover:cursor-pointer hover:${tool.bgColor} hover:text-white rounded `}
+                    className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
                   >
                     <Link href={`${tool.UrlLink}`}>
                       <div className="flex items-center ">
@@ -132,7 +132,7 @@ const Header = () => {
                 </ul>
               );
             })}
-          </p>
+          </div>
         </div>
       )}
     </>
