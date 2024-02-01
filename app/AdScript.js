@@ -1,33 +1,21 @@
 "use client";
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 
-export default function AdScript() {
+export default function AdScript({ atOptions, scriptSrc }) {
   const banner = useRef();
-
-  const atOptions = useMemo(
-    () => ({
-      key: "1a26ef3314cb0fb63793eb96ad8c870c",
-      format: "iframe",
-      height: 60,
-      width: 468,
-      params: {},
-    }),
-    []
-  ); // Empty dependency array for one-time memoization
 
   useEffect(() => {
     if (banner.current && !banner.current.firstChild) {
       const conf = document.createElement("script");
       const script = document.createElement("script");
       script.type = "text/javascript";
-      script.src =
-        "//www.topcreativeformat.com/1a26ef3314cb0fb63793eb96ad8c870c/invoke.js";
+      script.src = scriptSrc;
       conf.innerHTML = `atOptions = ${JSON.stringify(atOptions)}`;
 
       banner.current.append(conf);
       banner.current.append(script);
     }
-  }, [banner, atOptions]);
+  }, [banner, atOptions, scriptSrc]);
 
   return (
     <div
