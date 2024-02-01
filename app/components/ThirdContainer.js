@@ -14,7 +14,6 @@ const ThirdContainer = () => {
   return (
     <div className="container mt-10 mx-auto">
       <AdScript atOptions={adOptions2} scriptSrc={scriptSrc2} />
-
       <div id="targetSection">
         <h1 className="font-bold md:text-3xl text-[27px]  my-10 text-center ">
           Most Popular Pdf Tools
