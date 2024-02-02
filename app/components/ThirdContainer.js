@@ -27,7 +27,7 @@ const ThirdContainer = () => {
           <ToolCards key={index} {...POPULAR_PDF_TOOLS} />
         ))}
       </div>
-      <AdScript atOptions={adOptions1} scriptSrc={scriptSrc1} />
+
       <p className=" text-center my-10 xm:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         Why Choose <strong>Our Tools</strong>
       </p>
