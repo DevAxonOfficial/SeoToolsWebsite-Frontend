@@ -334,32 +334,3 @@ export const Slider = [
   },
 ];
 
-export const adOptions1 = {
-  key: "1a26ef3314cb0fb63793eb96ad8c870c",
-  format: "iframe",
-  height: 80,
-  width: 628,
-  params: {},
-};
-export const scriptSrc1 =
-  "//www.topcreativeformat.com/1a26ef3314cb0fb63793eb96ad8c870c/invoke.js";
-
-export const adOptions2 = {
-  key: "32574d71c95c68d56e8efa676b6849a4",
-  format: "iframe",
-  height: 80,
-  width: 628,
-  params: {},
-};
-export const scriptSrc2 =
-  "//www.topcreativeformat.com/32574d71c95c68d56e8efa676b6849a4/invoke.js";
-
-export const adOptions3 = {
-  key: "bbd1e0f4c54c1cb2ae6f3aaabd762788",
-  format: "iframe",
-  height: 80,
-  width: 628,
-  params: {},
-};
-export const scriptSrc3 =
-  "//balmyrind.com/bbd1e0f4c54c1cb2ae6f3aaabd762788/invoke.js";
