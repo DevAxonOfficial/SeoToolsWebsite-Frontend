@@ -1,11 +1,12 @@
 "use client";
 import HandleDragnDrop from "../components/HandleDragnDrop";
-import { REMOVE_TOOL_PROPS, adOptions1, scriptSrc1 } from "../utils/constants";
-import AdScript from "../AdScript";
+import { REMOVE_TOOL_PROPS } from "../utils/constants";
+import {Adsterra,Adsterra1} from "../AdScript"
 const Page = () => (
   <>
-    <AdScript atOptions={adOptions1} scriptSrc={scriptSrc1} />
+    <Adsterra slot={"32574d71c95c68d56e8efa676b6849a4"} />
     <HandleDragnDrop {...REMOVE_TOOL_PROPS} />;
+    <Adsterra1 slot={"1a26ef3314cb0fb63793eb96ad8c870c"} />
   </>
 );
 

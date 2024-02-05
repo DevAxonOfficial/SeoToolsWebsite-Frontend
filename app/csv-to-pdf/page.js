@@ -1,13 +1,13 @@
 "use client";
-
-import AdScript from "../AdScript";
+import {Adsterra,Adsterra1} from "../AdScript"
 import HandleDragnDrop from "../components/HandleDragnDrop";
-import { CSV_TOOL_PROPS, adOptions2, scriptSrc2 } from "../utils/constants";
+import { CSV_TOOL_PROPS } from "../utils/constants";
 
 const Page = () => (
   <>
-    <AdScript atOptions={adOptions2} scriptSrc={scriptSrc2} />
+    <Adsterra slot={"32574d71c95c68d56e8efa676b6849a4"} />
     <HandleDragnDrop {...CSV_TOOL_PROPS} />;
+    <Adsterra1 slot={"1a26ef3314cb0fb63793eb96ad8c870c"} />
   </>
 );
 
