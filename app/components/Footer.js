@@ -61,6 +61,7 @@ const Footer = () => {
           <p className="mx-4">Terms & Conditions</p>
           <Link
             className="hover:underline"
+            target="_blank"
             href="https://devaxon.com/contactus/"
           >
             <p className="mx-4">Contact us</p>

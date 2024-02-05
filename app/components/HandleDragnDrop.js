@@ -14,6 +14,7 @@ const HandleDragnDrop = ({
   bgColor,
   fileType,
   BtnName,
+  acceptedFiles,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -241,6 +242,7 @@ const HandleDragnDrop = ({
                 </label>
                 <input
                   type="file"
+                  accept={`${acceptedFiles}`}
                   id="file-upload"
                   multiple={true}
                   onChange={handleFileChange}
