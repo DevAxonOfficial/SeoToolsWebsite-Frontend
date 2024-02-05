@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import AdContainer from "./Ad2Container";
 import { Slider } from "../utils/constants";
+import { Adsterra2 } from "../AdScript";
 
 export const scrollToSection = () => {
   // Scroll to the section using JavaScript
@@ -15,6 +16,7 @@ export const scrollToSection = () => {
 export const Components = () => {
   return (
     <>
+    <Adsterra2 slot={"bbd1e0f4c54c1cb2ae6f3aaabd762788"} />
       <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    ">
         <div className="  sm:justify-center sm:items-center xm:ml-6 lg:ml-36 ">
           <p className="font-light py-8  xm:text-center xm:text-lg sm:text-center sm:mx-auto  sm:text-2xl   xl:text-[34px] lg:text-2xl lg:text-start  ">
