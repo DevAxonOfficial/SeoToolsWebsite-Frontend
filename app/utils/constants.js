@@ -5,6 +5,8 @@ export const SPLIT_TOOL_PROPS = {
   toolSpec: " Split PDF",
   bgColor: "bg-[#DBF3F2]",
   apiEndpoint: "/api/splitPdf",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
 };
 export const REMOVE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle22.png",
@@ -13,6 +15,8 @@ export const REMOVE_TOOL_PROPS = {
   toolSpec: " Remove Pages",
   bgColor: "bg-[#FDF8E1]",
   apiEndpoint: "/api/removePdf",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
 };
 export const MERGE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle23.png",
@@ -21,6 +25,8 @@ export const MERGE_TOOL_PROPS = {
   toolSpec: " Merge PDF",
   bgColor: "bg-[#FDE1E1]",
   apiEndpoint: "/api/mergePdf",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
 };
 export const COMPRESS_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle25.png",
@@ -29,6 +35,8 @@ export const COMPRESS_TOOL_PROPS = {
   toolSpec: " Compress PDF",
   bgColor: "bg-[#EAEFF0]",
   apiEndpoint: "/api/compressPdf",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
 };
 export const WORD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle26.png",
@@ -37,6 +45,8 @@ export const WORD_TOOL_PROPS = {
   toolSpec: " Word To PDF",
   bgColor: "bg-[#EEE6FF]",
   apiEndpoint: "/api/wordToPdf",
+  BtnName: "Select Word File",
+  acceptedFiles: "application/msword",
 };
 export const CSV_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle32.png",
@@ -46,6 +56,8 @@ export const CSV_TOOL_PROPS = {
   bgColor: "bg-[#E9F4E5]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "CSV",
+  BtnName: "Select CSV File",
+  acceptedFiles: ".csv",
 };
 export const TXT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle33.png",
@@ -55,6 +67,8 @@ export const TXT_TOOL_PROPS = {
   bgColor: "bg-[#D2F6FC]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "TXT",
+  BtnName: "Select TXT File",
+  acceptedFiles: "text/plain",
 };
 export const EXCEL_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle34.png",
@@ -64,6 +78,8 @@ export const EXCEL_TOOL_PROPS = {
   bgColor: "bg-[#D8EFDE]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "EXCEL",
+  BtnName: "Select Excel File",
+  acceptedFiles: "application/vnd.ms-excel",
 };
 export const PPT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle35.png",
@@ -73,6 +89,8 @@ export const PPT_TOOL_PROPS = {
   bgColor: "bg-[#FFDFDF]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "PPT",
+  BtnName: "Select PPT File",
+  acceptedFiles: "application/vnd.ms-powerpoint",
 };
 export const HTML_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle36.png",
@@ -82,6 +100,8 @@ export const HTML_TOOL_PROPS = {
   bgColor: "bg-[#FFF4D6]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "HTML",
+  BtnName: "Select HTML File",
+  acceptedFiles: "text/html",
 };
 export const PNG_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle39.png",
@@ -91,6 +111,8 @@ export const PNG_TOOL_PROPS = {
   bgColor: "bg-[#FDF8E1]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "PNG",
+  BtnName: "Select PNG File",
+  acceptedFiles: "image/*",
 };
 export const JPG_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle38.png",
@@ -100,6 +122,8 @@ export const JPG_TOOL_PROPS = {
   bgColor: "bg-[#FDE9FD]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "JPG",
+  BtnName: "Select JPG File",
+  acceptedFiles: "image/*",
 };
 export const PSD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle37.png",
@@ -109,6 +133,8 @@ export const PSD_TOOL_PROPS = {
   bgColor: "bg-[#D3E9F3]",
   apiEndpoint: "/api/anythingToPdf",
   fileType: "PSD",
+  BtnName: "Select PSD File",
+  acceptedFiles: ".psd",
 };
 export const PROMPS_POPULAR_PDF_TOOLS = [
   {
