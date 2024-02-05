@@ -59,7 +59,12 @@ const Footer = () => {
         </div>
         <div className="flex mr-5 items-center xm:text-xs">
           <p className="mx-4">Terms & Conditions</p>
-          <p className="mx-4">Contact us</p>
+          <Link
+            className="hover:underline"
+            href="https://devaxon.com/contactus/"
+          >
+            <p className="mx-4">Contact us</p>
+          </Link>
           <p className="flex items-center mx-4">
             <AiOutlineGlobal className="w-[30px] h-[30px]" /> English
           </p>

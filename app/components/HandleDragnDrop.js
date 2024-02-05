@@ -13,6 +13,7 @@ const HandleDragnDrop = ({
   apiEndpoint,
   bgColor,
   fileType,
+  BtnName,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -220,7 +221,7 @@ const HandleDragnDrop = ({
                   htmlFor="file-upload"
                   className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
                 >
-                  Select Pdf File
+                  {BtnName}
                 </label>
                 <input
                   type="file"
