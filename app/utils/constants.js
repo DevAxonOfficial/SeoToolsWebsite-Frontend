@@ -46,7 +46,8 @@ export const WORD_TOOL_PROPS = {
   bgColor: "bg-[#EEE6FF]",
   apiEndpoint: "/api/wordToPdf",
   BtnName: "Select Word File",
-  acceptedFiles: "application/msword",
+  acceptedFiles:
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 };
 export const CSV_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle32.png",
@@ -359,4 +360,3 @@ export const Slider = [
     heading: "SEO",
   },
 ];
-
