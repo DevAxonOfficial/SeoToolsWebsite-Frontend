@@ -42,20 +42,20 @@ const HandleDragnDrop = ({
             if (files.length > 1) {
               toast.warn("Please select only one file.");
               setLoader(false);
-              break;
+              return;
             }
             if (fileType === "CSV" && file.type !== "text/csv") {
               toast.warn(
                 `File ${file.name} is not a CSV file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "TXT" && file.type !== "text/plain") {
               toast.warn(
                 `File ${file.name} is not a TXT file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (
               fileType === "EXCEL" &&
               !(
@@ -68,7 +68,7 @@ const HandleDragnDrop = ({
                 `File ${file.name} is not an Excel file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (
               fileType === "PPT" &&
               !(
@@ -81,37 +81,37 @@ const HandleDragnDrop = ({
                 `File ${file.name} is not a PowerPoint file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "HTML" && file.type !== "text/html") {
               toast.warn(
                 `File ${file.name} is not an HTML file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "SVG" && file.type !== "image/svg+xml") {
               toast.warn(
                 `File ${file.name} is not an SVG file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "PNG" && file.type !== "image/png") {
               toast.warn(
                 `File ${file.name} is not a PNG file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "JPG" && file.type !== "image/jpeg") {
               toast.warn(
                 `File ${file.name} is not a JPG file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "PSD" && fileExtension !== "psd") {
               toast.warn(
                 `File ${file.name} is not a PSD file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             }
             if (file.size <= maxFileSize) {
               formData.append("files", file);
@@ -122,7 +122,7 @@ const HandleDragnDrop = ({
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             }
           } else if (apiEndpoint === "/api/wordToPdf") {
             // If the endpoint is for wordToPdf, accept only Word files
@@ -140,7 +140,7 @@ const HandleDragnDrop = ({
                   `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
                 );
                 setLoader(false);
-                break;
+                return;
               }
             } else {
               toast.warn(
