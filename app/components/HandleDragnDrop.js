@@ -42,20 +42,20 @@ const HandleDragnDrop = ({
             if (files.length > 1) {
               toast.warn("Please select only one file.");
               setLoader(false);
-              break;
+              return;
             }
             if (fileType === "CSV" && file.type !== "text/csv") {
               toast.warn(
                 `File ${file.name} is not a CSV file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "TXT" && file.type !== "text/plain") {
               toast.warn(
                 `File ${file.name} is not a TXT file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (
               fileType === "EXCEL" &&
               !(
@@ -68,7 +68,7 @@ const HandleDragnDrop = ({
                 `File ${file.name} is not an Excel file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (
               fileType === "PPT" &&
               !(
@@ -81,31 +81,37 @@ const HandleDragnDrop = ({
                 `File ${file.name} is not a PowerPoint file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "HTML" && file.type !== "text/html") {
               toast.warn(
                 `File ${file.name} is not an HTML file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
+            } else if (fileType === "SVG" && file.type !== "image/svg+xml") {
+              toast.warn(
+                `File ${file.name} is not an SVG file and will be skipped.`
+              );
+              setLoader(false);
+              return;
             } else if (fileType === "PNG" && file.type !== "image/png") {
               toast.warn(
                 `File ${file.name} is not a PNG file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "JPG" && file.type !== "image/jpeg") {
               toast.warn(
                 `File ${file.name} is not a JPG file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             } else if (fileType === "PSD" && fileExtension !== "psd") {
               toast.warn(
                 `File ${file.name} is not a PSD file and will be skipped.`
               );
               setLoader(false);
-              break;
+              return;
             }
             if (file.size <= maxFileSize) {
               formData.append("files", file);
@@ -115,6 +121,7 @@ const HandleDragnDrop = ({
               toast.error(
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
+              setLoader(false);
               return;
             }
           } else if (apiEndpoint === "/api/wordToPdf") {
@@ -132,7 +139,7 @@ const HandleDragnDrop = ({
                 toast.error(
                   `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
                 );
-
+                setLoader(false);
                 return;
               }
             } else {
@@ -152,6 +159,7 @@ const HandleDragnDrop = ({
                 toast.error(
                   `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
                 );
+                setLoader(false);
                 return;
               }
             } else {
@@ -173,6 +181,7 @@ const HandleDragnDrop = ({
           setDownload(downloadUrl);
         } else {
           toast.warn("No valid files selected.");
+          setLoader(false);
         }
       } catch (error) {
         console.error("Error processing files:", error);
@@ -236,7 +245,7 @@ const HandleDragnDrop = ({
               <div className=" flex justify-center ">
                 <label
                   htmlFor="file-upload"
-                  className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+                  className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-[#4BC5BC] rounded-full text-white font-semibold"
                 >
                   {BtnName}
                 </label>

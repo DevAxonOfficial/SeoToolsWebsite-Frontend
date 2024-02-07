@@ -147,6 +147,16 @@ export const PDF_TOOL_PROPS = {
   BtnName: "Select PDF File",
   acceptedFiles: "application/pdf",
 };
+export const SVG_TOOL_PROPS = {
+  backgroundImage: "/img/SVGBack.png",
+  logoImage: "/img/SVG.png",
+  toolName: "SVG To PDF",
+  toolSpec: " SVG To PDF",
+  bgColor: "bg-[#F7E4F7]",
+  apiEndpoint: "/api/anythingToPdf",
+  BtnName: "Select SVG File",
+  acceptedFiles: "image/svg+xml",
+};
 export const PROMPS_POPULAR_PDF_TOOLS = [
   {
     bgcolor: "#e4fbfe",
@@ -245,6 +255,13 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     heading: "PDF to Word",
     img2: "/img/Group41.png",
     Link: "/pdf-to-word",
+  },
+  {
+    bgcolor: "#f7e4f7",
+    logoimage: "/img/SVG.png",
+    heading: "SVG to PDF",
+    img2: "/img/SVGArrow.png",
+    Link: "/svg-to-pdf",
   },
 ];
 
