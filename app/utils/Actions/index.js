@@ -76,3 +76,16 @@ export const anythingToPDF = async (uniqueKey) => {
     return Response.error({ error }, { status: 500 });
   }
 };
+export const pdfToWord = async (fileName) => {
+  try {
+    const apiEndpoint = `${API_ENDPOINT2}/pdf-to-word`;
+    const apiResponse = await axios.post(apiEndpoint, {
+      key: fileName,
+    });
+    const downloadUrl = apiResponse.data.download_url;
+
+    return downloadUrl;
+  } catch (error) {
+    return Response.error({ error }, { status: 500 });
+  }
+};
