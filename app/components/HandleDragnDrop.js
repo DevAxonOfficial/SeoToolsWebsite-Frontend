@@ -88,6 +88,12 @@ const HandleDragnDrop = ({
               );
               setLoader(false);
               break;
+            } else if (fileType === "SVG" && file.type !== "image/svg+xml") {
+              toast.warn(
+                `File ${file.name} is not an SVG file and will be skipped.`
+              );
+              setLoader(false);
+              break;
             } else if (fileType === "PNG" && file.type !== "image/png") {
               toast.warn(
                 `File ${file.name} is not a PNG file and will be skipped.`
@@ -115,7 +121,8 @@ const HandleDragnDrop = ({
               toast.error(
                 `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
               );
-              return;
+              setLoader(false);
+              break;
             }
           } else if (apiEndpoint === "/api/wordToPdf") {
             // If the endpoint is for wordToPdf, accept only Word files
@@ -132,8 +139,8 @@ const HandleDragnDrop = ({
                 toast.error(
                   `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
                 );
-
-                return;
+                setLoader(false);
+                break;
               }
             } else {
               toast.warn(
@@ -152,6 +159,7 @@ const HandleDragnDrop = ({
                 toast.error(
                   `File ${file.name} exceeds the maximum size of 5 MB and will be skipped.`
                 );
+                setLoader(false);
                 return;
               }
             } else {
@@ -173,6 +181,7 @@ const HandleDragnDrop = ({
           setDownload(downloadUrl);
         } else {
           toast.warn("No valid files selected.");
+          setLoader(false);
         }
       } catch (error) {
         console.error("Error processing files:", error);
@@ -236,7 +245,7 @@ const HandleDragnDrop = ({
               <div className=" flex justify-center ">
                 <label
                   htmlFor="file-upload"
-                  className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-gray-400 rounded-full text-white font-semibold"
+                  className="sm:px-14 sm:py-7 xm:p-7  text-center hover:cursor-pointer  bg-[#4BC5BC] rounded-full text-white font-semibold"
                 >
                   {BtnName}
                 </label>
