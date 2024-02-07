@@ -137,6 +137,26 @@ export const PSD_TOOL_PROPS = {
   BtnName: "Select PSD File",
   acceptedFiles: ".psd",
 };
+export const PDF_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle40.png",
+  logoImage: "/img/pdf-to-word.png",
+  toolName: "PDF To Word",
+  toolSpec: " PDF To Word",
+  bgColor: "bg-[#d8edf9]",
+  apiEndpoint: "/api/pdfToWord",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
+};
+export const SVG_TOOL_PROPS = {
+  backgroundImage: "/img/SVGBack.png",
+  logoImage: "/img/SVG.png",
+  toolName: "SVG To PDF",
+  toolSpec: " SVG To PDF",
+  bgColor: "bg-[#F7E4F7]",
+  apiEndpoint: "/api/anythingToPdf",
+  BtnName: "Select SVG File",
+  acceptedFiles: "image/svg+xml",
+};
 export const PROMPS_POPULAR_PDF_TOOLS = [
   {
     bgcolor: "#e4fbfe",
@@ -235,6 +255,18 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     heading: "Reverse Image",
     img2: "/img/ReverseImageArrow.png",
     Link: "/reverse-image-search",
+    bgcolor: "#d8edf9",
+    logoimage: "/img/pdf-to-word.png",
+    heading: "PDF to Word",
+    img2: "/img/Group41.png",
+    Link: "/pdf-to-word",
+  },
+  {
+    bgcolor: "#f7e4f7",
+    logoimage: "/img/SVG.png",
+    heading: "SVG to PDF",
+    img2: "/img/SVGArrow.png",
+    Link: "/svg-to-pdf",
   },
 ];
 

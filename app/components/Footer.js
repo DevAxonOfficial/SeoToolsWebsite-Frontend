@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <div className="py-10 bg-[#F7F7F7] mt-20 xm:block sm:flex sm:flex-wrap xl:justify-between xm:justify-center sm:justify-center ">
       <p className="flex  justify-center items-center xl:ml-10 xm:text-xs">
-        <LiaCopyright className="w-8 h-8" /> SEOTOOLS by Devaxon - Made with
+        <LiaCopyright className="w-8 h-8" /> SEOTOOLS by DevAxon - Made with
         <GoHeartFill className="text-red-600 w-5 h-5 mx-1" /> for our people
       </p>
       <div className="flex  flex-wrap lg:ml-3 xm:justify-center xm:my-2  sm:mt-2 sm:justify-center items-center">
