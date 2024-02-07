@@ -1,5 +1,4 @@
-import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
-const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+import { S3Client,PutObjectCommand} from "@aws-sdk/client-s3";
 
 const client = new S3Client({
   apiVersion: "2006-03-01",
@@ -20,20 +19,20 @@ export const uploadToS3 = async (file, fileName, bucket = BUCKET) => {
       Bucket: bucket,
       Key: uniqueKey,
       Body: file,
-      ContentType: file.type
+      ContentType: file.type,
     });
 
-    const response = await client.send(putCommand)
+    const response = await client.send(putCommand);
     return response;
   } catch (error) {
     return Response.error({ error }, { status: 500 });
   }
 };
- const imgBucket = "images-raw-seo"
+const imgBucket = "images-raw-seo";
 
 export const getPreSignedURL = (key) => {
   try {
-    return `https://${imgBucket}.s3.amazonaws.com/${key}`
+    return `https://${imgBucket}.s3.amazonaws.com/${key}`;
   } catch (error) {
     return Response.error({ error }, { status: 500 });
   }

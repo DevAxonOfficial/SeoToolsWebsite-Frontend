@@ -11,6 +11,7 @@ export async function POST(req) {
         const fileBuffer = await files[i].arrayBuffer();
         await uploadToS3(fileBuffer, fileName);
       }
+      return Response.json({ });
     }
       catch (error) {
         return Response.error({ error }, { status: 500 });
