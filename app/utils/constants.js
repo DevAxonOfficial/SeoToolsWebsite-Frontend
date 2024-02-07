@@ -263,7 +263,7 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     img2: "/img/Group41.png",
     Link: "/pdf-to-word",
   },
-  {
+{
     bgcolor: "#f7e4f7",
     logoimage: "/img/SVG.png",
     heading: "SVG to PDF",
