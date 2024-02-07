@@ -255,13 +255,15 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     heading: "Reverse Image",
     img2: "/img/ReverseImageArrow.png",
     Link: "/reverse-image-search",
+  },
+  {
     bgcolor: "#d8edf9",
     logoimage: "/img/pdf-to-word.png",
     heading: "PDF to Word",
     img2: "/img/Group41.png",
     Link: "/pdf-to-word",
   },
-  {
+{
     bgcolor: "#f7e4f7",
     logoimage: "/img/SVG.png",
     heading: "SVG to PDF",
