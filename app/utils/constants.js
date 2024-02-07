@@ -229,6 +229,13 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     img2: "/img/Group40.png",
     Link: "/png-to-pdf",
   },
+  {
+    bgcolor: "#dce0fc",
+    logoimage: "/img/ReverseImage.png",
+    heading: "Reverse Image",
+    img2: "/img/ReverseImageArrow.png",
+    Link: "/reverse-image-search",
+  },
 ];
 
 export const PROMPS_FREE_SEO_TOOLS = [
