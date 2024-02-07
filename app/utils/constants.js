@@ -137,6 +137,16 @@ export const PSD_TOOL_PROPS = {
   BtnName: "Select PSD File",
   acceptedFiles: ".psd",
 };
+export const PDF_TOOL_PROPS = {
+  backgroundImage: "/img/Rectangle40.png",
+  logoImage: "/img/pdf-to-word.png",
+  toolName: "PDF To Word",
+  toolSpec: " PDF To Word",
+  bgColor: "bg-[#d8edf9]",
+  apiEndpoint: "/api/pdfToWord",
+  BtnName: "Select PDF File",
+  acceptedFiles: "application/pdf",
+};
 export const PROMPS_POPULAR_PDF_TOOLS = [
   {
     bgcolor: "#e4fbfe",
@@ -228,6 +238,13 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     heading: "PNG to Pdf",
     img2: "/img/Group40.png",
     Link: "/png-to-pdf",
+  },
+  {
+    bgcolor: "#d8edf9",
+    logoimage: "/img/pdf-to-word.png",
+    heading: "PDF to Word",
+    img2: "/img/Group41.png",
+    Link: "/pdf-to-word",
   },
 ];
 
