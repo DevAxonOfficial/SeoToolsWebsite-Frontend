@@ -61,7 +61,9 @@ const HandleDragnDrop = ({
               !(
                 file.type ===
                   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
-                file.type === "application/vnd.ms-excel"
+                file.type === "application/vnd.ms-excel" ||
+                file.name.endsWith(".xls") ||
+                file.name.endsWith(".xlsx")
               )
             ) {
               toast.warn(

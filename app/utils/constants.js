@@ -80,7 +80,7 @@ export const EXCEL_TOOL_PROPS = {
   apiEndpoint: "/api/anythingToPdf",
   fileType: "EXCEL",
   BtnName: "Select Excel File",
-  acceptedFiles: "application/vnd.ms-excel",
+  acceptedFiles: ".xls, .xlsx, application/vnd.ms-excel",
 };
 export const PPT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle35.png",
@@ -263,7 +263,7 @@ export const PROMPS_POPULAR_PDF_TOOLS = [
     img2: "/img/Group41.png",
     Link: "/pdf-to-word",
   },
-{
+  {
     bgcolor: "#f7e4f7",
     logoimage: "/img/SVG.png",
     heading: "SVG to PDF",
