@@ -145,5 +145,16 @@ export const AdsterraSocialBarAd = () => {
     };
   }, []);
 
-  return <div id="adsterra-social-bar-ad"></div>;
+  return (
+    <div
+      id="adsterra-social-bar-ad"
+      style={{
+        position: "fixed",
+        bottom: 0,
+        right: 0,
+        margin: "10px", // Adjust margin as needed
+        zIndex: 9999, // Ensure the ad appears above other elements
+      }}
+    ></div>
+  );
 };
