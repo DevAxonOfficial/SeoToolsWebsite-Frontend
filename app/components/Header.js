@@ -1,11 +1,10 @@
 "use client";
-import { FaCaretDown,FaCaretUp } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ALL_TOOLS, ArrayOfUl } from "../utils/constants";
 import { Tools } from "../utils/constants";
-
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +25,15 @@ const Header = () => {
             </Link>
           </div>
           <div className="hover:cursor-pointer mx-6 " onClick={toggleDropdown}>
-            {isOpen ? <p className="text-blue-400 flex font-bold">
-              ALL Tools <FaCaretUp  className="text-blue-400 text-2xl" />
-            </p> : <p className="text-[#185058] flex font-bold">
-              ALL Tools <FaCaretDown className="text-red-500 text-2xl" /> 
-            </p>}
-            
+            {isOpen ? (
+              <p className="text-blue-400 flex font-bold">
+                ALL Tools <FaCaretUp className="text-blue-400 text-2xl" />
+              </p>
+            ) : (
+              <p className="text-[#185058] flex font-bold">
+                ALL Tools <FaCaretDown className="text-red-500 text-2xl" />
+              </p>
+            )}
           </div>
           <div className="xm:hidden">
             <ul className="flex">
@@ -73,7 +75,7 @@ const Header = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute w-screen shadow-2xl bg-[#f2efef] xm:pl-5 xm:block sm:flex justify-evenly">
+        <div className="absolute w-full shadow-2xl bg-[#f2efef] xm:pl-5 xm:block sm:flex justify-evenly">
           <div className=" mb-4 text-sm font-semibold text-gray-500">
             Convert & Compress
             {ALL_TOOLS.convert_and_compress.map((Tool, index) => {
@@ -82,8 +84,11 @@ const Header = () => {
                   <li
                     className={` py-1 px-3 hover:cursor-pointer ${Tool.BgColor} hover:text-white rounded `}
                   >
-                    <Link  href={`${Tool.UrlLink}`}>
-                      <div onClick={toggleDropdown} className="flex items-center ">
+                    <Link href={`${Tool.UrlLink}`}>
+                      <div
+                        onClick={toggleDropdown}
+                        className="flex items-center "
+                      >
                         <Image
                           src={Tool.Image}
                           alt={Tool.Alt}
@@ -107,7 +112,10 @@ const Header = () => {
                     className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
                   >
                     <Link href={`${tool.UrlLink}`}>
-                      <div onClick={toggleDropdown} className="flex items-center ">
+                      <div
+                        onClick={toggleDropdown}
+                        className="flex items-center "
+                      >
                         <Image
                           src={tool.Image}
                           alt={tool.Alt}
@@ -131,7 +139,10 @@ const Header = () => {
                     className={`  py-1 px-3 hover:cursor-pointer ${tool.BgColor} hover:text-white rounded `}
                   >
                     <Link href={`${tool.UrlLink}`}>
-                      <div onClick={toggleDropdown} className="flex items-center ">
+                      <div
+                        onClick={toggleDropdown}
+                        className="flex items-center "
+                      >
                         <Image
                           src={tool.Image}
                           alt={tool.Alt}

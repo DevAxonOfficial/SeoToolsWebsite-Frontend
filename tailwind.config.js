@@ -22,6 +22,8 @@ module.exports = {
       screens: {
         xm: { min: "360px", max: "639px" },
         xs: { min: "200px", max: "639px" },
+        ms: { min: "692px", max: "1350px" },
+        xt: { min: "673px", max: "923px" },
       },
       colors: {
         border: "hsl(var(--border))",

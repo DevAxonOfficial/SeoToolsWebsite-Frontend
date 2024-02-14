@@ -5,7 +5,7 @@ import {
   PROMPS_POPULAR_PDF_TOOLS,
   PROMPS_FREE_SEO_TOOLS,
 } from "../utils/constants";
-import { Adsterra, Adsterra1} from "../AdScript";
+import { Adsterra, Adsterra1 } from "../AdScript";
 
 const ThirdContainer = () => {
   return (
@@ -16,7 +16,7 @@ const ThirdContainer = () => {
           Most Popular Pdf Tools
         </h1>
       </div>
-      <div className="xs:grid xm:grid-cols-1 sm:grid sm:grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-6 -mx-4  ">
+      <div className="xs:grid xm:grid-cols-1 sm:grid sm:grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-6 ms:grid ms:grid-cols-4 xt:grid-cols-3 -mx-4  ">
         {PROMPS_POPULAR_PDF_TOOLS.map((POPULAR_PDF_TOOLS, index) => (
           <ToolCards key={index} {...POPULAR_PDF_TOOLS} />
         ))}
@@ -30,7 +30,6 @@ const ThirdContainer = () => {
           return <Card key={index} {...SEO_TOOLS} />;
         })}
       </div>
-      
     </div>
   );
 };
