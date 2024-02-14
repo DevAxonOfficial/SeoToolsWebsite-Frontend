@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { TailwindIndicator } from "./components/TailwindIndicator";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "../app/components/Footer";
+import { AdsterraSocialBarAd } from "./AdScript";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Header />
         {children}
+        <AdsterraSocialBarAd />
         <Footer />
 
         {process.env === "production" && <Analytics />}

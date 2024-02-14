@@ -130,3 +130,20 @@ export const Adsterra2 = ({ slot }) => {
     </>
   );
 };
+
+export const AdsterraSocialBarAd = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "//balmyrind.com/c4/61/a1/c461a1e31aa51af7a2cfc2b9f88a73c8.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script when the component is unmounted
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return <div id="adsterra-social-bar-ad"></div>;
+};
