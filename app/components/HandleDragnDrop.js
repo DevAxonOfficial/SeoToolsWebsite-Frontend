@@ -170,6 +170,14 @@ const HandleDragnDrop = ({
             }
           }
         }
+        if (apiEndpoint === "/api/mergePdf") {
+          // For mergepdf endpoint, ensure at least two files are selected
+          if (files.length < 2) {
+            toast.warn("Please select at least two PDF files for merging.");
+            setLoader(false);
+            return;
+          }
+        }
 
         if (formData.has("files")) {
           formData.append("fileNames", JSON.stringify(fileNames));
