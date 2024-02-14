@@ -14,15 +14,26 @@ const Page = () => {
   const [imagePreview, setImagePreview] = useState();
   const handleFileChange = async (event) => {
     const file = event.target.files || event.dataTransfer.files;
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(file[0]);
 
-    const fileName = file[0].name;
-    setuserFileName(`${fileName}`);
-    if (file && file.length <= 1) {
+    if (file && file.length > 0) {
+      const allowedTypes = ["image/jpeg", "image/png"]; // Allowed file types
+
+      const fileType = file[0].type;
+      if (!allowedTypes.includes(fileType)) {
+        // Display an error message or handle the invalid file type accordingly
+        toast.error("Invalid file type. Please upload a PNG or JPG file.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file[0]);
+
+      const fileName = file[0].name;
+      setuserFileName(`${fileName}`);
+
       try {
         const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
         if (file[0].size <= maxFileSize) {
@@ -39,6 +50,7 @@ const Page = () => {
       }
     }
   };
+
   const handleDrop = async (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -47,7 +59,7 @@ const Page = () => {
       await handleFileChange(event);
       return;
     } else if (files.length > 0) {
-      toast.warn("DSADASD");
+      toast.warn("Select only 1 file.");
     }
   };
   const handleDragOver = (event) => {
@@ -94,7 +106,6 @@ const Page = () => {
                   width={90}
                   height={90}
                 />
-                
               </div>
               <p className=" text-center font-bold text-3xl">
                 REVERSE IMAGE SEARCH
@@ -112,7 +123,7 @@ const Page = () => {
                 </label>
                 <input
                   type="file"
-                  accept="image/*"
+                  accept=".jpg, .jpeg, .png"
                   id="file-upload"
                   onChange={handleFileChange}
                   style={{ display: "none" }}
@@ -137,54 +148,53 @@ const Page = () => {
               height={353}
             />
           </div>
-          <div className="pl-10 border py-8 px-10 border-gray-300" >
+          <div className="pl-10 border py-8 px-10 border-gray-300">
             <div className="flex  items-center  my-6">
               <div>
                 <FaGoogle className="text-white bg-[#3490dc] w-[50px] h-[50px] p-1" />
               </div>
               <div className="pl-3">
                 <p>Similar Images according to Google</p>
-                  <a
-                   className="text-white bg-[#3490dc] px-7 py-1 rounded-lg"
-                    href={`https://lens.google.com/uploadbyurl?url=${url}`}
-                    target="blank"
-                  >
-                     Search Matches
-                  </a>
+                <a
+                  className="text-white bg-[#3490dc] px-7 py-1 rounded-lg"
+                  href={`https://lens.google.com/uploadbyurl?url=${url}`}
+                  target="blank"
+                >
+                  Search Matches
+                </a>
               </div>
             </div>
             <div className="flex items-center  my-6">
               <div>
-              <DiBingSmall className="text-white bg-[#008373] w-[50px] h-[50px] p-1" />
+                <DiBingSmall className="text-white bg-[#008373] w-[50px] h-[50px] p-1" />
               </div>
               <div className="pl-3">
                 <p>Similar Images according to Bing</p>
-                  <a
+                <a
                   className="text-white bg-[#008373] px-7 py-1 rounded-lg"
-                    href={`https://www.bing.com/images/search?view=detailv2&iss=sbi&form=SBIVSP&sbisrc=UrlPaste&q=imgurl:${url}`}
-                    target="blank"
-                  >
-                    Search Matches
-                  </a>
+                  href={`https://www.bing.com/images/search?view=detailv2&iss=sbi&form=SBIVSP&sbisrc=UrlPaste&q=imgurl:${url}`}
+                  target="blank"
+                >
+                  Search Matches
+                </a>
               </div>
             </div>
             <div className="flex  items-center  my-6 ">
-              <div> 
+              <div>
                 <FaYandexInternational className="text-white bg-[#e3342f] w-[50px] h-[50px] p-1" />
               </div>
               <div className="pl-3">
                 <p>Similar Images according to Yandex</p>
-                  <a
+                <a
                   className="text-white bg-[#e3342f] px-7 py-1 rounded-lg"
-                    href={`https://yandex.com/images/search?source=collections&url=${url}`}
-                    target="blank"
-                  >
-                    Search Matches
-                  </a>
+                  href={`https://yandex.com/images/search?source=collections&url=${url}`}
+                  target="blank"
+                >
+                  Search Matches
+                </a>
               </div>
             </div>
           </div>
-          
         </div>
       )}
     </>
