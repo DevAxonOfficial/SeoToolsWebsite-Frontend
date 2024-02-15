@@ -139,22 +139,46 @@ export const AdsterraSocialBarAd = () => {
     script.async = true;
     document.head.appendChild(script);
 
+    // Additional logic to adjust the ad position after script load
+    script.onload = () => {
+      const adsterraContainer = document.getElementById(
+        "adsterra-social-bar-ad"
+      );
+      if (adsterraContainer) {
+        adsterraContainer.classList.add(
+          "fixed",
+          "bottom-0",
+          "right-0",
+          "m-10",
+          "z-50"
+        );
+      }
+    };
+
     return () => {
       // Cleanup script when the component is unmounted
       document.head.removeChild(script);
     };
   }, []);
 
-  return (
-    <div
-      id="adsterra-social-bar-ad"
-      style={{
-        position: "fixed",
-        bottom: 0,
-        right: 0,
-        margin: "10px", // Adjust margin as needed
-        zIndex: 9999, // Ensure the ad appears above other elements
-      }}
-    ></div>
-  );
+  return <div id="adsterra-social-bar-ad"></div>;
+};
+
+export const PopUnderAd = () => {
+  useEffect(() => {
+    // Load the pop-under ad script when the component mounts
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "//pl22348080.toprevenuegate.com/01/ed/3c/01ed3cf3664a31413433412bb5f8bed6.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Cleanup the script when the component unmounts
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return null; // PopUnderAd component doesn't render anything
 };
