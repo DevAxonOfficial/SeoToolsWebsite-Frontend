@@ -166,7 +166,6 @@ export const AdsterraSocialBarAd = () => {
 
 export const PopUnderAd = () => {
   useEffect(() => {
-    // Load the pop-under ad script when the component mounts
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.src =
@@ -174,11 +173,33 @@ export const PopUnderAd = () => {
     script.async = true;
     document.head.appendChild(script);
 
-    // Cleanup the script when the component unmounts
     return () => {
       document.head.removeChild(script);
     };
   }, []);
 
-  return null; // PopUnderAd component doesn't render anything
+  return null;
+};
+
+export const NativeBanner = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src =
+      "//pl22348347.toprevenuegate.com/7d1f24d96b93385c60fccb44cde42705/invoke.js";
+    document
+      .getElementById("container-7d1f24d96b93385c60fccb44cde42705")
+      .appendChild(script);
+
+    return () => {
+      // Cleanup code if necessary
+    };
+  }, []);
+
+  return (
+    <div
+      className="mt-10"
+      id="container-7d1f24d96b93385c60fccb44cde42705"
+    ></div>
+  );
 };
