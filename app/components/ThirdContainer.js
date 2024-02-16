@@ -5,7 +5,7 @@ import {
   PROMPS_POPULAR_PDF_TOOLS,
   PROMPS_FREE_SEO_TOOLS,
 } from "../utils/constants";
-import { Adsterra, Adsterra1 } from "../AdScript";
+import { Adsterra, Adsterra1, NativeBanner } from "../AdScript";
 
 const ThirdContainer = () => {
   return (
@@ -30,6 +30,7 @@ const ThirdContainer = () => {
           return <Card key={index} {...SEO_TOOLS} />;
         })}
       </div>
+      <NativeBanner />
     </div>
   );
 };
