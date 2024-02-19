@@ -5,6 +5,8 @@ import { TailwindIndicator } from "./components/TailwindIndicator";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "../app/components/Footer";
 import { AdsterraSocialBarAd } from "./AdScript";
+import Image from "next/image";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,11 +34,13 @@ export default function RootLayout({ children }) {
         />
 
         {/* Google tag (gtag.js) */}
-        <script
+        <Script
+        id="google_tag"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-BEE6K8PYPF"
-        ></script>
-        <script
+        />
+        <Script
+        id="google_html"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -45,10 +49,11 @@ export default function RootLayout({ children }) {
               gtag('config', 'G-BEE6K8PYPF');
             `,
           }}
-        ></script>
+        />
 
         {/* Meta Pixel Code */}
-        <script
+        <Script
+        id="meta_tag"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -63,13 +68,14 @@ export default function RootLayout({ children }) {
               fbq('track', 'PageView');
             `,
           }}
-        ></script>
+        />
         <noscript>
-          <img
-            height="1"
-            width="1"
-            style="display:none"
+          <Image
             src="https://www.facebook.com/tr?id=952354016465602&ev=PageView&noscript=1"
+            width={1}
+            height={1}
+            style={{display:"none"}}
+            alt="facebook"
           />
         </noscript>
         {/* End Meta Pixel Code */}
