@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: "**.producthunt.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "www.facebook.com",
+        port: "",
+      },
     ],
   },
 };
