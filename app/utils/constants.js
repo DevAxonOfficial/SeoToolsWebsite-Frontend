@@ -37,20 +37,20 @@ export const COMPRESS_TOOL_PROPS = {
   apiEndpoint: "/api/compressPdf",
   BtnName: "Select PDF File",
   acceptedFiles: "application/pdf",
-  contentTitle: "Unlock Efficiency with Our Compress PDF Tool",
-  contentDescription: `Introducing SEO Tools by DevAxon, where we provide you an array of
+  seoTitle: "Unlock Efficiency with Our Compress PDF Tool",
+  seoDescription: `Introducing SEO Tools by DevAxon, where we provide you an array of
   potent SEO tools to improve your online experience. We are excited
   to present our Compress PDF tool today a feature rich solution
   designed to improve the overall efficiency of PDF files and expedite
   file management procedures.`,
-  contentImg1: "/img/Compress3.png",
-  contentHeading1: "Why Do PDFs Get Compressed?",
-  contentDescription1: `Performance issues with websites can often be caused by large PDF
+  seoImg1: "/img/Compress3.png",
+  seoHeading1: "Why Do PDFs Get Compressed?",
+  seoDescription1: `Performance issues with websites can often be caused by large PDF
   files. This problem is addressed by our Compress PDF tool, which
   provides a rapid and effective method of reducing the total size
   of the PDF.`,
-  contentImg2: "/img/Compress2.png",
-  contentHeading2: "Principal Elements:",
+  seoImg2: "/img/Compress2.png",
+  seoHeading2: "Principal Elements:",
   subHeading1: "Quick and Effective Compression:",
   subHeadingDescription1: ` Our program uses innovative algorithms to minimize your PDF files
   in a timely and effective manner. Reduction in file size can be
@@ -69,9 +69,9 @@ export const COMPRESS_TOOL_PROPS = {
   be comfortable knowing our Compress PDF utility respects your
   privacy to the fullest extent possible and keeps your documents
   private during the file compression procedure.`,
-  contentImg3: "/img/Compress4.png",
-  contentImg4: "/img/Compress1.png",
-  contentHeading3: "How to Utilize Our PDF Compressor?",
+  seoImg3: "/img/Compress4.png",
+  seoImg4: "/img/Compress1.png",
+  seoHeading3: "How to Utilize Our PDF Compressor?",
   subHeading5: "Put Your PDF File Here:",
   subHeadingDescription5: ` Choose the PDF file that you want to compress first. Both tiny and
   large documents may be accommodated by our program, which supports

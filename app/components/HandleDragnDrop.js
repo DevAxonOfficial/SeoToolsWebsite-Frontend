@@ -15,13 +15,13 @@ const HandleDragnDrop = ({
   fileType,
   BtnName,
   acceptedFiles,
-  contentTitle,
-  contentDescription,
-  contentImg1,
-  contentHeading1,
-  contentDescription1,
-  contentImg2,
-  contentHeading2,
+  seoTitle,
+  seoDescription,
+  seoImg1,
+  seoHeading1,
+  seoDescription1,
+  seoImg2,
+  seoHeading2,
   subHeading1,
   subHeadingDescription1,
   subHeading2,
@@ -30,9 +30,9 @@ const HandleDragnDrop = ({
   subHeadingDescription3,
   subHeading4,
   subHeadingDescription4,
-  contentImg3,
-  contentImg4,
-  contentHeading3,
+  seoImg3,
+  seoImg4,
+  seoHeading3,
   subHeading5,
   subHeadingDescription5,
   subHeading6,
@@ -43,10 +43,15 @@ const HandleDragnDrop = ({
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
   const [download, setDownload] = useState();
+  const [isCompressPdf, setisCompressPdf] = useState();
 
   const handleDragOver = (event) => {
     event.preventDefault();
   };
+  useEffect(() => {
+    // Check if the pathname includes "remove-pages"
+    setisCompressPdf(window.location.pathname.includes("compress-pdf"));
+  }, []);
 
   const commonFileHandler = async (files) => {
     setLoader(true);
@@ -379,118 +384,118 @@ const HandleDragnDrop = ({
           </div>
         </div>
       </div>
-      <div className=" mt-10">
-        <div className="py-10">
-          <h2 className="text-4xl text-center py-6 font-bold">
-            {contentTitle}
-          </h2>
-          <p
-            className="fade-container w-8/12 mx-auto md:order-first lg:order-last"
-            style={{
-              opacity: scrollOpacity,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            {contentDescription}
-          </p>
-        </div>
-        <div className="justify-center   items-center grid lg:grid-cols-2  ">
-          <div
-            className="fade-container mx-auto md:order-first lg:order-last"
-            style={{
-              opacity: scrollOpacity,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            <Image
-              src={contentImg1}
-              width={600}
-              height={600}
-              alt="content"
-              className="mx-auto "
-            />
-          </div>
-          <div className="w- px-8 mx-auto py-20 md:order-last lg:order-first">
-            <h2 className="font-bold text-2xl py-4">{contentHeading1}</h2>
-            <p className="fade-container mx-auto md:order-first lg:order-last">
-              {contentDescription1}
+      {isCompressPdf && (
+        <div className=" mt-10">
+          <div className="py-10">
+            <h2 className="text-4xl text-center py-6 font-bold">{seoTitle}</h2>
+            <p
+              className="fade-container w-8/12 mx-auto md:order-first lg:order-last"
+              style={{
+                opacity: scrollOpacity,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              {seoDescription}
             </p>
           </div>
+          <div className="justify-center   items-center grid lg:grid-cols-2  ">
+            <div
+              className="fade-container mx-auto md:order-first lg:order-last"
+              style={{
+                opacity: scrollOpacity,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              <Image
+                src={seoImg1}
+                width={600}
+                height={600}
+                alt="content"
+                className="mx-auto "
+              />
+            </div>
+            <div className="w- px-8 mx-auto py-20 md:order-last lg:order-first">
+              <h2 className="font-bold text-2xl py-4">{seoHeading1}</h2>
+              <p className="fade-container mx-auto md:order-first lg:order-last">
+                {seoDescription1}
+              </p>
+            </div>
+          </div>
+          <div className="justify-center   items-center grid lg:grid-cols-2  ">
+            <div
+              className=" mx-auto    "
+              style={{
+                opacity: scrollOpacity,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              <Image
+                src={seoImg2}
+                width={600}
+                height={600}
+                alt="content"
+                className="mx-auto "
+              />
+            </div>
+            <div className=" px-8 py-20 ">
+              <h2 className="font-bold text-xl py-4">{seoHeading2}</h2>
+              <h2 className="font-semibold text-lg py-4">{subHeading1}</h2>
+              <p className=" text-balance ">{subHeadingDescription1}</p>
+              <h2 className="font-semibold  text-lg py-4">{subHeading2}</h2>
+              <p className=" text-balance ">{subHeadingDescription2}</p>
+            </div>
+          </div>
+          <div className="justify-center items-center grid lg:grid-cols-2  ">
+            <div
+              className=" mx-auto md:order-first   lg:order-last "
+              style={{
+                opacity: scrollOpacity,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              <Image
+                src={seoImg3}
+                width={600}
+                height={600}
+                alt="content"
+                className="mx-auto "
+              />
+            </div>
+            <div className="w- px-8 py-20 mx-auto md:order-last lg:order-first">
+              <h2 className="font-semibold text-lg py-4">{subHeading3}</h2>
+              <p className=" text-balance ">{subHeadingDescription3}</p>
+              <h2 className="font-semibold  text-lg py-4">{subHeading4}</h2>
+              <p className=" text-balance ">{subHeadingDescription4}</p>
+            </div>
+          </div>
+          <div className="justify-center  items-center grid lg:grid-cols-2  ">
+            <div
+              className=" mx-auto"
+              style={{
+                opacity: scrollOpacity,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              <Image
+                src={seoImg4}
+                width={600}
+                height={600}
+                alt="content"
+                className="mx-auto "
+              />
+            </div>
+            <div className="px-8 py-20">
+              <h2 className="font-bold text-xl py-4">{seoHeading3}</h2>
+              <h2 className="font-semibold text-lg py-4">{subHeading5}</h2>
+              <p className=" text-balance ">{subHeadingDescription5}</p>
+              <h2 className="font-semibold  text-lg py-4">{subHeading6}</h2>
+              <p className=" text-balance ">{subHeadingDescription6}</p>
+              <h2 className="font-semibold  text-lg py-4">{subHeading7}</h2>
+              <p className=" text-balance ">{subHeadingDescription7}</p>
+            </div>
+          </div>
         </div>
-        <div className="justify-center   items-center grid lg:grid-cols-2  ">
-          <div
-            className=" mx-auto    "
-            style={{
-              opacity: scrollOpacity,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            <Image
-              src={contentImg2}
-              width={600}
-              height={600}
-              alt="content"
-              className="mx-auto "
-            />
-          </div>
-          <div className=" px-8 py-20 ">
-            <h2 className="font-bold text-xl py-4">{contentHeading2}</h2>
-            <h2 className="font-semibold text-lg py-4">{subHeading1}</h2>
-            <p className=" text-balance ">{subHeadingDescription1}</p>
-            <h2 className="font-semibold  text-lg py-4">{subHeading2}</h2>
-            <p className=" text-balance ">{subHeadingDescription2}</p>
-          </div>
-        </div>
-        <div className="justify-center items-center grid lg:grid-cols-2  ">
-          <div
-            className=" mx-auto md:order-first   lg:order-last "
-            style={{
-              opacity: scrollOpacity,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            <Image
-              src={contentImg3}
-              width={600}
-              height={600}
-              alt="content"
-              className="mx-auto "
-            />
-          </div>
-          <div className="w- px-8 py-20 mx-auto md:order-last lg:order-first">
-            <h2 className="font-semibold text-lg py-4">{subHeading3}</h2>
-            <p className=" text-balance ">{subHeadingDescription3}</p>
-            <h2 className="font-semibold  text-lg py-4">{subHeading4}</h2>
-            <p className=" text-balance ">{subHeadingDescription4}</p>
-          </div>
-        </div>
-        <div className="justify-center  items-center grid lg:grid-cols-2  ">
-          <div
-            className=" mx-auto"
-            style={{
-              opacity: scrollOpacity,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            <Image
-              src={contentImg4}
-              width={600}
-              height={600}
-              alt="content"
-              className="mx-auto "
-            />
-          </div>
-          <div className="px-8 py-20">
-            <h2 className="font-bold text-xl py-4">{contentHeading3}</h2>
-            <h2 className="font-semibold text-lg py-4">{subHeading5}</h2>
-            <p className=" text-balance ">{subHeadingDescription5}</p>
-            <h2 className="font-semibold  text-lg py-4">{subHeading6}</h2>
-            <p className=" text-balance ">{subHeadingDescription6}</p>
-            <h2 className="font-semibold  text-lg py-4">{subHeading7}</h2>
-            <p className=" text-balance ">{subHeadingDescription7}</p>
-          </div>
-        </div>
-      </div>
+      )}
     </>
   );
 };
