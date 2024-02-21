@@ -15,30 +15,7 @@ const HandleDragnDrop = ({
   fileType,
   BtnName,
   acceptedFiles,
-  seoTitle,
-  seoDescription,
-  seoImg1,
-  seoHeading1,
-  seoDescription1,
-  seoImg2,
-  seoHeading2,
-  subHeading1,
-  subHeadingDescription1,
-  subHeading2,
-  subHeadingDescription2,
-  subHeading3,
-  subHeadingDescription3,
-  subHeading4,
-  subHeadingDescription4,
-  seoImg3,
-  seoImg4,
-  seoHeading3,
-  subHeading5,
-  subHeadingDescription5,
-  subHeading6,
-  subHeadingDescription6,
-  subHeading7,
-  subHeadingDescription7,
+  ...seo
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -387,7 +364,7 @@ const HandleDragnDrop = ({
       {isCompressPdf && (
         <div className=" mt-10">
           <div className="py-10">
-            <h2 className="text-4xl text-center py-6 font-bold">{seoTitle}</h2>
+            <h2 className="text-4xl text-center py-6 font-bold">{seo.Title}</h2>
             <p
               className="fade-container w-8/12 mx-auto md:order-first lg:order-last"
               style={{
@@ -395,7 +372,7 @@ const HandleDragnDrop = ({
                 transition: "opacity 0.5s ease-in-out",
               }}
             >
-              {seoDescription}
+              {seo.Description}
             </p>
           </div>
           <div className="justify-center   items-center grid lg:grid-cols-2  ">
@@ -407,7 +384,7 @@ const HandleDragnDrop = ({
               }}
             >
               <Image
-                src={seoImg1}
+                src={seo.Img1}
                 width={600}
                 height={600}
                 alt="content"
@@ -415,9 +392,9 @@ const HandleDragnDrop = ({
               />
             </div>
             <div className="w- px-8 mx-auto py-20 md:order-last lg:order-first">
-              <h2 className="font-bold text-2xl py-4">{seoHeading1}</h2>
+              <h2 className="font-bold text-2xl py-4">{seo.Heading1}</h2>
               <p className="fade-container mx-auto md:order-first lg:order-last">
-                {seoDescription1}
+                {seo.Description1}
               </p>
             </div>
           </div>
@@ -430,7 +407,7 @@ const HandleDragnDrop = ({
               }}
             >
               <Image
-                src={seoImg2}
+                src={seo.Img2}
                 width={600}
                 height={600}
                 alt="content"
@@ -438,11 +415,11 @@ const HandleDragnDrop = ({
               />
             </div>
             <div className=" px-8 py-20 ">
-              <h2 className="font-bold text-xl py-4">{seoHeading2}</h2>
-              <h2 className="font-semibold text-lg py-4">{subHeading1}</h2>
-              <p className=" text-balance ">{subHeadingDescription1}</p>
-              <h2 className="font-semibold  text-lg py-4">{subHeading2}</h2>
-              <p className=" text-balance ">{subHeadingDescription2}</p>
+              <h2 className="font-bold text-xl py-4">{seo.Heading2}</h2>
+              <h2 className="font-semibold text-lg py-4">{seo.subHeading1}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription1}</p>
+              <h2 className="font-semibold  text-lg py-4">{seo.subHeading2}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription2}</p>
             </div>
           </div>
           <div className="justify-center items-center grid lg:grid-cols-2  ">
@@ -454,7 +431,7 @@ const HandleDragnDrop = ({
               }}
             >
               <Image
-                src={seoImg3}
+                src={seo.Img3}
                 width={600}
                 height={600}
                 alt="content"
@@ -462,10 +439,10 @@ const HandleDragnDrop = ({
               />
             </div>
             <div className="w- px-8 py-20 mx-auto md:order-last lg:order-first">
-              <h2 className="font-semibold text-lg py-4">{subHeading3}</h2>
-              <p className=" text-balance ">{subHeadingDescription3}</p>
-              <h2 className="font-semibold  text-lg py-4">{subHeading4}</h2>
-              <p className=" text-balance ">{subHeadingDescription4}</p>
+              <h2 className="font-semibold text-lg py-4">{seo.subHeading3}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription3}</p>
+              <h2 className="font-semibold  text-lg py-4">{seo.subHeading4}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription4}</p>
             </div>
           </div>
           <div className="justify-center  items-center grid lg:grid-cols-2  ">
@@ -477,7 +454,7 @@ const HandleDragnDrop = ({
               }}
             >
               <Image
-                src={seoImg4}
+                src={seo.Img4}
                 width={600}
                 height={600}
                 alt="content"
@@ -485,13 +462,13 @@ const HandleDragnDrop = ({
               />
             </div>
             <div className="px-8 py-20">
-              <h2 className="font-bold text-xl py-4">{seoHeading3}</h2>
-              <h2 className="font-semibold text-lg py-4">{subHeading5}</h2>
-              <p className=" text-balance ">{subHeadingDescription5}</p>
-              <h2 className="font-semibold  text-lg py-4">{subHeading6}</h2>
-              <p className=" text-balance ">{subHeadingDescription6}</p>
-              <h2 className="font-semibold  text-lg py-4">{subHeading7}</h2>
-              <p className=" text-balance ">{subHeadingDescription7}</p>
+              <h2 className="font-bold text-xl py-4">{seo.Heading3}</h2>
+              <h2 className="font-semibold text-lg py-4">{seo.subHeading5}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription5}</p>
+              <h2 className="font-semibold  text-lg py-4">{seo.subHeading6}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription6}</p>
+              <h2 className="font-semibold  text-lg py-4">{seo.subHeading7}</h2>
+              <p className=" text-balance ">{seo.subHeadingDescription7}</p>
             </div>
           </div>
         </div>
