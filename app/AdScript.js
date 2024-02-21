@@ -131,23 +131,6 @@ export const Adsterra2 = ({ slot }) => {
   );
 };
 
-export const PopUnderAd = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "//pl22348080.toprevenuegate.com/01/ed/3c/01ed3cf3664a31413433412bb5f8bed6.js";
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
-  return null;
-};
-
 export const NativeBanner = () => {
   useEffect(() => {
     const script = document.createElement("script");

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import AdContainer from "./Ad2Container";
 import { Slider } from "../utils/constants";
-import { Adsterra2, PopUnderAd } from "../AdScript";
+import { Adsterra2 } from "../AdScript";
 
 export const scrollToSection = () => {
   // Scroll to the section using JavaScript
@@ -59,7 +59,6 @@ export const Components = () => {
       <div className="flex justify-center items-center">
         <AdContainer width={"w-[728px]"} height={"h-[90px]"} />
       </div>
-      <PopUnderAd />
     </>
   );
 };

@@ -18,6 +18,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" sizes="any" href="/favicon.ico" />
         <link
           rel="icon"
@@ -32,14 +34,25 @@ export default function RootLayout({ children }) {
           href="/favicon-16x16.png"
         />
 
+        {/* Other meta tags */}
+
+        <link
+          href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+          rel="stylesheet"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+          defer
+        ></script>
+
         {/* Google tag (gtag.js) */}
         <Script
-        id="google_tag"
+          id="google_tag"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-BEE6K8PYPF"
         />
         <Script
-        id="google_html"
+          id="google_html"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -52,7 +65,7 @@ export default function RootLayout({ children }) {
 
         {/* Meta Pixel Code */}
         <Script
-        id="meta_tag"
+          id="meta_tag"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -73,7 +86,7 @@ export default function RootLayout({ children }) {
             src="https://www.facebook.com/tr?id=952354016465602&ev=PageView&noscript=1"
             width={1}
             height={1}
-            style={{display:"none"}}
+            style={{ display: "none" }}
             alt="facebook"
           />
         </noscript>
