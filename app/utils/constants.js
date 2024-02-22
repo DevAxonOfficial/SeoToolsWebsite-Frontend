@@ -37,6 +37,53 @@ export const COMPRESS_TOOL_PROPS = {
   apiEndpoint: "/api/compressPdf",
   BtnName: "Select PDF File",
   acceptedFiles: "application/pdf",
+  Title: "Unlock Efficiency with Our Compress PDF Tool",
+  Description: `Introducing SEO Tools by DevAxon, where we provide you an array of
+  potent SEO tools to improve your online experience. We are excited
+  to present our Compress PDF tool today a feature rich solution
+  designed to improve the overall efficiency of PDF files and expedite
+  file management procedures.`,
+  Img1: "/img/Compress3.png",
+  Heading1: "Why Do PDFs Get Compressed?",
+  Description1: `Performance issues with websites can often be caused by large PDF
+  files. This problem is addressed by our Compress PDF tool, which
+  provides a rapid and effective method of reducing the total size
+  of the PDF.`,
+  Img2: "/img/Compress2.png",
+  Heading2: "Principal Elements:",
+  subHeading1: "Quick and Effective Compression:",
+  subHeadingDescription1: ` Our program uses innovative algorithms to minimize your PDF files
+  in a timely and effective manner. Reduction in file size can be
+  enjoyed without compromising the papers visual integrity.`,
+  subHeading2: "User-Friendly Interface:",
+  subHeadingDescription2: ` We are aware of how crucial simplicity is. Even for individuals
+  with little technical experience, our tools user-friendly
+  interface makes the compression procedure process simple.`,
+  subHeading3: "Levels of Customized Compression:",
+  subHeadingDescription3: ` Adjust the compression to meet your unique requirements. Using our
+  tool, you can select from a variety of compression levels that
+  strike a balance between reducing file size and maintaining
+  document quality.`,
+  subHeading4: "Private and Secure:",
+  subHeadingDescription4: `We take the confidentiality of your data very seriously. You may
+  be comfortable knowing our Compress PDF utility respects your
+  privacy to the fullest extent possible and keeps your documents
+  private during the file compression procedure.`,
+  Img3: "/img/Compress4.png",
+  Img4: "/img/Compress1.png",
+  Heading3: "How to Utilize Our PDF Compressor?",
+  subHeading5: "Put Your PDF File Here:",
+  subHeadingDescription5: ` Choose the PDF file that you want to compress first. Both tiny and
+  large documents may be accommodated by our program, which supports
+  a wide variety of file sizes.`,
+  subHeading6: "Start Compression:",
+  subHeadingDescription6: ` After configuring the parameters, begin the compression procedure.
+  In little time at all, our program will perform its magic and
+  provide you an optimized copy of your PDF file.`,
+  subHeading7: "Download The Compressed File:",
+  subHeadingDescription7: ` Once compressed, get the refined PDF file. You are now prepared to
+  replace the cumbersome original with the more refined, more
+  efficient variant.`,
 };
 export const WORD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle26.png",
