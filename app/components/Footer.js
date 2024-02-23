@@ -58,7 +58,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex mr-5 items-center xm:text-xs">
-          <Link href="/terms-privacy">
+          <Link
+            className="hover:underline"
+            target="_blank"
+            href="/terms-privacy"
+          >
             <p className="mx-4">Terms & Privacy</p>
           </Link>
           <Link
