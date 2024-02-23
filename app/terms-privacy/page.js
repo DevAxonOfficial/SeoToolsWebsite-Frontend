@@ -20,7 +20,7 @@ const Page = () => {
           <h2
             className={`p-5 hover:cursor-pointer  rounded-lg ${
               activeSection === "terms"
-                ? "bg-[#e5eeff] font-bold"
+                ? "bg-[#cccccc] font-bold"
                 : "bg-transparent "
             }`}
             onClick={() => {
@@ -33,7 +33,7 @@ const Page = () => {
           <h2
             className={`p-5 hover:cursor-pointer rounded-lg ${
               activeSection === "privacy"
-                ? "bg-[#e5eeff] font-bold"
+                ? "bg-[#cccccc] font-bold"
                 : "bg-transparent"
             }`}
             onClick={() => {
