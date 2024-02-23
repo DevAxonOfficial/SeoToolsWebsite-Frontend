@@ -15,12 +15,12 @@ const Page = () => {
   };
   return (
     <div className="  justify-center md:flex">
-      <div className=" relative md:sticky top-0 left-0 py-10 z-50">
-        <div className="sticky top-10 left-10 z-50">
+      <div className="py-10">
+        <div>
           <h2
             className={`p-5 hover:cursor-pointer  rounded-lg ${
               activeSection === "terms"
-                ? "bg-[#e5eeff] font-bold"
+                ? "bg-[#cccccc] font-bold"
                 : "bg-transparent "
             }`}
             onClick={() => {
@@ -33,7 +33,7 @@ const Page = () => {
           <h2
             className={`p-5 hover:cursor-pointer rounded-lg ${
               activeSection === "privacy"
-                ? "bg-[#e5eeff] font-bold"
+                ? "bg-[#cccccc] font-bold"
                 : "bg-transparent"
             }`}
             onClick={() => {
