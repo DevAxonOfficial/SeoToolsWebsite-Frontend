@@ -15,6 +15,7 @@ const HandleDragnDrop = ({
   fileType,
   BtnName,
   acceptedFiles,
+  setUpperFile
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -24,8 +25,7 @@ const HandleDragnDrop = ({
     event.preventDefault();
   };
   const commonFileHandler = async (files) => {
-    setLoader(true);
-
+  
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
@@ -35,7 +35,13 @@ const HandleDragnDrop = ({
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
           const fileExtension = file.name.split(".").pop().toLowerCase();
-
+          if (setUpperFile) {
+            setUpperFile(file)
+            setSelectedFiles(file.name)
+            return
+          }
+          setLoader(true);
+          
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
             if (files.length > 1) {
