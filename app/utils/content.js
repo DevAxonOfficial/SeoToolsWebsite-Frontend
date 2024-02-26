@@ -55,7 +55,7 @@ const Content = ({ ...seo }) => {
     <>
       <div className=" mt-10">
         <div className="py-10">
-          <h2 className="text-4xl text-center py-6 font-bold">{seo.Title}</h2>
+          <h1 className="text-4xl text-center py-6 font-bold">{seo.Title}</h1>
           <p
             className="fade-container w-8/12 mx-auto md:order-first lg:order-last"
             style={{
