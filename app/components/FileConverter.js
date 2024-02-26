@@ -11,7 +11,6 @@ export default function FileConverter({ pdfUrl }) {
   const myRef = React.createRef();
   const [loading, setLoading] = useState(false);
   const [imageUrls, setImageUrls] = useState([]);
-  const [remainingFileUrls, setRemainingFileUrls] = useState([]);
   useEffect(() => {
     setLoading(false);
   }, [imageUrls]);
@@ -62,13 +61,12 @@ export default function FileConverter({ pdfUrl }) {
   const deletepages = (index) => {
     setImageUrls((prevImageUrls) => {
       const updatedImageUrls = prevImageUrls.filter((x) => x.page !== index);
-      setRemainingFileUrls(updatedImageUrls);
       return updatedImageUrls;
     });
   };
   const mergeAndDownload = async () => {
     const mergedPdf = await PDFDocument.create();
-    for (const { url, page } of remainingFileUrls) {
+    for (const { url, page } of imageUrls) {
       const response = await fetch(url);
       const imageBytes = await response.arrayBuffer();
       const image = await mergedPdf.embedPng(imageBytes);
@@ -117,7 +115,7 @@ export default function FileConverter({ pdfUrl }) {
                   </div>
                 ))}
               </div>
-              {remainingFileUrls.length > 0 && (
+              {imageUrls.length > 0 && (
                 <div className="text-center mt-4">
                   <button
                     onClick={mergeAndDownload}
