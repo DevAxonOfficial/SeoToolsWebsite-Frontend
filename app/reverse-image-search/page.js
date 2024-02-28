@@ -7,6 +7,8 @@ import Image from "next/image";
 import { uploadToS3, getPreSignedURL } from "/app/utils/AWSS3/action";
 import { useState } from "react";
 import { Adsterra, Adsterra2 } from "../AdScript";
+import Content from "../utils/content";
+import { REVERSE_IMAGE_PROPS } from "../utils/constants";
 const Page = () => {
   const [userFileName, setuserFileName] = useState();
   const [loader, setLoader] = useState(false);
@@ -137,6 +139,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <Content {...REVERSE_IMAGE_PROPS} />
       <Adsterra2 slot={"bbd1e0f4c54c1cb2ae6f3aaabd762788"} />
       {loader && (
         <div className=" xm:block sm:block mt-6 md:flex justify-center">
