@@ -114,7 +114,7 @@ const Page = () => {
               </p>
               <div className="w-96 mb-3 text-center">
                 Simplify your document management with our quick and intuitive
-                <span className="font-bold">REVERSE IMAGE SEARCH</span>
+                <span className="font-bold"> REVERSE IMAGE SEARCH</span>
               </div>
               <div className=" flex justify-center ">
                 <label
@@ -139,7 +139,6 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <Content {...REVERSE_IMAGE_PROPS} />
       <Adsterra2 slot={"bbd1e0f4c54c1cb2ae6f3aaabd762788"} />
       {loader && (
         <div className=" xm:block sm:block mt-6 md:flex justify-center">
@@ -200,6 +199,7 @@ const Page = () => {
           </div>
         </div>
       )}
+      <Content {...REVERSE_IMAGE_PROPS} />
     </>
   );
 };
