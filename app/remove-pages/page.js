@@ -4,7 +4,6 @@ import HandleDragnDrop from "../components/HandleDragnDrop";
 const FileConverter = dynamic(() => import("../components/FileConverter"), {
   ssr: false,
 });
-// import FileConverter from "../components/FileConverter";
 import { REMOVE_TOOL_PROPS } from "../utils/constants";
 import { Adsterra, Adsterra1 } from "../AdScript";
 import { useState } from "react";

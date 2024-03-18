@@ -79,7 +79,7 @@ const Content = ({ ...seo }) => {
               width={600}
               height={600}
               alt="content"
-              className="mx-auto "
+              className=""
             />
           </div>
           <div className="w- px-8 mx-auto py-20 md:order-last lg:order-first">
