@@ -15,7 +15,7 @@ const HandleDragnDrop = ({
   fileType,
   BtnName,
   acceptedFiles,
-  setUpperFile
+  setUpperFile,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -25,7 +25,6 @@ const HandleDragnDrop = ({
     event.preventDefault();
   };
   const commonFileHandler = async (files) => {
-  
     if (files && files.length > 0) {
       try {
         const formData = new FormData();
@@ -36,12 +35,12 @@ const HandleDragnDrop = ({
           const file = files[i];
           const fileExtension = file.name.split(".").pop().toLowerCase();
           if (setUpperFile) {
-            setUpperFile(file)
-            setSelectedFiles(file.name)
-            return
+            setUpperFile(file);
+            setSelectedFiles(file.name);
+            return;
           }
           setLoader(true);
-          
+
           // Check if the API endpoint is for anythingToPdf
           if (apiEndpoint === "/api/anythingToPdf") {
             if (files.length > 1) {
@@ -276,38 +275,36 @@ const HandleDragnDrop = ({
               <ToastContainer />
             </div>
           </div>
-          <div>
-            <div
-              className={`flex justify-center items-center rounded-3xl mt-4 py-4 xm:px-8 sm:px-28 ${bgColor}`}
-            >
-              <div className="flex justify-around py-2 border border-gray-300 rounded-lg xm:w-80   w-96  bg-white  ">
-                <div className="flex justify-center items-center ml-2">
-                  <FiFileText className="text-2xl" />
-                  {selectedFiles.length == 0 ? (
-                    <p className="ml-4 ">Pdf File Name</p>
-                  ) : (
-                    <p className="ml-4 ">{selectedFiles}</p>
-                  )}
-                </div>
-                {loader && (
-                  <div>
-                    <div className="flex items-center justify-center ">
-                      <div className="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
-                    </div>
-                  </div>
-                )}
-                {download && (
-                  <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
-                    <Image
-                      alt="downloadLogo"
-                      width={24}
-                      height={24}
-                      src="/img/down2.png"
-                      onClick={handleDownload}
-                    />
-                  </div>
+          <div
+            className={`flex justify-center items-center rounded-3xl mt-4 py-4 sm:px-28 ${bgColor}`}
+          >
+            <div className="flex justify-around py-2 border border-gray-300 rounded-lg   w-96  bg-white  ">
+              <div className="flex justify-center items-center ml-2">
+                <FiFileText className="text-2xl" />
+                {selectedFiles.length == 0 ? (
+                  <p className="ml-4 ">Pdf File Name</p>
+                ) : (
+                  <p className="ml-4 ">{selectedFiles}</p>
                 )}
               </div>
+              {loader && (
+                <div>
+                  <div className="flex items-center justify-center ">
+                    <div className="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
+                  </div>
+                </div>
+              )}
+              {download && (
+                <div className="flex justify-center items-center mr-2 hover:cursor-pointer">
+                  <Image
+                    alt="downloadLogo"
+                    width={24}
+                    height={24}
+                    src="/img/down2.png"
+                    onClick={handleDownload}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
