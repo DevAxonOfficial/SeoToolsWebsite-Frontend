@@ -89,3 +89,17 @@ export const pdfToWord = async (fileName) => {
     return Response.error({ error }, { status: 500 });
   }
 };
+
+export const compressImage = async (fileName) => {
+  try {
+    const apiEndpoint = `${API_ENDPOINT2}/compress-images`;
+    const apiResponse = await axios.post(apiEndpoint, {
+      keys: fileName,
+    });
+    const downloadUrl = apiResponse.data.download_url;
+
+    return downloadUrl;
+  } catch (error) {
+    return Response.error({ error }, { status: 500 });
+  }
+};

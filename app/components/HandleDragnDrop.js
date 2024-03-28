@@ -16,6 +16,7 @@ const HandleDragnDrop = ({
   BtnName,
   acceptedFiles,
   setUpperFile,
+  PdfName,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -154,6 +155,20 @@ const HandleDragnDrop = ({
               );
               setLoader(false);
             }
+          } else if (apiEndpoint === "/api/compressImage") {
+            // Define accepted image MIME types
+            const acceptedImageTypes = ["image/jpeg", "image/png"];
+
+            if (acceptedImageTypes.includes(file.type)) {
+              formData.append("files", file);
+              fileNames.push(file.name);
+              setSelectedFiles(fileNames);
+            } else {
+              toast.warn(
+                `File ${file.name} is not a supported image type and will be skipped.`
+              );
+              setLoader(false);
+            }
           } else {
             // For other endpoints, accept only PDF files
             if (file.type === "application/pdf") {
@@ -198,7 +213,6 @@ const HandleDragnDrop = ({
           setLoader(false);
         }
       } catch (error) {
-        console.error("Error processing files:", error);
         toast.error("Error processing files. Please try again.");
       }
     } else {
@@ -248,7 +262,7 @@ const HandleDragnDrop = ({
                   height={90}
                 />
               </div>
-              <p className=" text-center font-bold text-3xl">{toolName}</p>
+              <h1 className=" text-center font-bold text-3xl">{toolName}</h1>
               <div className="w-96 mb-3 text-center">
                 Simplify your document management with our quick and intuitive
                 <span className="font-bold">{toolSpec}</span>
@@ -278,11 +292,11 @@ const HandleDragnDrop = ({
           <div
             className={`flex justify-center items-center rounded-3xl mt-4 py-4 sm:px-28 ${bgColor}`}
           >
-            <div className="flex justify-around py-2 border border-gray-300 rounded-lg   w-96  bg-white  ">
+            <div className="flex flex-col justify-around py-2 border border-gray-300 rounded-lg   w-96  bg-white  ">
               <div className="flex justify-center items-center ml-2">
                 <FiFileText className="text-2xl" />
                 {selectedFiles.length == 0 ? (
-                  <p className="ml-4 ">Pdf File Name</p>
+                  <p className="ml-4 ">{PdfName}</p>
                 ) : (
                   <p className="ml-4 ">{selectedFiles}</p>
                 )}

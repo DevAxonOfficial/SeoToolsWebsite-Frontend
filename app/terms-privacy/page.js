@@ -17,7 +17,7 @@ const Page = () => {
     <div className="  justify-center md:flex">
       <div className="py-10">
         <div>
-          <h2
+          <h1
             className={`p-5 hover:cursor-pointer  rounded-lg ${
               activeSection === "terms"
                 ? "bg-[#cccccc] font-bold"
@@ -29,7 +29,7 @@ const Page = () => {
             }}
           >
             Terms & Condition
-          </h2>
+          </h1>
           <h2
             className={`p-5 hover:cursor-pointer rounded-lg ${
               activeSection === "privacy"
