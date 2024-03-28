@@ -96,12 +96,10 @@ export const compressImage = async (fileName) => {
     const apiResponse = await axios.post(apiEndpoint, {
       keys: fileName,
     });
-    console.log(apiResponse);
     const downloadUrl = apiResponse.data.download_url;
 
     return downloadUrl;
   } catch (error) {
-    console.log(error);
     return Response.error({ error }, { status: 500 });
   }
 };

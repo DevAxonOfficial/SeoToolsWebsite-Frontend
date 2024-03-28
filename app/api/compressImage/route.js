@@ -8,7 +8,6 @@ export async function POST(req) {
     const files = formData.getAll("files");
 
     const fileName = JSON.parse(formData.get("fileNames"));
-    console.log("--------------------", fileName);
     for (let i = 0; i < files.length; i++) {
       const fileBuffer = await files[i].arrayBuffer();
       await uploadToS3(fileBuffer, fileName[i]);
@@ -17,7 +16,6 @@ export async function POST(req) {
 
     return Response.json({ downloadUrl });
   } catch (error) {
-    console.log(error);
     return Response.error({ error }, { status: 500 });
   }
 }

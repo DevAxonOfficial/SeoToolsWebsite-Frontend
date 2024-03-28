@@ -213,7 +213,6 @@ const HandleDragnDrop = ({
           setLoader(false);
         }
       } catch (error) {
-        console.error("Error processing files:", error);
         toast.error("Error processing files. Please try again.");
       }
     } else {
