@@ -109,9 +109,9 @@ const Page = () => {
                   height={90}
                 />
               </div>
-              <p className=" text-center font-bold text-3xl">
+              <h1 className=" text-center font-bold text-3xl">
                 REVERSE IMAGE SEARCH
-              </p>
+              </h1>
               <div className="w-96 mb-3 text-center">
                 Simplify your document management with our quick and intuitive
                 <span className="font-bold"> REVERSE IMAGE SEARCH</span>
