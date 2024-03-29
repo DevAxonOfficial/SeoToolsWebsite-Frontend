@@ -292,20 +292,24 @@ const HandleDragnDrop = ({
           <div
             className={`flex justify-center items-center rounded-3xl mt-4 py-4 sm:px-28 ${bgColor}`}
           >
-            <div className="flex flex-col justify-around py-2 border border-gray-300 rounded-lg   w-96  bg-white  ">
+            <div className="flex justify-around py-2 border border-gray-300 rounded-lg w-96 bg-white">
               <div className="flex justify-center items-center ml-2">
                 <FiFileText className="text-2xl" />
-                {selectedFiles.length == 0 ? (
-                  <p className="ml-4 ">{PdfName}</p>
+                {selectedFiles.length === 0 ? (
+                  <p className="ml-4">{PdfName}</p>
                 ) : (
-                  <p className="ml-4 ">{selectedFiles}</p>
+                  <div className="flex flex-col">
+                    {selectedFiles.map((fileName, index) => (
+                      <p key={index} className="ml-4">
+                        {fileName}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </div>
               {loader && (
-                <div>
-                  <div className="flex items-center justify-center ">
-                    <div className="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
-                  </div>
+                <div className="flex items-center justify-center">
+                  <div className="border-t-8 border-solid border-teal-400 rounded-full w-8 h-8 animate-spin"></div>
                 </div>
               )}
               {download && (
