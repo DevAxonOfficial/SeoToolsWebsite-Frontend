@@ -198,51 +198,32 @@ export const COMPRESS_IMAGE_PROPS = {
   BtnName: "Select Images",
   PdfName: "Image Name",
   acceptedFiles: ["image/jpeg", "image/png", "image/svg"],
-  Title: "Unlock Efficiency with Our Compress PDF Tool",
-  Description: `Introducing SEO Tools by DevAxon, where we provide you an array of
-  potent SEO tools to improve your online experience. We are excited
-  to present our Compress PDF tool today a feature rich solution
-  designed to improve the overall efficiency of PDF files and expedite
-  file management procedures.`,
+  Title: "DevAxon's Image Compressor: Streamline Your Web Optimization Efforts",
+  Description: `Enjoy our Image Compressor on the SEO Tools by DevAxon! Our extensive collection of SEO tools is made to enable marketers and web developers to improve their online visibility and raise search engine rankings. The Image Compressor is a standout item in our toolset that is great for optimizing photos and enhancing website speed.`,
   Img1: "/img/Compress3.png",
-  Heading1: "Why Do PDFs Get Compressed?",
-  Description1: `Performance issues with websites can often be caused by large PDF
-  files. This problem is addressed by our Compress PDF tool, which
-  provides a rapid and effective method of reducing the total size
-  of the PDF.`,
+  Heading1: "Why Do Image's Get Compressed?",
+  Description1: `When it comes to improving user experience and online speed, image compression is essential. Efficient picture compression is becoming more and more necessary as websites grow more media-rich and rely more on images to communicate information and aesthetics. Images that have been compressed have smaller files, which means that less data needs to be sent over the internet.`,
   Img2: "/img/Compress2.png",
   Heading2: "Principal Elements:",
-  subHeading1: "Quick and Effective Compression:",
-  subHeadingDescription1: ` Our program uses innovative algorithms to minimize your PDF files
-  in a timely and effective manner. Reduction in file size can be
-  enjoyed without compromising the papers visual integrity.`,
-  subHeading2: "User-Friendly Interface:",
-  subHeadingDescription2: ` We are aware of how crucial simplicity is. Even for individuals
-  with little technical experience, our tools user-friendly
-  interface makes the compression procedure process simple.`,
-  subHeading3: "Levels of Customized Compression:",
-  subHeadingDescription3: ` Adjust the compression to meet your unique requirements. Using our
-  tool, you can select from a variety of compression levels that
-  strike a balance between reducing file size and maintaining
-  document quality.`,
-  subHeading4: "Private and Secure:",
-  subHeadingDescription4: `We take the confidentiality of your data very seriously. You may
-  be comfortable knowing our Compress PDF utility respects your
-  privacy to the fullest extent possible and keeps your documents
-  private during the file compression procedure.`,
+  subHeading1: "Efficient Image Compression:",
+  subHeadingDescription1: ` Using cutting-edge algorithms, our image Compressor effectively reduces picture file sizes without sacrificing visual quality. Reduce the time it takes for your website to load while maintaining its integrity.`,
+  subHeading2: "Seamless Integration:",
+  subHeadingDescription2: `With its clean and user-friendly interface, our image compression tool integrates smoothly with your Next.js applications. Streamline your development process with simple picture optimization in the comfort of your own home.`,
+  subHeading3: "Batch Processing Capabilities:",
+  subHeadingDescription3: `Utilize our batch processing ability to compress numerous photos at once, saving time and resources. Just submit your photos, and our program will take care of the rest, freeing you up to concentrate on other project-related tasks.`,
+  subHeading4: "Responsive Image Optimization:",
+  subHeadingDescription4: `With built-in support for responsive image optimization, our Next.js 14 Image Compressor makes sure that your photos are supplied in the most effective format possible depending on the user's device and screen size. Without compromising on quality or loading speed, you can accommodate a broad range of devices and resolutions with automated scaling and responsive picture sets. `,
   Img3: "/img/Compress4.png",
   Img4: "/img/Compress1.png",
-  Heading3: "How to Utilize Our PDF Compressor?",
-  subHeading5: "Put Your PDF File Here:",
-  subHeadingDescription5: ` Choose the PDF file that you want to compress first. Both tiny and
-  large documents may be accommodated by our program, which supports
-  a wide variety of file sizes.`,
+  Heading3: "How to Utilize Our Image Compressor?",
+  subHeading5: "Put Your Image File Here:",
+  subHeadingDescription5: `Start by utilizing the user-friendly upload interface to submit the photographs you want to compress. Our application streamlines and expedites the procedure, whether you're processing a large number of images or just one image for optimization.`,
   subHeading6: "Start Compression:",
   subHeadingDescription6: ` After configuring the parameters, begin the compression procedure.
   In little time at all, our program will perform its magic and
-  provide you an optimized copy of your PDF file.`,
+  provide you an optimized copy of your Image file.`,
   subHeading7: "Download The Compressed File:",
-  subHeadingDescription7: ` Once compressed, get the refined PDF file. You are now prepared to
+  subHeadingDescription7: ` Once compressed, get the refined Image file. You are now prepared to
   replace the cumbersome original with the more refined, more
   efficient variant.`,
 };
