@@ -27,6 +27,7 @@ export const REVERSE_IMAGE_PROPS = {
 export const SPLIT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle24.png",
   logoImage: "/img/Split.png",
+  altText: "Split Logo",
   PdfName: "Pdf File Name",
   toolName: "Split Pdf",
   toolSpec: " Split PDF",
@@ -62,6 +63,7 @@ export const SPLIT_TOOL_PROPS = {
 export const REMOVE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle22.png",
   logoImage: "/img/remove.png",
+  altText: "Remove Logo",
   toolName: "Remove Pages",
   toolSpec: " Remove Pages",
   bgColor: "bg-[#FDF8E1]",
@@ -98,6 +100,7 @@ export const REMOVE_TOOL_PROPS = {
 export const MERGE_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle23.png",
   logoImage: "/img/Merge.png",
+  altText: "Merge Logo",
   toolName: "Merge Pdf",
   toolSpec: " Merge PDF",
   bgColor: "bg-[#FDE1E1]",
@@ -133,6 +136,7 @@ export const MERGE_TOOL_PROPS = {
 export const COMPRESS_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle25.png",
   logoImage: "/img/Compress.png",
+  altText: "Compress Logo",
   toolName: "Compress Pdf",
   toolSpec: " Compress PDF",
   bgColor: "bg-[#EAEFF0]",
@@ -191,6 +195,7 @@ export const COMPRESS_TOOL_PROPS = {
 export const COMPRESS_IMAGE_PROPS = {
   backgroundImage: "/img/compress-image-bg.png",
   logoImage: "/img/compress-image-logo.png",
+  altText: "Compress Image Logo",
   toolName: "Compress Image",
   toolSpec: " Compress Image",
   bgColor: "bg-[#DBF3F2]",
@@ -230,6 +235,7 @@ export const COMPRESS_IMAGE_PROPS = {
 export const WORD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle26.png",
   logoImage: "/img/WORD.png",
+  altText: "Word Logo",
   toolName: "Word To Pdf",
   toolSpec: " Word To PDF",
   bgColor: "bg-[#EEE6FF]",
@@ -267,6 +273,7 @@ export const WORD_TOOL_PROPS = {
 export const CSV_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle32.png",
   logoImage: "/img/Group 32.png",
+  altText: "CSV Logo",
   toolName: "CSV To Pdf",
   toolSpec: " CSV To PDF",
   bgColor: "bg-[#E9F4E5]",
@@ -304,6 +311,7 @@ export const CSV_TOOL_PROPS = {
 export const TXT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle33.png",
   logoImage: "/img/Group33.png",
+  altText: "TXT Logo",
   toolName: "TXT To Pdf",
   toolSpec: " TXT To PDF",
   bgColor: "bg-[#D2F6FC]",
@@ -340,6 +348,7 @@ export const TXT_TOOL_PROPS = {
 export const EXCEL_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle34.png",
   logoImage: "/img/Excel.png",
+  altText: "Excel Logo",
   toolName: "Excel To Pdf",
   toolSpec: " Excel To PDF",
   bgColor: "bg-[#D8EFDE]",
@@ -377,6 +386,7 @@ export const EXCEL_TOOL_PROPS = {
 export const PPT_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle35.png",
   logoImage: "/img/Ppt.png",
+  altText: "PPT Logo",
   toolName: "PPT To Pdf",
   toolSpec: " PPT To PDF",
   PdfName: "PPT File Name",
@@ -414,6 +424,7 @@ export const PPT_TOOL_PROPS = {
 export const HTML_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle36.png",
   logoImage: "/img/Html.png",
+  altText: "HTML Logo",
   toolName: "HTML To Pdf",
   toolSpec: " HTML To PDF",
   bgColor: "bg-[#FFF4D6]",
@@ -450,6 +461,7 @@ export const HTML_TOOL_PROPS = {
 export const PNG_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle39.png",
   logoImage: "/img/Png.png",
+  altText: "PNG Logo",
   toolName: "PNG To Pdf",
   toolSpec: " PNG To PDF",
   bgColor: "bg-[#FDF8E1]",
@@ -486,6 +498,7 @@ export const PNG_TOOL_PROPS = {
 export const JPG_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle38.png",
   logoImage: "/img/Jpeg.png",
+  altText: "JPG Logo",
   toolName: "JPG To Pdf",
   toolSpec: " JPG To PDF",
   bgColor: "bg-[#FDE9FD]",
@@ -522,6 +535,7 @@ export const JPG_TOOL_PROPS = {
 export const PSD_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle37.png",
   logoImage: "/img/Psd.png",
+  altText: "PSD Logo",
   toolName: "PSD To Pdf",
   toolSpec: " PSD To PDF",
   bgColor: "bg-[#D3E9F3]",
@@ -558,6 +572,7 @@ export const PSD_TOOL_PROPS = {
 export const PDF_TOOL_PROPS = {
   backgroundImage: "/img/Rectangle40.png",
   logoImage: "/img/pdf-to-word.png",
+  altText: "PDF To Word Logo",
   toolName: "PDF To Word",
   toolSpec: " PDF To Word",
   bgColor: "bg-[#d8edf9]",
@@ -593,6 +608,7 @@ export const PDF_TOOL_PROPS = {
 export const SVG_TOOL_PROPS = {
   backgroundImage: "/img/SVGBack.png",
   logoImage: "/img/SVG.png",
+  altText: "SVG Logo",
   toolName: "SVG To PDF",
   toolSpec: " SVG To PDF",
   bgColor: "bg-[#F7E4F7]",
