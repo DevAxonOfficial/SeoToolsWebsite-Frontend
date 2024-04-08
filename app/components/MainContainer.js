@@ -19,7 +19,7 @@ export const Components = () => {
       <div className=" shadow-lg   lg:flex lg:justify-between  sm:block sm:justify-center sm:items-center    ">
         <div className="  sm:justify-center sm:items-center xm:ml-6 lg:ml-36 ">
           <p className="font-light py-8  xm:text-center xm:text-lg sm:text-center sm:mx-auto  sm:text-2xl   xl:text-[34px] lg:text-2xl lg:text-start  ">
-            <div className="font-bold lg:font-semibold xl:text-[42px] xm:text-xl  lg:text-2xl flex justify-center items-center overflow-hidden h-[50px]   text-left ">
+            <div className="font-bold lg:font-semibold xl:text-[45px] xm:text-xl  lg:text-2xl flex justify-center items-center overflow-hidden h-[50px]   text-left ">
               Simplify
               <div className=" ml-4   font-extrabold box-border animate-slider ">
                 {Slider.map((sliderAnimation, index) => {
@@ -28,7 +28,7 @@ export const Components = () => {
                       key={index}
                       className={`${sliderAnimation.bgColor} text-white text-center py-3 px-3 my-4`}
                     >
-                      {sliderAnimation.heading}
+                      <h1> {sliderAnimation.heading}</h1>
                     </div>
                   );
                 })}

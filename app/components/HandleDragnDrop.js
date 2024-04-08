@@ -17,6 +17,7 @@ const HandleDragnDrop = ({
   acceptedFiles,
   setUpperFile,
   PdfName,
+  altText,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -255,12 +256,7 @@ const HandleDragnDrop = ({
           >
             <div className="">
               <div className=" flex justify-center items-center">
-                <Image
-                  src={logoImage}
-                  alt="remove logo"
-                  width={90}
-                  height={90}
-                />
+                <Image src={logoImage} alt={altText} width={90} height={90} />
               </div>
               <h1 className=" text-center font-bold text-3xl">{toolName}</h1>
               <div className="w-96 mb-3 text-center">

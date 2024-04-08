@@ -107,9 +107,9 @@ const Content = ({ ...seo }) => {
           </div>
           <div className=" px-8 py-20 ">
             <h2 className="font-bold text-xl py-4">{seo.Heading2}</h2>
-            <h2 className="font-semibold text-lg py-4">{seo.subHeading1}</h2>
+            <h3 className="font-semibold text-lg py-4">{seo.subHeading1}</h3>
             <p className=" text-balance ">{seo.subHeadingDescription1}</p>
-            <h2 className="font-semibold  text-lg py-4">{seo.subHeading2}</h2>
+            <h4 className="font-semibold  text-lg py-4">{seo.subHeading2}</h4>
             <p className=" text-balance ">{seo.subHeadingDescription2}</p>
           </div>
         </div>
@@ -130,9 +130,9 @@ const Content = ({ ...seo }) => {
             />
           </div>
           <div className="w- px-8 py-20 mx-auto md:order-last lg:order-first">
-            <h2 className="font-semibold text-lg py-4">{seo.subHeading3}</h2>
+            <h5 className="font-semibold text-lg py-4">{seo.subHeading3}</h5>
             <p className=" text-balance ">{seo.subHeadingDescription3}</p>
-            <h2 className="font-semibold  text-lg py-4">{seo.subHeading4}</h2>
+            <h6 className="font-semibold  text-lg py-4">{seo.subHeading4}</h6>
             <p className=" text-balance ">{seo.subHeadingDescription4}</p>
           </div>
         </div>
@@ -154,11 +154,11 @@ const Content = ({ ...seo }) => {
           </div>
           <div className="px-8 py-20">
             <h2 className="font-bold text-xl py-4">{seo.Heading3}</h2>
-            <h2 className="font-semibold text-lg py-4">{seo.subHeading5}</h2>
+            <h3 className="font-semibold text-lg py-4">{seo.subHeading5}</h3>
             <p className=" text-balance ">{seo.subHeadingDescription5}</p>
-            <h2 className="font-semibold  text-lg py-4">{seo.subHeading6}</h2>
+            <h4 className="font-semibold  text-lg py-4">{seo.subHeading6}</h4>
             <p className=" text-balance ">{seo.subHeadingDescription6}</p>
-            <h2 className="font-semibold  text-lg py-4">{seo.subHeading7}</h2>
+            <h5 className="font-semibold  text-lg py-4">{seo.subHeading7}</h5>
             <p className=" text-balance ">{seo.subHeadingDescription7}</p>
           </div>
         </div>
