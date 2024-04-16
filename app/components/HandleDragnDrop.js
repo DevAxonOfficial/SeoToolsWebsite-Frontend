@@ -38,7 +38,7 @@ const HandleDragnDrop = ({
           const fileExtension = file.name.split(".").pop().toLowerCase();
           if (setUpperFile) {
             setUpperFile(file);
-            setSelectedFiles(file.name);
+            setSelectedFiles([file.name]);
             return;
           }
           setLoader(true);
