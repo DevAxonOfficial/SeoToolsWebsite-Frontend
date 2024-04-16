@@ -36,6 +36,21 @@ export default function RootLayout({ children }) {
         />
         <ScriptTags />
         <link rel="canonical" href="https://www.seotoolsbydevaxon.com/" />
+        <meta
+          property="og:title"
+          content="Empower Your Workflow with Free SEO Tools by DevAxon."
+        />
+        <meta property="og:site_name" content="SEO Tools by DevAxon" />
+        <meta property="og:url" content="https://www.seotoolsbydevaxon.com/" />
+        <meta
+          property="og:description"
+          content="Maximize your website's visibility and performance on search engines with our free SEO tools by DevAxon. The ideal companion for improving your online presence is DevAxon's toolbox, which includes keyword research and on-page optimization. Free PDF tools from DevAxon are available to fulfill your document requirements. Convert, combine, and edit with simplicity on a single, practical platform."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://www.seotoolsbydevaxon.com/_next/image?url=%2Fimg%2Flogo2.png&w=256&q=75"
+        />
         <StructuredData />
       </head>
 
