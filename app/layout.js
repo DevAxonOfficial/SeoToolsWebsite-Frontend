@@ -66,6 +66,10 @@ export default function RootLayout({ children }) {
           content="https://devaxon.com/wp-content/uploads/2024/04/Seo2.png"
         />
         <meta name="msvalidate.01" content="051A9BD3C6EEB22849D8CC13D46E96E4" />
+        <meta
+          name="google-site-verification"
+          content="_qPJdHrdEMjuImRgBRPSf6-dan7BbEJi4G5fjVyDNqM"
+        />
 
         <StructuredData />
       </head>
