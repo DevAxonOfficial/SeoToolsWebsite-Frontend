@@ -51,6 +51,22 @@ export default function RootLayout({ children }) {
           property="og:image"
           content="https://www.seotoolsbydevaxon.com/_next/image?url=%2Fimg%2Flogo2.png&w=256&q=75"
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@SEO Tools by DevAxon" />
+        <meta
+          name="twitter:title"
+          content="Empower Your Workflow with Free SEO Tools by DevAxon."
+        />
+        <meta
+          name="twitter:description"
+          content="Maximize your website's visibility and performance on search engines with our free SEO tools by DevAxon. The ideal companion for improving your online presence is DevAxon's toolbox."
+        />
+        <meta
+          name="twitter:image"
+          content="https://devaxon.com/wp-content/uploads/2024/04/Seo2.png"
+        />
+        <meta name="msvalidate.01" content="051A9BD3C6EEB22849D8CC13D46E96E4" />
+
         <StructuredData />
       </head>
 
