@@ -159,8 +159,14 @@ const HandleDragnDrop = ({
           } else if (apiEndpoint === "/api/compressImage") {
             // Define accepted image MIME types
             const acceptedImageTypes = ["image/jpeg", "image/png"];
+            const maxFileSizeMB = 3; // Maximum file size allowed in MB
 
-            if (acceptedImageTypes.includes(file.type)) {
+            if (file.size > maxFileSizeMB * 1024 * 1024) {
+              toast.warn(
+                `File ${file.name} exceeds the maximum allowed file size of ${maxFileSizeMB}MB and will be skipped.`
+              );
+              setLoader(false);
+            } else if (acceptedImageTypes.includes(file.type)) {
               formData.append("files", file);
               fileNames.push(file.name);
               setSelectedFiles(fileNames);
